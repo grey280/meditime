@@ -70,10 +70,17 @@ Drag up or down to set timer.</string>
                                     <constraint firstItem="PRR-S3-PTE" firstAttribute="width" secondItem="9el-GC-vqc" secondAttribute="width" id="yTn-A2-mQ5"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa">
+                                <rect key="frame" x="131.5" y="614" width="111" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Save to Health"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Lighter - Semitransparent"/>
                         <constraints>
+                            <constraint firstItem="11w-O2-DOa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4dU-lq-dmd"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X6p-iE-rjq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="20" id="h0G-Zt-s7S"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pQb-dv-W5T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
