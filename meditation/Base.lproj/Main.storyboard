@@ -21,53 +21,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-jY-Yda">
-                                <rect key="frame" x="67.5" y="210" width="240" height="268"/>
+                                <rect key="frame" x="8" y="187.5" width="359" height="312"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zO5-7Q-Kne">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="34"/>
                                         <string key="text">Double-tap to start.
 Drag up or down to set timer.</string>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <color key="textColor" name="Darker"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-GC-vqc" userLabel="Time Display">
-                                        <rect key="frame" x="0.0" y="49" width="240" height="180"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-6B-vzP" userLabel="Center">
+                                        <rect key="frame" x="0.0" y="49" width="359" height="263"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">
-                                                <rect key="frame" x="67.5" y="59.5" width="105.5" height="60"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                <color key="textColor" name="Darker"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-GC-vqc" userLabel="Time Display">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="269.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">
+                                                        <rect key="frame" x="127" y="104" width="105.5" height="60"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                        <color key="textColor" name="Darker"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="bwc-sa-SOA" firstAttribute="centerX" secondItem="9el-GC-vqc" secondAttribute="centerX" id="EXu-2z-kJL"/>
+                                                    <constraint firstItem="bwc-sa-SOA" firstAttribute="centerY" secondItem="9el-GC-vqc" secondAttribute="centerY" id="g2b-d1-23A"/>
+                                                    <constraint firstAttribute="width" secondItem="9el-GC-vqc" secondAttribute="height" multiplier="4:3" id="otd-s3-Wzk"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PRR-S3-PTE" userLabel="Mode Display">
+                                                <rect key="frame" x="0.0" y="239" width="359" height="24"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-fX-TiN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174.5" height="24"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <color key="textColor" name="Mindful"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bs2-FI-PFN">
+                                                        <rect key="frame" x="184.5" y="0.0" width="174.5" height="24"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <color key="textColor" name="Darker"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="bwc-sa-SOA" firstAttribute="centerX" secondItem="9el-GC-vqc" secondAttribute="centerX" id="EXu-2z-kJL"/>
-                                            <constraint firstItem="bwc-sa-SOA" firstAttribute="centerY" secondItem="9el-GC-vqc" secondAttribute="centerY" id="g2b-d1-23A"/>
-                                            <constraint firstAttribute="width" secondItem="9el-GC-vqc" secondAttribute="height" multiplier="4:3" id="otd-s3-Wzk"/>
+                                            <constraint firstItem="PRR-S3-PTE" firstAttribute="centerX" secondItem="dyA-6B-vzP" secondAttribute="centerX" id="3NT-vH-4wo"/>
+                                            <constraint firstItem="PRR-S3-PTE" firstAttribute="width" secondItem="dyA-6B-vzP" secondAttribute="width" id="57U-Rg-PQH"/>
+                                            <constraint firstItem="9el-GC-vqc" firstAttribute="top" secondItem="dyA-6B-vzP" secondAttribute="top" id="Hcv-Ko-nNb"/>
+                                            <constraint firstAttribute="trailing" secondItem="9el-GC-vqc" secondAttribute="trailing" id="gB6-Pg-S2C"/>
+                                            <constraint firstItem="9el-GC-vqc" firstAttribute="leading" secondItem="dyA-6B-vzP" secondAttribute="leading" id="h1H-Xv-zJW"/>
+                                            <constraint firstAttribute="bottom" secondItem="PRR-S3-PTE" secondAttribute="bottom" id="hb0-Ro-NNR"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PRR-S3-PTE" userLabel="Mode Display">
-                                        <rect key="frame" x="0.0" y="244" width="240" height="24"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-fX-TiN">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="24"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <color key="textColor" name="Mindful"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bs2-FI-PFN">
-                                                <rect key="frame" x="125" y="0.0" width="115" height="24"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <color key="textColor" name="Darker"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="uCG-jY-Yda" secondAttribute="height" multiplier="23:20" id="4jS-0j-muR"/>
+                                    <constraint firstItem="dyA-6B-vzP" firstAttribute="width" secondItem="uCG-jY-Yda" secondAttribute="width" id="DFI-Ey-YDS"/>
                                     <constraint firstItem="zO5-7Q-Kne" firstAttribute="width" secondItem="uCG-jY-Yda" secondAttribute="width" id="K1Q-Am-Ju2"/>
-                                    <constraint firstItem="PRR-S3-PTE" firstAttribute="width" secondItem="9el-GC-vqc" secondAttribute="width" id="yTn-A2-mQ5"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa">
@@ -78,6 +93,8 @@ Drag up or down to set timer.</string>
                         </subviews>
                         <color key="backgroundColor" name="Lighter - Semitransparent"/>
                         <constraints>
+                            <constraint firstItem="11w-O2-DOa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uCG-jY-Yda" secondAttribute="bottom" constant="8" id="0l9-b3-b5I"/>
+                            <constraint firstItem="uCG-jY-Yda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="2bP-mT-2aP"/>
                             <constraint firstItem="11w-O2-DOa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4dU-lq-dmd"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X6p-iE-rjq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="20" id="h0G-Zt-s7S"/>
@@ -96,7 +113,7 @@ Drag up or down to set timer.</string>
             <color red="0.0" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Lighter - Semitransparent">
-            <color red="0.47499999403953552" green="0.89800000190734863" blue="0.89800000190734863" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47499999403953552" green="0.89800000190734863" blue="0.89800000190734863" alpha="0.72500002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Mindful">
             <color red="0.15294117647058825" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
