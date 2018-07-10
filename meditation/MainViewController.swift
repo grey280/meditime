@@ -19,21 +19,35 @@ class MainViewController: UIViewController {
     
     // MARK: - Outlets
     
+    /// The time display, formatted as mm:ss
     @IBOutlet weak var clockDisplay: UILabel!
+    /// The time display, in the hand-drawn analog style
     @IBOutlet weak var timeDisplay: UIView!
     
+    /// 'Timer' label. Part of the timer/stopwatch dichotomy.
     @IBOutlet weak var timerMode: UILabel!
+    /// 'Stopwatch' label. Part of the timer/stopwatch dichotomy.
     @IBOutlet weak var stopwatchMode: UILabel!
     
     // MARK: - User Functions
     
+    /// Handle the user swiping to adjust the displayed time
+    ///
+    /// - Parameter sender: the pan gesture recognizer; used to determine how far and in which direction we've swiped
     @IBAction func swipe(_ sender: UIPanGestureRecognizer) {
     }
     
+    /// Handle a double tap, either starting or stopping a mindfulness session.
+    ///
+    /// - Parameter sender: the tap gesture recognizer; ignored
     @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
     }
     
-    @IBAction func saveToHealth(_ sender: Any) {
+    /// Handle the 'save to health' button being pressed.
+    ///
+    /// - Parameter sender: the button that sent it; ignored
+    @IBAction func saveToHealth(_ sender: Any? = nil) {
+        
     }
     
     // MARK: - Internal Functions
