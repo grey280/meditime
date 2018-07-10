@@ -13,6 +13,7 @@
 		2DA3CF5D20EEB5DC0000131E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5B20EEB5DC0000131E /* Main.storyboard */; };
 		2DA3CF5F20EEB5DE0000131E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */; };
 		2DA3CF6220EEB5DE0000131E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF6020EEB5DE0000131E /* LaunchScreen.storyboard */; };
+		2DC372F120F56ABF00371153 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC372F020F56ABF00371153 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DA3CF6120EEB5DE0000131E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DA3CF6320EEB5DE0000131E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DC372F020F56ABF00371153 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
 				2DA3CF5920EEB5DC0000131E /* MainViewController.swift */,
+				2DC372F020F56ABF00371153 /* Constants.swift */,
 				2DA3CF5B20EEB5DC0000131E /* Main.storyboard */,
 				2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */,
 				2DA3CF6020EEB5DE0000131E /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 			files = (
 				2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */,
 				2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */,
+				2DC372F120F56ABF00371153 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
