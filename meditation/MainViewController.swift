@@ -30,13 +30,13 @@ class MainViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         if HKHealthStore.isHealthDataAvailable(){
             healthStore = HKHealthStore()
         }else{
             saveToHealthButton.isHidden = true
         }
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 }
 
