@@ -16,6 +16,16 @@ class MainViewController: UIViewController {
     var healthStore: HKHealthStore?
     /// The 'save to health' button; should only be displayed if it's not automatically doing it
     @IBOutlet weak var saveToHealthButton: UIButton!
+    /// The amount of time, in seconds, for the timer to run
+    var time = 0{
+        didSet{
+            if time == 0{
+                
+            }
+        }
+    }
+    /// Locally-accessible connection to `UserDefaults.standard`
+    let userDefaults = UserDefaults.standard
     
     // MARK: - Outlets
     
@@ -74,7 +84,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Hide the 'save to health' button; it'll be displayed at the end of a session if we need to ask for permission to save it.
         saveToHealthButton.isHidden = true
-        
+        // Load the time from defaults; helpfully, we want 0 to be the default if we don't have something set
+        time = userDefaults.integer(forKey: constants.timeKey)
     }
 }
 
