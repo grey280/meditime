@@ -10,14 +10,19 @@ import UIKit
 import HealthKit
 
 class MainViewController: UIViewController {
+    // MARK: Variables
     var healthStore: HKHealthStore?
     @IBOutlet weak var saveToHealthButton: UIButton!
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var clockDisplay: UILabel!
     @IBOutlet weak var timeDisplay: UIView!
     
     @IBOutlet weak var timerMode: UILabel!
     @IBOutlet weak var stopwatchMode: UILabel!
+    
+    // MARK: - User Functions
     
     @IBAction func swipe(_ sender: UIPanGestureRecognizer) {
     }
@@ -28,6 +33,7 @@ class MainViewController: UIViewController {
     @IBAction func saveToHealth(_ sender: Any) {
     }
     
+    // MARK: - Internal Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
