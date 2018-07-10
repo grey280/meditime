@@ -52,8 +52,10 @@ class MainViewController: UIViewController {
     
     // MARK: - Internal Functions
     
+    /// Set up! Checks if we've got HealthKit, and sets it up, if available.
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hide the 'save to health' button if HealthKit isn't available, or we've already got permission to do that, in which case we'll just automatically save sessions.
         if HKHealthStore.isHealthDataAvailable(){
             healthStore = HKHealthStore()
             let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession)!
