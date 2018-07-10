@@ -17,7 +17,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var timerMode: UILabel!
     @IBOutlet weak var stopwatchMode: UILabel!
     
+    @IBAction func swipe(_ sender: UIPanGestureRecognizer) {
+    }
     
+    @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
+    }
     
     @IBAction func saveToHealth(_ sender: Any) {
     }

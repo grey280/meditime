@@ -95,6 +95,7 @@ Drag up or down to set timer.</string>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="Lighter - Semitransparent"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="11w-O2-DOa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uCG-jY-Yda" secondAttribute="bottom" constant="8" id="0l9-b3-b5I"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="2bP-mT-2aP"/>
@@ -104,6 +105,10 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pQb-dv-W5T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VKW-I6-TdY" appends="YES" id="1wq-6N-Ihp"/>
+                            <outletCollection property="gestureRecognizers" destination="qib-6c-qQf" appends="YES" id="TRl-uM-Z6Y"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="clockDisplay" destination="bwc-sa-SOA" id="Tqy-y1-P2E"/>
@@ -114,6 +119,16 @@ Drag up or down to set timer.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="VKW-I6-TdY">
+                    <connections>
+                        <action selector="swipe:" destination="BYZ-38-t0r" id="wYE-sn-GDT"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="qib-6c-qQf">
+                    <connections>
+                        <action selector="doubleTap:" destination="BYZ-38-t0r" id="OlN-kC-ry6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
