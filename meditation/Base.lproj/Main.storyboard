@@ -89,6 +89,9 @@ Drag up or down to set timer.</string>
                                 <rect key="frame" x="131.5" y="614" width="111" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Save to Health"/>
+                                <connections>
+                                    <action selector="saveToHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Je6-Sw-jvl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="Lighter - Semitransparent"/>
@@ -102,6 +105,13 @@ Drag up or down to set timer.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="clockDisplay" destination="bwc-sa-SOA" id="Tqy-y1-P2E"/>
+                        <outlet property="saveToHealthButton" destination="11w-O2-DOa" id="tcN-ra-Fop"/>
+                        <outlet property="stopwatchMode" destination="bs2-FI-PFN" id="A7b-Wa-d6M"/>
+                        <outlet property="timeDisplay" destination="9el-GC-vqc" id="w66-gJ-dbH"/>
+                        <outlet property="timerMode" destination="Ce4-fX-TiN" id="2RN-0h-VQn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
