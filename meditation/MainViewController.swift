@@ -50,21 +50,30 @@ class MainViewController: UIViewController {
         
     }
     
+    /// Whether or not the "save to health" button should be displayed.
+    ///
+    /// - Returns: True if HK is available and we haven't already got permission to save, false otherwise.
+    private func shouldShowHealth() -> Bool{
+        if HKHealthStore.isHealthDataAvailable(){
+            healthStore = HKHealthStore()
+            let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession)!
+            if healthStore?.authorizationStatus(for: mindfulType) != .notDetermined{
+                return false
+            }else{
+                return true
+            }
+        }else{
+            return false
+        }
+    }
+    
     // MARK: - Internal Functions
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Hide the 'save to health' button if HealthKit isn't available, or we've already got permission to do that, in which case we'll just automatically save sessions.
-        if HKHealthStore.isHealthDataAvailable(){
-            healthStore = HKHealthStore()
-            let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession)!
-            if healthStore?.authorizationStatus(for: mindfulType) != .notDetermined{
-                saveToHealthButton.isHidden = true
-            }
-        }else{
-            saveToHealthButton.isHidden = true
-        }
+        // Hide the 'save to health' button; it'll be displayed at the end of a session if we need to ask for permission to save it.
+        saveToHealthButton.isHidden = true
         
     }
 }
