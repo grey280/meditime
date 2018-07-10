@@ -9,9 +9,12 @@
 import UIKit
 import HealthKit
 
+/// The main view controller for the app.
 class MainViewController: UIViewController {
     // MARK: Variables
+    /// Does what it says on the tin.
     var healthStore: HKHealthStore?
+    /// The 'save to health' button; should only be displayed if it's not automatically doing it
     @IBOutlet weak var saveToHealthButton: UIButton!
     
     // MARK: - Outlets
@@ -39,6 +42,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         if HKHealthStore.isHealthDataAvailable(){
             healthStore = HKHealthStore()
+            let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession)!
+            if healthStore?.authorizationStatus(for: mindfulType) != .notDetermined{
+                saveToHealthButton.isHidden = true
+            }
         }else{
             saveToHealthButton.isHidden = true
         }
