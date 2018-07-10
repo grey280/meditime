@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D449E9720F431FB0008854A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D449E9620F431FB0008854A /* HealthKit.framework */; };
 		2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */; };
 		2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5920EEB5DC0000131E /* MainViewController.swift */; };
 		2DA3CF5D20EEB5DC0000131E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5B20EEB5DC0000131E /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
+		2D449E9620F431FB0008854A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		2DA3CF5420EEB5DC0000131E /* meditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA3CF5920EEB5DC0000131E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +32,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D449E9720F431FB0008854A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D449E9520F431FB0008854A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D449E9620F431FB0008854A /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2DA3CF4B20EEB5DC0000131E = {
 			isa = PBXGroup;
 			children = (
 				2DA3CF5620EEB5DC0000131E /* meditation */,
 				2DA3CF5520EEB5DC0000131E /* Products */,
+				2D449E9520F431FB0008854A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +67,7 @@
 		2DA3CF5620EEB5DC0000131E /* meditation */ = {
 			isa = PBXGroup;
 			children = (
+				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
 				2DA3CF5920EEB5DC0000131E /* MainViewController.swift */,
 				2DA3CF5B20EEB5DC0000131E /* Main.storyboard */,
@@ -96,6 +110,11 @@
 				TargetAttributes = {
 					2DA3CF5320EEB5DC0000131E = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -280,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = meditation/meditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6KVFT267T;
 				INFOPLIST_FILE = meditation/Info.plist;
@@ -298,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = meditation/meditation.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6KVFT267T;
 				INFOPLIST_FILE = meditation/Info.plist;

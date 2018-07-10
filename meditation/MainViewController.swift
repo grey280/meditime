@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import HealthKit
 
 class MainViewController: UIViewController {
+    var healthStore: HKHealthStore?
     @IBOutlet weak var saveToHealthButton: UIButton!
     
     @IBOutlet weak var clockDisplay: UILabel!
@@ -28,6 +30,11 @@ class MainViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        if HKHealthStore.isHealthDataAvailable(){
+            healthStore = HKHealthStore()
+        }else{
+            saveToHealthButton.isHidden = true
+        }
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
