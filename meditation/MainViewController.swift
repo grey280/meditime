@@ -26,6 +26,9 @@ class MainViewController: UIViewController {
             }else{
                 timerMode.textColor = constants.colors.darker ?? UIColor.black
                 stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
+                if time % 60 == 0{ // We want a nice tap every 60 seconds.
+                    feedbackGenerator?.selectionChanged()
+                }
             }
             // Format the amount of seconds and write it to the screen
             clockDisplay.text = formatter.string(from: TimeInterval(time))
@@ -33,6 +36,10 @@ class MainViewController: UIViewController {
     }
     /// Locally-accessible connection to `UserDefaults.standard`
     let userDefaults = UserDefaults.standard
+    /// Used for providing haptic feedback when the user adjusts the time
+    var feedbackGenerator: UISelectionFeedbackGenerator?
+    /// Used to create deltas during `swipe(_:)`
+    var previousTranslation: CGPoint?
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -55,6 +62,24 @@ class MainViewController: UIViewController {
     ///
     /// - Parameter sender: the pan gesture recognizer; used to determine how far and in which direction we've swiped
     @IBAction func swipe(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            feedbackGenerator = UISelectionFeedbackGenerator()
+            feedbackGenerator?.prepare()
+            previousTranslation = sender.translation(in: sender.view)
+        case .changed:
+            let currentTrans = sender.translation(in: sender.view)
+//            let velocity = sender.velocity(in: sender.view)
+            // TODO: Do we want to use velocity in this calculation?
+            let addValue = Int(currentTrans.y - (previousTranslation?.y ?? 0.0))
+            time = time + addValue
+            previousTranslation = currentTrans
+        case .cancelled, .ended, .failed:
+            feedbackGenerator = nil
+            previousTranslation = nil
+        default:
+            break
+        }
     }
     
     /// Handle a double tap, either starting or stopping a mindfulness session.
