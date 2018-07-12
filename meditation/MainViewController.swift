@@ -72,8 +72,6 @@ class MainViewController: UIViewController {
             previousTranslation = sender.translation(in: sender.view)
         case .changed:
             let currentTrans = sender.translation(in: sender.view)
-//            let velocity = sender.velocity(in: sender.view)
-            // TODO: Do we want to use velocity in this calculation?
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
             time = time - addValue
