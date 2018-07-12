@@ -19,6 +19,9 @@ class MainViewController: UIViewController {
     /// The amount of time, in seconds, for the timer to run
     var time = 0{
         didSet{
+            if time < 0{ // Don't allow values below zero! Things get weird.
+                time = 0
+            }
             // Show which mode we're in
             if time == 0{
                 timerMode.textColor = constants.colors.mindful ?? UIColor.clear
@@ -26,7 +29,7 @@ class MainViewController: UIViewController {
             }else{
                 timerMode.textColor = constants.colors.darker ?? UIColor.black
                 stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
-                if time % 60 == 0{ // We want a nice tap every 60 seconds.
+                if time % 30 == 0{ // We want a nice tap every 60 seconds.
                     feedbackGenerator?.selectionChanged()
                 }
             }
@@ -71,8 +74,9 @@ class MainViewController: UIViewController {
             let currentTrans = sender.translation(in: sender.view)
 //            let velocity = sender.velocity(in: sender.view)
             // TODO: Do we want to use velocity in this calculation?
-            let addValue = Int(currentTrans.y - (previousTranslation?.y ?? 0.0))
-            time = time + addValue
+            let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
+            // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
+            time = time - addValue
             previousTranslation = currentTrans
         case .cancelled, .ended, .failed:
             feedbackGenerator = nil
