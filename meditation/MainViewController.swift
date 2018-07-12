@@ -43,6 +43,8 @@ class MainViewController: UIViewController {
     var feedbackGenerator: UISelectionFeedbackGenerator?
     /// Used to create deltas during `swipe(_:)`
     var previousTranslation: CGPoint?
+    /// Whether or not the timer is currently running.
+    var timerRunning = false
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -72,6 +74,10 @@ class MainViewController: UIViewController {
             previousTranslation = sender.translation(in: sender.view)
         case .changed:
             let currentTrans = sender.translation(in: sender.view)
+            if timerRunning && currentTrans.y < 10{ // Don't want it to be *too* easy to mess up the time
+                // TODO: Verify that 10 is the right number to use there, does that feel right?
+                break
+            }
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
             time = time - addValue
