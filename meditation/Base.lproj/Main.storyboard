@@ -143,10 +143,10 @@ Drag up or down to set timer.</string>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Modal View Controller-->
         <scene sceneID="HSu-ig-3fj">
             <objects>
-                <viewController id="MpX-bI-ZuQ" sceneMemberID="viewController">
+                <viewController id="MpX-bI-ZuQ" customClass="ModalViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pC0-07-Qmd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,6 +168,9 @@ Drag up or down to set timer.</string>
                                 <rect key="frame" x="167" y="330.5" width="41" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="dismissVC:" destination="MpX-bI-ZuQ" eventType="touchUpInside" id="Rr5-kH-j72"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="Lightest"/>
