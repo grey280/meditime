@@ -22,6 +22,6 @@ struct constants{
         static let dark = UIColor(named: "Dark")
         static let light = UIColor(named: "Light")
         static let lighter = UIColor(named: "Lighter")
-        static let lighterSemiTransparent = UIColor(named: "Lighter - Semitransparent")
+        static let lightest = UIColor(named: "Lightest")
     }
 }

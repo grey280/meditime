@@ -131,6 +131,21 @@ Drag up or down to set timer.</string>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="HSu-ig-3fj">
+            <objects>
+                <viewController id="MpX-bI-ZuQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pC0-07-Qmd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Lightest"/>
+                        <viewLayoutGuide key="safeArea" id="ufH-TC-Hrb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="133"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="Darker">
