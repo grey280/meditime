@@ -168,6 +168,7 @@ Drag up or down to set timer.</string>
                                 <rect key="frame" x="167" y="330.5" width="41" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Done"/>
+                                <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
                                 <connections>
                                     <action selector="dismissVC:" destination="MpX-bI-ZuQ" eventType="touchUpInside" id="Rr5-kH-j72"/>
                                 </connections>
@@ -187,7 +188,7 @@ Drag up or down to set timer.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ufH-TC-Hrb"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="375"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="370"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
