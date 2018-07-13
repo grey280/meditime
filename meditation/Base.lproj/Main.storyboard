@@ -97,7 +97,7 @@ Drag up or down to set timer.</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8">
                                 <rect key="frame" x="337" y="20" width="22" height="22"/>
                                 <connections>
-                                    <segue destination="MpX-bI-ZuQ" kind="presentation" id="3gB-ja-eva">
+                                    <segue destination="MpX-bI-ZuQ" kind="presentation" modalPresentationStyle="formSheet" id="3gB-ja-eva">
                                         <segue key="commit" inheritsFrom="parent" id="7MK-Uc-3Ay"/>
                                         <segue key="preview" inheritsFrom="commit" id="ldw-fl-1WA"/>
                                     </segue>
@@ -152,7 +152,7 @@ Drag up or down to set timer.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOl-QB-lFO">
-                                <rect key="frame" x="16" y="34" width="82" height="31.5"/>
+                                <rect key="frame" x="146.5" y="34" width="82" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
@@ -173,12 +173,12 @@ Drag up or down to set timer.</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="Lightest"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qyl-fg-Mkf" firstAttribute="top" secondItem="AOl-QB-lFO" secondAttribute="bottom" constant="8.5" id="8xQ-HN-Zk3"/>
                             <constraint firstItem="ufH-TC-Hrb" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mHh-dD-nKm" secondAttribute="bottom" constant="16" id="B7Z-ei-uwu"/>
-                            <constraint firstItem="AOl-QB-lFO" firstAttribute="leading" secondItem="ufH-TC-Hrb" secondAttribute="leading" constant="16" id="Jlv-Gm-sDF"/>
                             <constraint firstItem="mHh-dD-nKm" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="MEe-Wn-p34"/>
+                            <constraint firstItem="AOl-QB-lFO" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="X3Q-9w-iDQ"/>
                             <constraint firstItem="AOl-QB-lFO" firstAttribute="top" secondItem="ufH-TC-Hrb" secondAttribute="top" constant="14" id="cxY-Xx-dTx"/>
                             <constraint firstItem="Qyl-fg-Mkf" firstAttribute="leading" secondItem="ufH-TC-Hrb" secondAttribute="leading" constant="16" id="i6n-jW-Nc2"/>
                             <constraint firstItem="mHh-dD-nKm" firstAttribute="top" secondItem="Qyl-fg-Mkf" secondAttribute="bottom" constant="16" id="oRr-SG-2P2"/>
@@ -187,6 +187,7 @@ Drag up or down to set timer.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ufH-TC-Hrb"/>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="375"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
