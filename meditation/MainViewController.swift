@@ -94,13 +94,14 @@ class MainViewController: UIViewController {
     ///
     /// - Parameter sender: the tap gesture recognizer; ignored
     @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
+        // TODO: Write this function.
     }
     
     /// Handle the 'save to health' button being pressed.
     ///
     /// - Parameter sender: the button that sent it; ignored
     @IBAction func saveToHealth(_ sender: Any? = nil) {
-        
+        // TODO: Write this function.
     }
     
     /// Whether or not the "save to health" button should be displayed.
@@ -121,6 +122,11 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Internal Functions
+    
+    /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
+    func endSession(){
+        // TODO: Write this function
+    }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
     override func viewDidLoad() {
