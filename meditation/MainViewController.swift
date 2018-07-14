@@ -94,7 +94,12 @@ class MainViewController: UIViewController {
     ///
     /// - Parameter sender: the tap gesture recognizer; ignored
     @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
-        // TODO: Write this function.
+        // TODO: Animation in here?
+        if sessionStart == nil{
+            startSession()
+        }else{
+            endSession()
+        }
     }
     
     /// Handle the 'save to health' button being pressed.
