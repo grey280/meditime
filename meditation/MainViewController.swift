@@ -167,7 +167,12 @@ class MainViewController: UIViewController {
         // Stop the timer, we don't need it anymore!
         timer.invalidate()
         // Store the session to HK, if we can
-        guard sessionStart != nil, lastSessionEnd != nil, healthStore != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
+        guard sessionStart != nil, lastSessionEnd != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
+            // Something went horribly wrong!
+            return
+        }
+        if healthStore?.authorizationStatus(for: catType) != .sharingAuthorized{
+            // Whoops, we don't have permission yet; since everything is still stored, though, we can just let the 'save to Health' button handle it instead
             return
         }
         let sample = HKCategorySample(type: catType, value: 0, start: sessionStart!, end: lastSessionEnd!)
