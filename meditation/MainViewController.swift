@@ -115,6 +115,15 @@ class MainViewController: UIViewController {
     /// - Parameter sender: the button that sent it; ignored
     @IBAction func saveToHealth(_ sender: Any? = nil) {
         // TODO: Write this function.
+        let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession)!
+        healthStore?.requestAuthorization(toShare: [catType], read: nil, completion: { (success, err) in
+            if success{
+                self.logLastSession()
+                DispatchQueue.main.async {
+                    self.saveToHealthButton.isHidden = !self.shouldShowHealth()
+                }
+            }
+        })
     }
     
     /// Whether or not the "save to health" button should be displayed.
@@ -160,17 +169,8 @@ class MainViewController: UIViewController {
         userDefaults.set(time, forKey: constants.timeKey)
     }
     
-    /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
-    func endSession(){
-        // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
-        lastSessionEnd = Date()
-        // Stop the timer, we don't need it anymore!
-        timer.invalidate()
-        // Show the 'save to health' button, if we need to
-        DispatchQueue.main.async {
-            self.saveToHealthButton.isHidden = !self.shouldShowHealth()
-        }
-        // Store the session to HK, if we can
+    /// Log the last session to HealthKit, if possible
+    func logLastSession(){
         guard sessionStart != nil, lastSessionEnd != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
             // Something went horribly wrong!
             return
@@ -183,6 +183,20 @@ class MainViewController: UIViewController {
         healthStore?.save(sample, withCompletion: { (success, err) in
             // Honestly we're not gonna handle errors here, because what else can we do if it fails? I'm not writing caching or anything, so whatever.
         })
+    }
+    
+    /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
+    func endSession(){
+        // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
+        lastSessionEnd = Date()
+        // Stop the timer, we don't need it anymore!
+        timer.invalidate()
+        // Show the 'save to health' button, if we need to
+        DispatchQueue.main.async {
+            self.saveToHealthButton.isHidden = !self.shouldShowHealth()
+        }
+        // Store the session to HK, if we can
+        logLastSession()
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
