@@ -15,7 +15,8 @@ class AnalogClockView: UIView {
     /// Amount of time, in seconds, that the timer has been running
     public var currentTime = 0{
         didSet{
-            frontLayer.strokeEnd = CGFloat(currentTime/totalTime)
+            let newEnd = CGFloat(currentTime)/CGFloat(totalTime)
+            frontLayer.strokeEnd = newEnd
         }
     }
     
