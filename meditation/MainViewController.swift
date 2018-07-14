@@ -140,13 +140,24 @@ class MainViewController: UIViewController {
     
     /// Run every 'tick' of the timer
     @objc func tick(){
-        
+        if isTimerMode && time == 1{
+            // We're in timer mode and are now done!
+            endSession()
+        }
+        if isTimerMode{
+            time = time - 1
+        }else{
+            time = time + 1
+        }
     }
     
     /// Handles the session being started; store the time as the new default, and start the timer
     func startSession(){
-        // TODO: Write this function
         sessionStart = Date()
+        // Start the timer that'll run everything.
+        timer = Timer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        // Store the time value so that we default to it next time
+        userDefaults.set(time, forKey: constants.timeKey)
     }
     
     /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
@@ -154,6 +165,8 @@ class MainViewController: UIViewController {
         // TODO: Write this function
         // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
         lastSessionEnd = Date()
+        // Stop the timer, we don't need it anymore!
+        timer.invalidate()
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
