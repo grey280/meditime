@@ -29,9 +29,9 @@ class AnalogClockView: UIView {
     
     /// Prep the path for use
     func setupPath(){
-        let center = CGPoint(x: frame.width/2, y: frame.height/2)
+        let center = CGPoint(x: frame.width/2, y: frame.height*3/4)
         let radiusStart = frame.width < frame.height ? frame.width : frame.height
-        let radius = radiusStart * 0.75
+        let radius = radiusStart * 0.6666
         let startPoint = CGFloat(Double.pi * 7 / 6)
         let endPoint = CGFloat(Double.pi * -1 / 6)
         path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
