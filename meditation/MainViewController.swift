@@ -166,6 +166,10 @@ class MainViewController: UIViewController {
         lastSessionEnd = Date()
         // Stop the timer, we don't need it anymore!
         timer.invalidate()
+        // Show the 'save to health' button, if we need to
+        DispatchQueue.main.async {
+            self.saveToHealthButton.isHidden = !self.shouldShowHealth()
+        }
         // Store the session to HK, if we can
         guard sessionStart != nil, lastSessionEnd != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
             // Something went horribly wrong!
