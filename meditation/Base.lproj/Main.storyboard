@@ -40,6 +40,9 @@ Drag up or down to set timer.</string>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">
                                                         <rect key="frame" x="88" y="80.5" width="166" height="95.5"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" updatesFrequently="YES"/>
+                                                        </accessibility>
                                                         <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                                         <color key="textColor" name="Darkest"/>
                                                         <nil key="highlightedColor"/>
@@ -96,6 +99,7 @@ Drag up or down to set timer.</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8">
                                 <rect key="frame" x="337" y="20" width="22" height="22"/>
+                                <accessibility key="accessibilityConfiguration" label="Privacy Policy"/>
                                 <connections>
                                     <segue destination="MpX-bI-ZuQ" kind="presentation" modalPresentationStyle="formSheet" id="3gB-ja-eva">
                                         <segue key="commit" inheritsFrom="parent" id="7MK-Uc-3Ay"/>
