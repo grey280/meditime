@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */; };
 		2D449E9720F431FB0008854A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D449E9620F431FB0008854A /* HealthKit.framework */; };
 		2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* ModalViewController.swift */; };
 		2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
 		2D449E9620F431FB0008854A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		2D4C242D20F96BFD0063BA28 /* Privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Privacy.md; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
 				2DA3CF5920EEB5DC0000131E /* MainViewController.swift */,
+				2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */,
 				2DC372F020F56ABF00371153 /* Constants.swift */,
 				2DA3CF5B20EEB5DC0000131E /* Main.storyboard */,
 				2D4C242D20F96BFD0063BA28 /* Privacy.md */,
@@ -165,6 +168,7 @@
 				2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */,
 				2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */,
 				2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */,
+				2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */,
 				2DC372F120F56ABF00371153 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
