@@ -167,7 +167,13 @@ class MainViewController: UIViewController {
         // Stop the timer, we don't need it anymore!
         timer.invalidate()
         // Store the session to HK, if we can
-        
+        guard sessionStart != nil, lastSessionEnd != nil, healthStore != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
+            return
+        }
+        let sample = HKCategorySample(type: catType, value: 0, start: sessionStart!, end: lastSessionEnd!)
+        healthStore?.save(sample, withCompletion: { (success, err) in
+            // Honestly we're not gonna handle errors here, because what else can we do if it fails? I'm not writing caching or anything, so whatever.
+        })
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
