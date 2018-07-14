@@ -123,6 +123,11 @@ class MainViewController: UIViewController {
     
     // MARK: - Internal Functions
     
+    /// Handles the session being started; store the time as the new default, and start the timer
+    func startSession(){
+        // TODO: Write this function
+    }
+    
     /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
     func endSession(){
         // TODO: Write this function
