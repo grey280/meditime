@@ -14,6 +14,7 @@ struct constants{
     /// `UserDefaults.standard` key for storing the default duration on the timer. `Int`.
     static let timeKey = "net.twoeighty.meditation.time"
     
+    /// Bits and pieces for the 'analog' clock view.
     struct analogClock{
         static let lineWidth: CGFloat = 5.0
         static let endCapStyle = kCALineCapButt
