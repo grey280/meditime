@@ -162,11 +162,12 @@ class MainViewController: UIViewController {
     
     /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
     func endSession(){
-        // TODO: Write this function
         // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
         lastSessionEnd = Date()
         // Stop the timer, we don't need it anymore!
         timer.invalidate()
+        // Store the session to HK, if we can
+        
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
