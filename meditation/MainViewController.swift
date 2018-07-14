@@ -26,9 +26,11 @@ class MainViewController: UIViewController {
             if time == 0{
                 timerMode.textColor = constants.colors.mindful ?? UIColor.clear
                 stopwatchMode.textColor = constants.colors.darker ?? UIColor.black
+                isTimerMode = false
             }else{
                 timerMode.textColor = constants.colors.darker ?? UIColor.black
                 stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
+                isTimerMode = true
                 if time % 30 == 0{ // We want a nice tap every 60 seconds.
                     feedbackGenerator?.selectionChanged()
                 }
@@ -45,6 +47,12 @@ class MainViewController: UIViewController {
     var previousTranslation: CGPoint?
     /// The timestamp of when the current session started. If this is nil, we know a timer *isn't* running.
     var sessionStart: Date? = nil
+    /// The timestamp of when the last session ended. Used to allow the 'save to health' button to save the session; otherwise, not necessary
+    var lastSessionEnd: Date? = nil
+    /// The global timer, used for running the clock
+    var timer = Timer()
+    /// Whether or not we're in 'timer' mode for the current session
+    var isTimerMode = false
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -114,7 +122,9 @@ class MainViewController: UIViewController {
     /// - Returns: True if HK is available and we haven't already got permission to save, false otherwise.
     private func shouldShowHealth() -> Bool{
         if HKHealthStore.isHealthDataAvailable(){
-            healthStore = HKHealthStore()
+            if healthStore == nil{
+                healthStore = HKHealthStore()
+            }
             let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession)!
             if healthStore?.authorizationStatus(for: mindfulType) != .notDetermined{
                 return false
@@ -128,14 +138,22 @@ class MainViewController: UIViewController {
     
     // MARK: - Internal Functions
     
+    /// Run every 'tick' of the timer
+    @objc func tick(){
+        
+    }
+    
     /// Handles the session being started; store the time as the new default, and start the timer
     func startSession(){
         // TODO: Write this function
+        sessionStart = Date()
     }
     
     /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
     func endSession(){
         // TODO: Write this function
+        // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
+        lastSessionEnd = Date()
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
