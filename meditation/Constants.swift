@@ -14,6 +14,11 @@ struct constants{
     /// `UserDefaults.standard` key for storing the default duration on the timer. `Int`.
     static let timeKey = "net.twoeighty.meditation.time"
     
+    struct analogClock{
+        static let lineWidth: CGFloat = 5.0
+        static let endCapStyle: CGLineCap = .butt
+    }
+    
     /// Colors for use throughout the app
     struct colors{
         /// "Mindful" - the Health app's color for Mindful Minutes.

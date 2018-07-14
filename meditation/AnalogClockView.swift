@@ -29,12 +29,11 @@ class AnalogClockView: UIView {
     /// Prep the path for use
     func setupPath(){
         let center = CGPoint(x: frame.width/2, y: frame.height/2)
-        let radius = frame.width < frame.height ? frame.width : frame.height
+        let radiusStart = frame.width < frame.height ? frame.width : frame.height
+        let radius = radiusStart * 0.75
         let startPoint = CGFloat(Double.pi * 7 / 6)
         let endPoint = CGFloat(Double.pi * -1 / 6)
         path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startPoint, endAngle: endPoint, clockwise: true)
-        path.lineWidth = 5.0
-        path.lineCapStyle = .butt
     }
     
     /// Prep the layers to have the right colors and stuff
@@ -42,10 +41,12 @@ class AnalogClockView: UIView {
         backLayer.path = path.cgPath
         backLayer.strokeColor = constants.colors.light?.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
+        backLayer.lineWidth = constants.analogClock.lineWidth
         frontLayer.path = path.cgPath
         frontLayer.strokeColor = constants.colors.dark?.cgColor
         frontLayer.fillColor = UIColor.clear.cgColor
         frontLayer.strokeEnd = 0.0
+        frontLayer.lineWidth = constants.analogClock.lineWidth
     }
     
     override init(frame: CGRect) {
