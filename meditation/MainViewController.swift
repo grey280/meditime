@@ -95,9 +95,7 @@ class MainViewController: UIViewController {
             // Transform angle should be between 0 and +/- pi/3
             let transformAngle: CGFloat = (currentTrans.y / view.bounds.maxY) * CGFloat(Double.pi / 3)
             let newTransform = CATransform3DMakeRotation(transformAngle, 1.0, 0.0, 0.0)
-            let transformUp = CATransform3DMakeTranslation(0.0, addValue >= 0 ? 1.0 : -1.0, 0.0)
-            let finalTransform = CATransform3DConcat(newTransform, transformUp)
-            clockDisplay.layer.transform = finalTransform
+            clockDisplay.layer.transform = newTransform
         case .cancelled, .ended, .failed:
             feedbackGenerator = nil
             previousTranslation = nil
