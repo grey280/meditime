@@ -35,7 +35,7 @@ Drag up or down to set timer.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-6B-vzP" userLabel="Center">
                                         <rect key="frame" x="0.0" y="49" width="341" height="250"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-GC-vqc" userLabel="Time Display">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-GC-vqc" userLabel="Time Display" customClass="AnalogClockView" customModule="meditation" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="256"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">

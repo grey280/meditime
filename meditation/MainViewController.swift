@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
             if time < 0{ // Don't allow values below zero! Things get weird.
                 time = 0
             }
+            // Format the amount of seconds and write it to the screen
+            self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
             // Show which mode we're in
             if time == 0{
                 timerMode.textColor = constants.colors.mindful ?? UIColor.clear
@@ -35,8 +37,6 @@ class MainViewController: UIViewController {
                     feedbackGenerator?.selectionChanged()
                 }
             }
-            // Format the amount of seconds and write it to the screen
-            clockDisplay.text = formatter.string(from: TimeInterval(time))
         }
     }
     /// Locally-accessible connection to `UserDefaults.standard`
@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     /// The timestamp of when the last session ended. Used to allow the 'save to health' button to save the session; otherwise, not necessary
     var lastSessionEnd: Date? = nil
     /// The global timer, used for running the clock
-    var timer = Timer()
+    var timer: Timer?
     /// Whether or not we're in 'timer' mode for the current session
     var isTimerMode = false
     
@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
     /// The time display, formatted as mm:ss
     @IBOutlet weak var clockDisplay: UILabel!
     /// The time display, in the hand-drawn analog style
-    @IBOutlet weak var timeDisplay: UIView!
+    @IBOutlet weak var timeDisplay: AnalogClockView!
     
     /// 'Timer' label. Part of the timer/stopwatch dichotomy.
     @IBOutlet weak var timerMode: UILabel!
@@ -154,13 +154,14 @@ class MainViewController: UIViewController {
     // MARK: - Internal Functions
     
     /// Run every 'tick' of the timer
-    @objc func tick(){
+    @objc func tick(_ timer: Timer){
         if isTimerMode && time == 1{
             // We're in timer mode and are now done!
             endSession()
         }
         if isTimerMode{
             time = time - 1
+            timeDisplay.currentTime = time
         }else{
             time = time + 1
         }
@@ -168,9 +169,27 @@ class MainViewController: UIViewController {
     
     /// Handles the session being started; store the time as the new default, and start the timer
     func startSession(){
+        if isTimerMode{
+            timeDisplay.totalTime = time
+            timeDisplay.currentTime = time
+        }
         sessionStart = Date()
         // Start the timer that'll run everything.
-        timer = Timer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+//        DispatchQueue.main.async {
+//            self.timer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
+//        }
+        self.timer = Timer(timeInterval: 1.0, repeats: true, block: { [weak self] (time) in
+            self?.tick(time)
+        })
+        DispatchQueue.main.async {
+            let runLoop = RunLoop.current
+            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
+            runLoop.run()
+        }
+        
+        
+        
+        
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
     }
@@ -199,7 +218,8 @@ class MainViewController: UIViewController {
         lastSessionStart = sessionStart
         sessionStart = nil
         // Stop the timer, we don't need it anymore!
-        timer.invalidate()
+        timer?.invalidate()
+        timer = nil
         // Show the 'save to health' button, if we need to
         DispatchQueue.main.async {
             self.saveToHealthButton.isHidden = !self.shouldShowHealth()
