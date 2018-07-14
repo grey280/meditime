@@ -16,7 +16,7 @@ struct constants{
     
     struct analogClock{
         static let lineWidth: CGFloat = 5.0
-        static let endCapStyle: CGLineCap = .butt
+        static let endCapStyle = kCALineCapButt
     }
     
     /// Colors for use throughout the app

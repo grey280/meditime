@@ -42,11 +42,13 @@ class AnalogClockView: UIView {
         backLayer.strokeColor = constants.colors.light?.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
         backLayer.lineWidth = constants.analogClock.lineWidth
+        backLayer.lineCap = constants.analogClock.endCapStyle
         frontLayer.path = path.cgPath
         frontLayer.strokeColor = constants.colors.dark?.cgColor
         frontLayer.fillColor = UIColor.clear.cgColor
         frontLayer.strokeEnd = 0.0
         frontLayer.lineWidth = constants.analogClock.lineWidth
+        frontLayer.lineCap = constants.analogClock.endCapStyle
     }
     
     override init(frame: CGRect) {
