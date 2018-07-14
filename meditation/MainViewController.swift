@@ -47,6 +47,8 @@ class MainViewController: UIViewController {
     var previousTranslation: CGPoint?
     /// The timestamp of when the current session started. If this is nil, we know a timer *isn't* running.
     var sessionStart: Date? = nil
+    /// The timestamp of when the last session started. Use to allow `sessionStart` to be reset without losing useful data.
+    var lastSessionStart: Date? = nil
     /// The timestamp of when the last session ended. Used to allow the 'save to health' button to save the session; otherwise, not necessary
     var lastSessionEnd: Date? = nil
     /// The global timer, used for running the clock
@@ -90,9 +92,14 @@ class MainViewController: UIViewController {
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
             time = time - addValue
             previousTranslation = currentTrans
+            // Transform angle should be between 0 and +/- pi/3
+            let transformAngle: CGFloat = (currentTrans.y / view.bounds.maxY) * CGFloat(Double.pi / 3)
+            let newTransform = CATransform3DMakeRotation(transformAngle, 1.0, 0.0, 0.0)
+            clockDisplay.layer.transform = newTransform
         case .cancelled, .ended, .failed:
             feedbackGenerator = nil
             previousTranslation = nil
+            clockDisplay.layer.transform = CATransform3DIdentity
         default:
             break
         }
@@ -114,7 +121,6 @@ class MainViewController: UIViewController {
     ///
     /// - Parameter sender: the button that sent it; ignored
     @IBAction func saveToHealth(_ sender: Any? = nil) {
-        // TODO: Write this function.
         let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession)!
         healthStore?.requestAuthorization(toShare: [catType], read: nil, completion: { (success, err) in
             if success{
@@ -171,7 +177,7 @@ class MainViewController: UIViewController {
     
     /// Log the last session to HealthKit, if possible
     func logLastSession(){
-        guard sessionStart != nil, lastSessionEnd != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
+        guard lastSessionStart != nil, lastSessionEnd != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
             // Something went horribly wrong!
             return
         }
@@ -179,7 +185,7 @@ class MainViewController: UIViewController {
             // Whoops, we don't have permission yet; since everything is still stored, though, we can just let the 'save to Health' button handle it instead
             return
         }
-        let sample = HKCategorySample(type: catType, value: 0, start: sessionStart!, end: lastSessionEnd!)
+        let sample = HKCategorySample(type: catType, value: 0, start: lastSessionStart!, end: lastSessionEnd!)
         healthStore?.save(sample, withCompletion: { (success, err) in
             // Honestly we're not gonna handle errors here, because what else can we do if it fails? I'm not writing caching or anything, so whatever.
         })
@@ -189,6 +195,9 @@ class MainViewController: UIViewController {
     func endSession(){
         // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
         lastSessionEnd = Date()
+        // Copy the start time, and then reset the session start so we know the timer isn't running anymore.
+        lastSessionStart = sessionStart
+        sessionStart = nil
         // Stop the timer, we don't need it anymore!
         timer.invalidate()
         // Show the 'save to health' button, if we need to
