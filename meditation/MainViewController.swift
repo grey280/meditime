@@ -24,7 +24,9 @@ class MainViewController: UIViewController {
                 time = 0
             }
             // Format the amount of seconds and write it to the screen
-            self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
+            DispatchQueue.main.async {
+                self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
+            }
             // If you manually set the time again before we've reset it, then forget about doing that.
             if resetTimer != nil{
                 resetTimer?.suspend()
@@ -249,18 +251,21 @@ class MainViewController: UIViewController {
     /// Handle the time being changed, either by user interaction or on first load
     func timeChange(){
         // Show which mode we're in
-        if time == 0{
-            timerMode.textColor = constants.colors.mindful ?? UIColor.clear
-            stopwatchMode.textColor = constants.colors.darker ?? UIColor.black
-            isTimerMode = false
-        }else{
-            timerMode.textColor = constants.colors.darker ?? UIColor.black
-            stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
-            isTimerMode = true
-            if time % 30 == 0{ // We want a nice tap every 60 seconds.
-                feedbackGenerator?.selectionChanged()
+        DispatchQueue.main.async {
+            if self.time == 0{
+                self.timerMode.textColor = constants.colors.mindful ?? UIColor.clear
+                self.stopwatchMode.textColor = constants.colors.darker ?? UIColor.black
+                self.isTimerMode = false
+            }else{
+                self.timerMode.textColor = constants.colors.darker ?? UIColor.black
+                self.stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
+                self.isTimerMode = true
+                if self.time % 30 == 0{ // We want a nice tap every 60 seconds.
+                    self.feedbackGenerator?.selectionChanged()
+                }
             }
         }
+        
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
