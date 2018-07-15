@@ -178,21 +178,14 @@ class MainViewController: UIViewController {
         }
         sessionStart = Date()
         // Start the timer that'll run everything.
-//        DispatchQueue.main.async {
-//            self.timer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.tick(_:)), userInfo: nil, repeats: true)
-//        }
         self.timer = Timer(timeInterval: 1.0, repeats: true, block: { [weak self] (time) in
             self?.tick(time)
         })
         DispatchQueue.main.async {
-            let runLoop = RunLoop.current
+            let runLoop = RunLoop.main
             runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
             runLoop.run()
         }
-        
-        
-        
-        
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
     }
@@ -233,7 +226,7 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
             self.saveToHealthButton.isHidden = !self.shouldShowHealth()
             // ... and finish the reset timer thing, while we're at it
-            let runLoop = RunLoop.current
+            let runLoop = RunLoop.main
             runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
             runLoop.run()
         }
