@@ -101,7 +101,7 @@ Drag up or down to set timer.</string>
                                 <rect key="frame" x="337" y="20" width="22" height="22"/>
                                 <accessibility key="accessibilityConfiguration" label="Privacy Policy"/>
                                 <connections>
-                                    <segue destination="MpX-bI-ZuQ" kind="presentation" modalPresentationStyle="formSheet" id="3gB-ja-eva">
+                                    <segue destination="MpX-bI-ZuQ" kind="presentation" identifier="showPrivacy" modalPresentationStyle="formSheet" id="3gB-ja-eva">
                                         <segue key="commit" inheritsFrom="parent" id="7MK-Uc-3Ay"/>
                                         <segue key="preview" inheritsFrom="commit" id="ldw-fl-1WA"/>
                                     </segue>
