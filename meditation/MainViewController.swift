@@ -18,14 +18,13 @@ class MainViewController: UIViewController {
     /// The 'save to health' button; should only be displayed if it's not automatically doing it
     @IBOutlet weak var saveToHealthButton: UIButton!
     /// The amount of time, in seconds, for the session
-    var time = -1{ // Set to -1 so that changing it to 9 in `viewDidLoad` will *definitely* fire `didSet`
+    var time = 0{
         didSet{
             if time < 0{ // Don't allow values below zero! Things get weird.
                 time = 0
             }
             // Format the amount of seconds and write it to the screen
             self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
-            
             // If you manually set the time again before we've reset it, then forget about doing that.
             if resetTimer != nil{
                 resetTimer?.invalidate()
