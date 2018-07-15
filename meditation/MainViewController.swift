@@ -160,7 +160,9 @@ class MainViewController: UIViewController {
         }
         if isTimerMode{
             time = time - 1
-            timeDisplay.currentTime = time
+            DispatchQueue.main.async {
+                self.timeDisplay.currentTime = self.time
+            }
         }else{
             time = time + 1
         }
