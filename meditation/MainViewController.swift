@@ -27,7 +27,8 @@ class MainViewController: UIViewController {
             self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
             // If you manually set the time again before we've reset it, then forget about doing that.
             if resetTimer != nil{
-                resetTimer?.invalidate()
+                resetTimer?.suspend()
+//                resetTimer?.invalidate()
                 resetTimer = nil
             }
         }
@@ -45,9 +46,9 @@ class MainViewController: UIViewController {
     /// The timestamp of when the last session ended. Used to allow the 'save to health' button to save the session; otherwise, not necessary
     var lastSessionEnd: Date? = nil
     /// The global timer, used for running the clock
-    var timer: Timer?
+    var timer: RepeatingTimer?
     /// Used to delay resetting the timer to the last-used value after the session ends
-    var resetTimer: Timer?
+    var resetTimer: RepeatingTimer?
     /// Whether or not we're in 'timer' mode for the current session
     var isTimerMode = false
     
@@ -150,7 +151,7 @@ class MainViewController: UIViewController {
     // MARK: - Internal Functions
     
     /// Run every 'tick' of the timer
-    @objc func tick(_ timer: Timer){
+    @objc func tick(_ timer: Timer? = nil){
         if isTimerMode && time == 0{
             // We're in timer mode and are now done!
             endSession()
@@ -178,14 +179,19 @@ class MainViewController: UIViewController {
         }
         sessionStart = Date()
         // Start the timer that'll run everything.
-        self.timer = Timer(timeInterval: 1.0, repeats: true, block: { [weak self] (time) in
-            self?.tick(time)
-        })
-        DispatchQueue.main.async {
-            let runLoop = RunLoop.main
-            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
-            runLoop.run()
+        timer = RepeatingTimer(timeInterval: 1.0)
+        timer?.eventHandler = {
+            self.tick()
         }
+        timer?.resume()
+//        self.timer = Timer(timeInterval: 1.0, repeats: true, block: { [weak self] (time) in
+//            self?.tick(time)
+//        })
+//        DispatchQueue.main.async {
+//            let runLoop = RunLoop.main
+//            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
+//            runLoop.run()
+//        }
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
     }
@@ -218,17 +224,23 @@ class MainViewController: UIViewController {
         lastSessionStart = sessionStart
         sessionStart = nil
         // Stop the timer, we don't need it anymore!
-        timer?.invalidate()
+//        timer?.invalidate()
+        timer?.suspend()
         timer = nil
         // Start the 'reset timer' timer; say *that* five times fast
-        resetTimer = Timer(timeInterval: constants.resetDelay, target: self, selector: #selector(timerReset(_:)), userInfo: nil, repeats: false)
+//        resetTimer = Timer(timeInterval: constants.resetDelay, target: self, selector: #selector(timerReset(_:)), userInfo: nil, repeats: false)
+        resetTimer = RepeatingTimer(timeInterval: constants.resetDelay)
+        resetTimer?.eventHandler = {
+            self.timerReset()
+        }
+        resetTimer?.resume()
         // Show the 'save to health' button, if we need to
         DispatchQueue.main.async {
             self.saveToHealthButton.isHidden = !self.shouldShowHealth()
             // ... and finish the reset timer thing, while we're at it
-            let runLoop = RunLoop.main
-            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
-            runLoop.run()
+//            let runLoop = RunLoop.main
+//            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
+//            runLoop.run()
         }
         // Store the session to HK, if we can
         logLastSession()
