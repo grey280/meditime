@@ -37,6 +37,11 @@ class MainViewController: UIViewController {
                     feedbackGenerator?.selectionChanged()
                 }
             }
+            // If you manually set the time again before we've reset it, then forget about doing that.
+            if resetTimer != nil{
+                resetTimer?.invalidate()
+                resetTimer = nil
+            }
         }
     }
     /// Locally-accessible connection to `UserDefaults.standard`
@@ -53,6 +58,8 @@ class MainViewController: UIViewController {
     var lastSessionEnd: Date? = nil
     /// The global timer, used for running the clock
     var timer: Timer?
+    /// Used to delay resetting the timer to the last-used value after the session ends
+    var resetTimer: Timer?
     /// Whether or not we're in 'timer' mode for the current session
     var isTimerMode = false
     
@@ -167,6 +174,12 @@ class MainViewController: UIViewController {
         }
     }
     
+    /// Reset the timer to the last-used value
+    @objc func timerReset(_ timer: Timer? = nil){
+        // Helpfully, we want 0 to be the default if we don't have something set
+        time = userDefaults.integer(forKey: constants.timeKey)
+    }
+    
     /// Handles the session being started; store the time as the new default, and start the timer
     func startSession(){
         if isTimerMode{
@@ -220,9 +233,15 @@ class MainViewController: UIViewController {
         // Stop the timer, we don't need it anymore!
         timer?.invalidate()
         timer = nil
+        // Start the 'reset timer' timer; say *that* five times fast
+        resetTimer = Timer(timeInterval: constants.resetDelay, target: self, selector: #selector(timerReset(_:)), userInfo: nil, repeats: false)
         // Show the 'save to health' button, if we need to
         DispatchQueue.main.async {
             self.saveToHealthButton.isHidden = !self.shouldShowHealth()
+            // ... and finish the reset timer thing, while we're at it
+            let runLoop = RunLoop.current
+            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
+            runLoop.run()
         }
         // Store the session to HK, if we can
         logLastSession()
@@ -237,8 +256,8 @@ class MainViewController: UIViewController {
         formatter.unitsStyle = .positional
         formatter.allowedUnits = [ .minute, .second ]
         formatter.zeroFormattingBehavior = [ .pad ]
-        // Load the time from defaults; helpfully, we want 0 to be the default if we don't have something set
-        time = userDefaults.integer(forKey: constants.timeKey)
+        // Load the time from defaults
+        timerReset()
     }
 }
 

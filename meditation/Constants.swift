@@ -13,6 +13,8 @@ import UIKit
 struct constants{
     /// `UserDefaults.standard` key for storing the default duration on the timer. `Int`.
     static let timeKey = "net.twoeighty.meditation.time"
+    /// Amount of time to wait after a session ends before resetting the timer
+    static let resetDelay: TimeInterval = 1.5
     
     /// Bits and pieces for the 'analog' clock view.
     struct analogClock{
