@@ -151,7 +151,7 @@ class MainViewController: UIViewController {
     
     /// Run every 'tick' of the timer
     @objc func tick(_ timer: Timer){
-        if isTimerMode && time == 1{
+        if isTimerMode && time == 0{
             // We're in timer mode and are now done!
             endSession()
         }
