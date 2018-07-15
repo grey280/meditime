@@ -13,9 +13,4 @@ class ModalViewController: UIViewController {
     @IBAction func dismissVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("Appeared")
-    }
 }
