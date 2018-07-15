@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import AudioToolbox
 
 /// The main view controller for the app.
 class MainViewController: UIViewController {
@@ -227,6 +228,10 @@ class MainViewController: UIViewController {
     func endSession(){
         // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
         lastSessionEnd = Date()
+        // If we were in timer mode, buzz the phone to make it clear we're done
+        if isTimerMode{
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        }
         // Copy the start time, and then reset the session start so we know the timer isn't running anymore.
         lastSessionStart = sessionStart
         sessionStart = nil
