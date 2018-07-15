@@ -17,27 +17,15 @@ class MainViewController: UIViewController {
     var healthStore: HKHealthStore?
     /// The 'save to health' button; should only be displayed if it's not automatically doing it
     @IBOutlet weak var saveToHealthButton: UIButton!
-    /// The amount of time, in seconds, for the timer to run
-    var time = 0{
+    /// The amount of time, in seconds, for the session
+    var time = -1{ // Set to -1 so that changing it to 9 in `viewDidLoad` will *definitely* fire `didSet`
         didSet{
             if time < 0{ // Don't allow values below zero! Things get weird.
                 time = 0
             }
             // Format the amount of seconds and write it to the screen
             self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
-            // Show which mode we're in
-            if time == 0{
-                timerMode.textColor = constants.colors.mindful ?? UIColor.clear
-                stopwatchMode.textColor = constants.colors.darker ?? UIColor.black
-                isTimerMode = false
-            }else{
-                timerMode.textColor = constants.colors.darker ?? UIColor.black
-                stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
-                isTimerMode = true
-                if time % 30 == 0{ // We want a nice tap every 60 seconds.
-                    feedbackGenerator?.selectionChanged()
-                }
-            }
+            
             // If you manually set the time again before we've reset it, then forget about doing that.
             if resetTimer != nil{
                 resetTimer?.invalidate()
@@ -104,6 +92,7 @@ class MainViewController: UIViewController {
             let transformAngle: CGFloat = (currentTrans.y / view.bounds.maxY) * CGFloat(Double.pi / 3)
             let newTransform = CATransform3DMakeRotation(transformAngle, 1.0, 0.0, 0.0)
             clockDisplay.layer.transform = newTransform
+            timeChange()
         case .cancelled, .ended, .failed:
             feedbackGenerator = nil
             previousTranslation = nil
@@ -179,6 +168,7 @@ class MainViewController: UIViewController {
     @objc func timerReset(_ timer: Timer? = nil){
         // Helpfully, we want 0 to be the default if we don't have something set
         time = userDefaults.integer(forKey: constants.timeKey)
+        timeChange()
     }
     
     /// Handles the session being started; store the time as the new default, and start the timer
@@ -250,6 +240,23 @@ class MainViewController: UIViewController {
         }
         // Store the session to HK, if we can
         logLastSession()
+    }
+    
+    /// Handle the time being changed, either by user interaction or on first load
+    func timeChange(){
+        // Show which mode we're in
+        if time == 0{
+            timerMode.textColor = constants.colors.mindful ?? UIColor.clear
+            stopwatchMode.textColor = constants.colors.darker ?? UIColor.black
+            isTimerMode = false
+        }else{
+            timerMode.textColor = constants.colors.darker ?? UIColor.black
+            stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
+            isTimerMode = true
+            if time % 30 == 0{ // We want a nice tap every 60 seconds.
+                feedbackGenerator?.selectionChanged()
+            }
+        }
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
