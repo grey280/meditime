@@ -30,7 +30,6 @@ class MainViewController: UIViewController {
             // If you manually set the time again before we've reset it, then forget about doing that.
             if resetTimer != nil{
                 resetTimer?.suspend()
-//                resetTimer?.invalidate()
                 resetTimer = nil
             }
         }
@@ -188,14 +187,6 @@ class MainViewController: UIViewController {
             self.tick()
         }
         timer?.resume()
-//        self.timer = Timer(timeInterval: 1.0, repeats: true, block: { [weak self] (time) in
-//            self?.tick(time)
-//        })
-//        DispatchQueue.main.async {
-//            let runLoop = RunLoop.main
-//            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
-//            runLoop.run()
-//        }
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
     }
@@ -228,11 +219,9 @@ class MainViewController: UIViewController {
         lastSessionStart = sessionStart
         sessionStart = nil
         // Stop the timer, we don't need it anymore!
-//        timer?.invalidate()
         timer?.suspend()
         timer = nil
         // Start the 'reset timer' timer; say *that* five times fast
-//        resetTimer = Timer(timeInterval: constants.resetDelay, target: self, selector: #selector(timerReset(_:)), userInfo: nil, repeats: false)
         resetTimer = RepeatingTimer(timeInterval: constants.resetDelay)
         resetTimer?.eventHandler = {
             self.timerReset()
@@ -241,10 +230,6 @@ class MainViewController: UIViewController {
         // Show the 'save to health' button, if we need to
         DispatchQueue.main.async {
             self.saveToHealthButton.isHidden = !self.shouldShowHealth()
-            // ... and finish the reset timer thing, while we're at it
-//            let runLoop = RunLoop.main
-//            runLoop.add(self.timer!, forMode: RunLoopMode.defaultRunLoopMode)
-//            runLoop.run()
         }
         // Store the session to HK, if we can
         logLastSession()
