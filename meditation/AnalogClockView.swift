@@ -16,7 +16,13 @@ class AnalogClockView: UIView {
     public var currentTime = 0{
         didSet{
             let newEnd = CGFloat(currentTime)/CGFloat(totalTime)
+            let end = CABasicAnimation(keyPath: "strokeEnd")
+            end.duration = 1.0
+            end.fromValue = frontLayer.strokeEnd
+            end.toValue = newEnd
+            end.isRemovedOnCompletion = true
             frontLayer.strokeEnd = newEnd
+            frontLayer.add(end, forKey: "strokeEnd")
         }
     }
     
@@ -47,7 +53,7 @@ class AnalogClockView: UIView {
         frontLayer.path = path.cgPath
         frontLayer.strokeColor = constants.colors.dark?.cgColor
         frontLayer.fillColor = UIColor.clear.cgColor
-        frontLayer.strokeEnd = 0.0
+        frontLayer.strokeEnd = 1.0
         frontLayer.lineWidth = constants.analogClock.lineWidth
         frontLayer.lineCap = constants.analogClock.endCapStyle
     }
