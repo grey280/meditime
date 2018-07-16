@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
             previousTranslation = sender.translation(in: sender.view)
         case .changed:
             let currentTrans = sender.translation(in: sender.view)
-            if sessionStart != nil && currentTrans.y < 10{ // Don't want it to be *too* easy to mess up the time
+            if sessionStart != nil && (currentTrans.y < 10 && currentTrans.y > -10) { // Don't want it to be *too* easy to mess up the time
                 // TODO: Verify that 10 is the right number to use there, does that feel right?
                 break
             }
@@ -253,6 +253,8 @@ class MainViewController: UIViewController {
                     self.feedbackGenerator?.selectionChanged()
                 }
             }
+            self.timeDisplay.bypassAnimation = true
+            self.timeDisplay.totalTime = self.time
         }
         
     }
