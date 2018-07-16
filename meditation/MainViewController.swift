@@ -178,6 +178,7 @@ class MainViewController: UIViewController {
     func startSession(){
         if isTimerMode{
             timeDisplay.totalTime = time
+            timeDisplay.bypassAnimation = true
             timeDisplay.currentTime = time
         }
         sessionStart = Date()

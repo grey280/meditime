@@ -17,7 +17,12 @@ class AnalogClockView: UIView {
         didSet{
             let newEnd = CGFloat(currentTime)/CGFloat(totalTime)
             let end = CABasicAnimation(keyPath: "strokeEnd")
-            end.duration = 1.0
+            if bypassAnimation{
+                end.duration = 0.1
+                bypassAnimation = false
+            }else{
+                end.duration = 1.0
+            }
             end.fromValue = frontLayer.strokeEnd
             end.toValue = newEnd
             end.isRemovedOnCompletion = true
@@ -25,6 +30,8 @@ class AnalogClockView: UIView {
             frontLayer.add(end, forKey: "strokeEnd")
         }
     }
+    /// Whether or not to bypass the animation on the next change of `currentTime`
+    public var bypassAnimation = false
     
     /// A single shared bezier path, configured by `setupPath`
     var path = UIBezierPath()
