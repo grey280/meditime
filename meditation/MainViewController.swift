@@ -212,8 +212,8 @@ class MainViewController: UIViewController {
     func endSession(){
         // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
         lastSessionEnd = Date()
-        // If we were in timer mode, buzz the phone to make it clear we're done
-        if isTimerMode{
+        // If we were in timer mode and ended because the timer ran out, buzz the phone to make it clear we're done
+        if isTimerMode && time == 0{
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         }
         // Copy the start time, and then reset the session start so we know the timer isn't running anymore.
