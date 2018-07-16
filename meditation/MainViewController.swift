@@ -27,11 +27,6 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
             }
-            // If you manually set the time again before we've reset it, then forget about doing that.
-            if resetTimer != nil{
-                resetTimer?.suspend()
-                resetTimer = nil
-            }
         }
     }
     /// Locally-accessible connection to `UserDefaults.standard`
@@ -84,6 +79,11 @@ class MainViewController: UIViewController {
             if sessionStart != nil && currentTrans.y < 10{ // Don't want it to be *too* easy to mess up the time
                 // TODO: Verify that 10 is the right number to use there, does that feel right?
                 break
+            }
+            // If you manually set the time again before we've reset it, then forget about doing that.
+            if resetTimer != nil{
+                resetTimer?.suspend()
+                resetTimer = nil
             }
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
@@ -153,7 +153,7 @@ class MainViewController: UIViewController {
     
     /// Run every 'tick' of the timer
     @objc func tick(_ timer: Timer? = nil){
-        if isTimerMode && time == 0{
+        if isTimerMode && time < 1{
             // We're in timer mode and are now done!
             endSession()
         }
@@ -176,6 +176,9 @@ class MainViewController: UIViewController {
     
     /// Handles the session being started; store the time as the new default, and start the timer
     func startSession(){
+        // Store the time value so that we default to it next time
+        userDefaults.set(time, forKey: constants.timeKey)
+        // Analog timer view
         if isTimerMode{
             timeDisplay.totalTime = time
             timeDisplay.bypassAnimation = true
@@ -188,8 +191,6 @@ class MainViewController: UIViewController {
             self.tick()
         }
         timer?.resume()
-        // Store the time value so that we default to it next time
-        userDefaults.set(time, forKey: constants.timeKey)
     }
     
     /// Log the last session to HealthKit, if possible
