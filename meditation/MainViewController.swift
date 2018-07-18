@@ -310,11 +310,7 @@ class MainViewController: UIViewController {
         
         animateBackLayer.fillColor = constants.colors.lighter?.cgColor
         animateBackLayer.path = centerPointPath.cgPath
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        view.layer.insertSublayer(animateBackLayer, above: timeDisplay.layer)
+        view.layer.insertSublayer(animateBackLayer, below: view.layer.sublayers?.first)
     }
 }
 
