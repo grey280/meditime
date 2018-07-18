@@ -210,11 +210,6 @@ class MainViewController: UIViewController {
             timeDisplay.totalTime = time
             timeDisplay.bypassAnimation = true
             timeDisplay.currentTime = time
-            timeDisplay.backColor = constants.colors.mindful
-            timeDisplay.frontColor = constants.colors.lightest
-        }else{
-            timeDisplay.backColor = UIColor.clear
-            timeDisplay.frontColor = UIColor.clear
         }
         sessionStart = Date()
         // Start the timer that'll run everything.
@@ -267,9 +262,6 @@ class MainViewController: UIViewController {
         }
         // Store the session to HK, if we can
         logLastSession()
-        // Hide the analog clock, if necessary
-        timeDisplay.backColor = UIColor.clear
-        timeDisplay.frontColor = UIColor.clear
         // Animate the thing closing
         func animateLayer(_ to: UIBezierPath){
             let anim = CABasicAnimation(keyPath: "path")
@@ -334,10 +326,6 @@ class MainViewController: UIViewController {
         animateBackLayer.path = centerPointPath.cgPath
         runningView.layer.insertSublayer(animateBackLayer, below: runningView.layer.sublayers?.first)
         runningView.layer.mask = animateBackLayer
-        
-        // Setup analog view
-        timeDisplay.backColor = UIColor.clear
-        timeDisplay.frontColor = UIColor.clear
     }
 }
 
