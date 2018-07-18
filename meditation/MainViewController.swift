@@ -240,6 +240,9 @@ class MainViewController: UIViewController {
     /// Handle the time being changed, either by user interaction or on first load
     func timeChange(){
         // Show which mode we're in
+        guard timer == nil else{
+            return
+        }
         DispatchQueue.main.async {
             if self.time == 0{
                 self.timerMode.textColor = constants.colors.mindful ?? UIColor.clear
