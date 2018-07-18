@@ -25,7 +25,9 @@ class MainViewController: UIViewController {
             }
             // Format the amount of seconds and write it to the screen
             DispatchQueue.main.async {
-                self.clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
+                for clockDisplay in self.clockDisplays{
+                    clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
+                }
             }
         }
     }
@@ -57,8 +59,8 @@ class MainViewController: UIViewController {
     
     // MARK: - Outlets
     
-    /// The time display, formatted as mm:ss
-    @IBOutlet weak var clockDisplay: UILabel!
+    /// The time displays, formatted as mm:ss
+    @IBOutlet var clockDisplays: [UILabel]!
     /// The time display, in the hand-drawn analog style
     @IBOutlet weak var timeDisplay: AnalogClockView!
     
@@ -70,6 +72,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var privacyButton: UIButton!
     /// Shows the help text
     @IBOutlet weak var helpLabel: UILabel!
+    /// The view to display while everything is running
+    @IBOutlet weak var runningView: UIView!
     
     // MARK: - User Functions
     
@@ -100,12 +104,16 @@ class MainViewController: UIViewController {
             // Transform angle should be between 0 and +/- pi/3
             let transformAngle: CGFloat = (currentTrans.y / view.bounds.maxY) * CGFloat(Double.pi / 3)
             let newTransform = CATransform3DMakeRotation(transformAngle, 1.0, 0.0, 0.0)
-            clockDisplay.layer.transform = newTransform
+            for clockDisplay in clockDisplays{
+                clockDisplay.layer.transform = newTransform
+            }
             timeChange()
         case .cancelled, .ended, .failed:
             feedbackGenerator = nil
             previousTranslation = nil
-            clockDisplay.layer.transform = CATransform3DIdentity
+            for clockDisplay in clockDisplays{
+                clockDisplay.layer.transform = CATransform3DIdentity
+            }
         default:
             break
         }
@@ -197,13 +205,6 @@ class MainViewController: UIViewController {
     func startSession(){
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
-        // Hide the mode switch stuff
-        UIView.animate(withDuration: 0.02, delay: 0.2, options: [.curveEaseInOut], animations: {
-            self.stopwatchMode.isHidden = true
-            self.timerMode.isHidden = true
-            self.privacyButton.isHidden = true
-            self.helpLabel.isHidden = true
-        }, completion: nil)
         // Analog timer view
         if isTimerMode{
             timeDisplay.totalTime = time
@@ -271,15 +272,6 @@ class MainViewController: UIViewController {
         timeDisplay.frontColor = UIColor.clear
         // Animate the thing closing
         func animateLayer(_ to: UIBezierPath){
-            UIView.animate(withDuration: 0.01, delay: 0.8, options: [.curveEaseInOut], animations: {
-                self.privacyButton.isHidden = false
-                
-                
-                self.stopwatchMode.isHidden = false
-                self.timerMode.isHidden = false
-                self.helpLabel.isHidden = false
-                // TODO: Can't hide these three because the StackView rearranges things if we do; set their colors to the new background color so they vanish neatly, restore properly later?
-            }, completion: nil)
             let anim = CABasicAnimation(keyPath: "path")
             anim.duration = 0.8
             anim.fromValue = animateBackLayer.path
@@ -338,9 +330,10 @@ class MainViewController: UIViewController {
         timerReset()
         
         // Setup animation
-        animateBackLayer.fillColor = constants.colors.mindful?.cgColor
+        animateBackLayer.fillColor = UIColor.black.cgColor
         animateBackLayer.path = centerPointPath.cgPath
-        view.layer.insertSublayer(animateBackLayer, below: view.layer.sublayers?.first)
+        runningView.layer.insertSublayer(animateBackLayer, below: runningView.layer.sublayers?.first)
+        runningView.layer.mask = animateBackLayer
         
         // Setup analog view
         timeDisplay.backColor = UIColor.clear

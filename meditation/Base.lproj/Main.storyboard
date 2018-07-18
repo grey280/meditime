@@ -35,7 +35,7 @@ Drag up or down to set timer.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyA-6B-vzP" userLabel="Center">
                                         <rect key="frame" x="0.0" y="49" width="341" height="250"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-GC-vqc" userLabel="Time Display" customClass="AnalogClockView" customModule="meditation" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9el-GC-vqc" userLabel="Time Display">
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="256"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">
@@ -113,16 +113,52 @@ Drag up or down to set timer.</string>
                                     </segue>
                                 </connections>
                             </button>
+                            <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFE-nc-vI4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns8-R8-YTF" userLabel="Time Display" customClass="AnalogClockView" customModule="meditation" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="243" width="341" height="256"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-kM-KxM">
+                                                <rect key="frame" x="88" y="80.5" width="166" height="95.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" updatesFrequently="YES"/>
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                                <color key="textColor" name="Darkest"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="p5c-kM-KxM" firstAttribute="centerX" secondItem="ns8-R8-YTF" secondAttribute="centerX" id="kiP-9u-ZGk"/>
+                                            <constraint firstItem="p5c-kM-KxM" firstAttribute="centerY" secondItem="ns8-R8-YTF" secondAttribute="centerY" id="vat-93-DK3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="Mindful"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Lightest"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="11w-O2-DOa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4dU-lq-dmd"/>
+                            <constraint firstItem="ns8-R8-YTF" firstAttribute="leading" secondItem="9el-GC-vqc" secondAttribute="leading" id="62T-Ci-Y8j"/>
+                            <constraint firstItem="ns8-R8-YTF" firstAttribute="bottom" secondItem="9el-GC-vqc" secondAttribute="bottom" id="6K9-5s-Rdl"/>
                             <constraint firstItem="11w-O2-DOa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uCG-jY-Yda" secondAttribute="bottom" constant="16" id="7Gl-1G-uyB"/>
+                            <constraint firstItem="ns8-R8-YTF" firstAttribute="top" secondItem="9el-GC-vqc" secondAttribute="top" id="AbH-kJ-F0l"/>
+                            <constraint firstAttribute="bottom" secondItem="yFE-nc-vI4" secondAttribute="bottom" id="IAr-9X-GT0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5y5-ja-gN8" secondAttribute="trailing" constant="16" id="RrC-3L-wUH"/>
+                            <constraint firstAttribute="leading" secondItem="yFE-nc-vI4" secondAttribute="leading" id="ZRH-Ng-Y13"/>
+                            <constraint firstItem="yFE-nc-vI4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gab-Nt-ikK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="20" id="h0G-Zt-s7S"/>
                             <constraint firstItem="5y5-ja-gN8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jeo-81-xNw"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pCx-hK-gi3"/>
+                            <constraint firstItem="yFE-nc-vI4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="tRj-8v-569"/>
+                            <constraint firstItem="ns8-R8-YTF" firstAttribute="trailing" secondItem="9el-GC-vqc" secondAttribute="trailing" id="vbd-MD-p3d"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" priority="999" id="vkD-ub-ELJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -132,13 +168,15 @@ Drag up or down to set timer.</string>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="clockDisplay" destination="bwc-sa-SOA" id="Tqy-y1-P2E"/>
                         <outlet property="helpLabel" destination="zO5-7Q-Kne" id="FB8-jR-xN3"/>
                         <outlet property="privacyButton" destination="5y5-ja-gN8" id="oRQ-1A-7Uc"/>
+                        <outlet property="runningView" destination="yFE-nc-vI4" id="ASy-yS-GOd"/>
                         <outlet property="saveToHealthButton" destination="11w-O2-DOa" id="tcN-ra-Fop"/>
                         <outlet property="stopwatchMode" destination="bs2-FI-PFN" id="A7b-Wa-d6M"/>
-                        <outlet property="timeDisplay" destination="9el-GC-vqc" id="w66-gJ-dbH"/>
+                        <outlet property="timeDisplay" destination="ns8-R8-YTF" id="TAf-nz-7aC"/>
                         <outlet property="timerMode" destination="Ce4-fX-TiN" id="2RN-0h-VQn"/>
+                        <outletCollection property="clockDisplays" destination="p5c-kM-KxM" collectionClass="NSMutableArray" id="yv8-AZ-hhz"/>
+                        <outletCollection property="clockDisplays" destination="bwc-sa-SOA" collectionClass="NSMutableArray" id="tlP-i1-ILq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -214,8 +252,14 @@ Drag up or down to set timer.</string>
         <namedColor name="Darkest">
             <color red="0.039215686274509803" green="0.20784313725490197" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Darkest">
+            <color red="0.039215686274509803" green="0.20784313725490197" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Lightest">
             <color red="0.62745098039215685" green="0.92549019607843142" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Mindful">
+            <color red="0.15294117647058825" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Mindful">
             <color red="0.15294117647058825" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
