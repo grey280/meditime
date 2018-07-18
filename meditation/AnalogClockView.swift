@@ -53,12 +53,12 @@ class AnalogClockView: UIView {
     /// Prep the layers to have the right colors and stuff
     func setupLayers(){
         backLayer.path = path.cgPath
-        backLayer.strokeColor = constants.colors.light?.cgColor
+        backLayer.strokeColor = constants.colors.lighter?.cgColor
         backLayer.fillColor = UIColor.clear.cgColor
         backLayer.lineWidth = constants.analogClock.lineWidth
         backLayer.lineCap = constants.analogClock.endCapStyle
         frontLayer.path = path.cgPath
-        frontLayer.strokeColor = constants.colors.dark?.cgColor
+        frontLayer.strokeColor = constants.colors.darker?.cgColor
         frontLayer.fillColor = UIColor.clear.cgColor
         frontLayer.strokeEnd = 1.0
         frontLayer.lineWidth = constants.analogClock.lineWidth
