@@ -35,25 +35,25 @@ class AnalogClockView: UIView {
     /// Set the color of the 'possible fill values' arc
     public var backColor: UIColor?{
         get{
-            guard backLayer.fillColor != nil else{
+            guard backLayer.strokeColor != nil else{
                 return nil
             }
-            return UIColor(cgColor: backLayer.fillColor!)
+            return UIColor(cgColor: backLayer.strokeColor!)
         }
         set{
-            backLayer.fillColor = newValue?.cgColor
+            backLayer.strokeColor = newValue?.cgColor
         }
     }
     /// Set the color of the 'time remaining' arc
     public var frontColor: UIColor?{
         get{
-            guard frontLayer.fillColor != nil else{
+            guard frontLayer.strokeColor != nil else{
                 return nil
             }
-            return UIColor(cgColor: frontLayer.fillColor!)
+            return UIColor(cgColor: frontLayer.strokeColor!)
         }
         set{
-            frontLayer.fillColor = newValue?.cgColor
+            frontLayer.strokeColor = newValue?.cgColor
         }
     }
     
