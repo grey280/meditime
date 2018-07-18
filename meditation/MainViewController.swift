@@ -185,6 +185,7 @@ class MainViewController: UIViewController {
     @objc func timerReset(_ timer: Timer? = nil){
         // Helpfully, we want 0 to be the default if we don't have something set
         time = userDefaults.integer(forKey: constants.timeKey)
+        resetTimer = nil
         timeChange()
     }
     
@@ -308,7 +309,7 @@ class MainViewController: UIViewController {
         // Load the time from defaults
         timerReset()
         
-        animateBackLayer.fillColor = constants.colors.lighter?.cgColor
+        animateBackLayer.fillColor = constants.colors.darker?.cgColor
         animateBackLayer.path = centerPointPath.cgPath
         view.layer.insertSublayer(animateBackLayer, below: view.layer.sublayers?.first)
     }
