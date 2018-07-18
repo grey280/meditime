@@ -114,6 +114,16 @@ class MainViewController: UIViewController {
         // TODO: Animation in here?
         if sessionStart == nil{
             startSession()
+            let loc = sender.location(in: self.view)
+            let innerPath = UIBezierPath(ovalIn: CGRect(x: loc.x, y: loc.y, width: 0.0, height: 0.0))
+            let outerPath = UIBezierPath(arcCenter: loc, radius: view.bounds.height > view.bounds.width ? view.bounds.height * 3 : view.bounds.width * 3, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+            let anim = CABasicAnimation(keyPath: "path")
+            anim.fromValue = innerPath.cgPath
+            anim.toValue = outerPath.cgPath
+            anim.duration = 0.5
+            anim.isRemovedOnCompletion = true
+            animateBackLayer.path = outerPath.cgPath
+            animateBackLayer.add(anim, forKey: "path")
         }else{
             endSession()
         }
