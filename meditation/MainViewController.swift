@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
     /// The layer for animating the start/stop of the timer
     var animateBackLayer = CAShapeLayer()
     /// The path to animate `animateBackLayer` to when the timer ends
-    lazy var centerPointPath = UIBezierPath(ovalIn: CGRect(x: view.bounds.width/2, y: view.bounds.height/2, width: 0.0, height: 0.0))
+    lazy var centerPointPath = UIBezierPath(arcCenter: CGPoint(x: view.bounds.width/2, y: view.bounds.height/2), radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -115,17 +115,17 @@ class MainViewController: UIViewController {
         if sessionStart == nil{
             startSession()
             let loc = sender.location(in: self.view)
-            let innerPath = UIBezierPath(ovalIn: CGRect(x: loc.x, y: loc.y, width: 0.0, height: 0.0))
-            let outerPath = UIBezierPath(arcCenter: loc, radius: view.bounds.height > view.bounds.width ? view.bounds.height * 3 : view.bounds.width * 3, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+            let innerPath = UIBezierPath(arcCenter: loc, radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+            let outerPath = UIBezierPath(arcCenter: loc, radius: view.bounds.height > view.bounds.width ? view.bounds.height * 2 : view.bounds.width * 2, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
             let anim = CABasicAnimation(keyPath: "path")
             anim.fromValue = innerPath.cgPath
             anim.toValue = outerPath.cgPath
-            anim.duration = 0.5
+            anim.duration = 0.8
             anim.isRemovedOnCompletion = true
             animateBackLayer.path = outerPath.cgPath
             animateBackLayer.add(anim, forKey: "path")
         }else{
-            endSession()
+            endSession(sender)
         }
     }
     
@@ -250,27 +250,26 @@ class MainViewController: UIViewController {
         // Store the session to HK, if we can
         logLastSession()
         // Animate the thing closing
+        func animateLayer(_ to: UIBezierPath){
+            let anim = CABasicAnimation(keyPath: "path")
+            anim.duration = 0.8
+            anim.fromValue = animateBackLayer.path
+            anim.toValue = to.cgPath
+            anim.isRemovedOnCompletion = true
+            animateBackLayer.path = to.cgPath
+            animateBackLayer.add(anim, forKey: "path")
+        }
         if sender != nil{
             guard let loc = sender?.location(in: self.view) else{
                 animateLayer(centerPointPath)
                 return
             }
-            let endPoint = CGRect(x: loc.x, y: loc.y, width: 0.0, height: 0.0)
-            animateLayer(UIBezierPath(ovalIn: endPoint))
+            animateLayer(UIBezierPath(arcCenter: loc, radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true))
         }else{
             animateLayer(centerPointPath)
         }
     }
     
-    func animateLayer(_ to: UIBezierPath){
-        let anim = CABasicAnimation(keyPath: "path")
-        anim.duration = 0.5
-        anim.fromValue = animateBackLayer.path
-        anim.toValue = to.cgPath
-        anim.isRemovedOnCompletion = true
-        animateBackLayer.path = to.cgPath
-        animateBackLayer.add(anim, forKey: "path")
-    }
     
     /// Handle the time being changed, either by user interaction or on first load
     func timeChange(){
@@ -310,8 +309,11 @@ class MainViewController: UIViewController {
         timerReset()
         
         animateBackLayer.fillColor = constants.colors.lighter?.cgColor
-        
         animateBackLayer.path = centerPointPath.cgPath
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.layer.insertSublayer(animateBackLayer, above: timeDisplay.layer)
     }
 }
