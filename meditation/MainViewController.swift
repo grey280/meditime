@@ -270,7 +270,9 @@ class MainViewController: UIViewController {
             anim.toValue = to.cgPath
             anim.isRemovedOnCompletion = true
             animateBackLayer.path = to.cgPath
-            animateBackLayer.add(anim, forKey: "path")
+            DispatchQueue.main.async {
+                self.animateBackLayer.add(anim, forKey: "path")
+            }
         }
         if sender != nil{
             guard let loc = sender?.location(in: self.view) else{
