@@ -52,7 +52,8 @@ class MainViewController: UIViewController {
     /// The layer for animating the start/stop of the timer
     var animateBackLayer = CAShapeLayer()
     /// The path to animate `animateBackLayer` to when the timer ends
-    lazy var centerPointPath = UIBezierPath(arcCenter: view.convert(clockDisplays[0].center, from: timeDisplay), radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+    lazy var centerPointPath2 = UIBezierPath(arcCenter: view.convert(clockDisplays[0].center, from: timeDisplay), radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+    lazy var centerPointPath = UIBezierPath(ovalIn: CGRect(origin: view.convert(clockDisplays[0].center, from: timeDisplay), size: CGSize(width: 0.0, height: 0.0)))
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
