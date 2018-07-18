@@ -16,6 +16,9 @@ struct constants{
     /// Amount of time to wait after a session ends before resetting the timer
     static let resetDelay: TimeInterval = 1.5
     
+    /// Duration for the animation of the start/stop of the timer
+    static let animationDuration: TimeInterval = 0.75
+    
     /// Bits and pieces for the 'analog' clock view.
     struct analogClock{
         static let lineWidth: CGFloat = 5.0
