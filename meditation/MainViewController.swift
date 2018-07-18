@@ -318,7 +318,7 @@ class MainViewController: UIViewController {
         timerReset()
         
         // Setup animation
-        animateBackLayer.fillColor = constants.colors.darker?.cgColor
+        animateBackLayer.fillColor = constants.colors.mindful?.cgColor
         animateBackLayer.path = centerPointPath.cgPath
         view.layer.insertSublayer(animateBackLayer, below: view.layer.sublayers?.first)
         
