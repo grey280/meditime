@@ -49,6 +49,8 @@ class MainViewController: UIViewController {
     var isTimerMode = false
     /// The layer for animating the start/stop of the timer
     var animateBackLayer = CAShapeLayer()
+    /// The path to animate `animateBackLayer` to when the timer ends
+    lazy var centerPointPath = UIBezierPath(ovalIn: CGRect(x: view.bounds.width/2, y: view.bounds.height/2, width: 0.0, height: 0.0))
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -212,7 +214,7 @@ class MainViewController: UIViewController {
     }
     
     /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
-    func endSession(){
+    func endSession(_ sender: UITapGestureRecognizer? = nil){
         // Store the end time of the last session; if we don't have HK permission yet, we'll use this to log it once permission is granted
         lastSessionEnd = Date()
         // If we were in timer mode and ended because the timer ran out, buzz the phone to make it clear we're done
@@ -237,6 +239,27 @@ class MainViewController: UIViewController {
         }
         // Store the session to HK, if we can
         logLastSession()
+        // Animate the thing closing
+        if sender != nil{
+            guard let loc = sender?.location(in: self.view) else{
+                animateLayer(centerPointPath)
+                return
+            }
+            let endPoint = CGRect(x: loc.x, y: loc.y, width: 0.0, height: 0.0)
+            animateLayer(UIBezierPath(ovalIn: endPoint))
+        }else{
+            animateLayer(centerPointPath)
+        }
+    }
+    
+    func animateLayer(_ to: UIBezierPath){
+        let anim = CABasicAnimation(keyPath: "path")
+        anim.duration = 0.5
+        anim.fromValue = animateBackLayer.path
+        anim.toValue = to.cgPath
+        anim.isRemovedOnCompletion = true
+        animateBackLayer.path = to.cgPath
+        animateBackLayer.add(anim, forKey: "path")
     }
     
     /// Handle the time being changed, either by user interaction or on first load
@@ -277,8 +300,8 @@ class MainViewController: UIViewController {
         timerReset()
         
         animateBackLayer.fillColor = constants.colors.lighter?.cgColor
-        let tempPath = UIBezierPath(ovalIn: CGRect(x: view.bounds.width/2, y: view.bounds.height/2, width: 0.0, height: 0.0))
-        animateBackLayer.path = tempPath.cgPath
+        
+        animateBackLayer.path = centerPointPath.cgPath
         view.layer.insertSublayer(animateBackLayer, above: timeDisplay.layer)
     }
 }
