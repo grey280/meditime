@@ -32,6 +32,30 @@ class AnalogClockView: UIView {
     }
     /// Whether or not to bypass the animation on the next change of `currentTime`
     public var bypassAnimation = false
+    /// Set the color of the 'possible fill values' arc
+    public var backColor: UIColor?{
+        get{
+            guard backLayer.fillColor != nil else{
+                return nil
+            }
+            return UIColor(cgColor: backLayer.fillColor!)
+        }
+        set{
+            backLayer.fillColor = newValue?.cgColor
+        }
+    }
+    /// Set the color of the 'time remaining' arc
+    public var frontColor: UIColor?{
+        get{
+            guard frontLayer.fillColor != nil else{
+                return nil
+            }
+            return UIColor(cgColor: frontLayer.fillColor!)
+        }
+        set{
+            frontLayer.fillColor = newValue?.cgColor
+        }
+    }
     
     /// A single shared bezier path, configured by `setupPath`
     var path = UIBezierPath()
