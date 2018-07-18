@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     /// The layer for animating the start/stop of the timer
     var animateBackLayer = CAShapeLayer()
     /// The path to animate `animateBackLayer` to when the timer ends
-    lazy var centerPointPath = UIBezierPath(arcCenter: view.convert(clockDisplays[0].center, from: timeDisplay), radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+    var centerPointPath = UIBezierPath()
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -311,6 +311,11 @@ class MainViewController: UIViewController {
         
     }
     
+    /// Configures `centerPointPath` based on current layout
+    @objc func setCenterPath(){
+        centerPointPath = UIBezierPath(arcCenter: view.convert(clockDisplays[0].center, from: timeDisplay), radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+    }
+    
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -328,6 +333,9 @@ class MainViewController: UIViewController {
         animateBackLayer.path = centerPointPath.cgPath
         runningView.layer.insertSublayer(animateBackLayer, below: runningView.layer.sublayers?.first)
         runningView.layer.mask = animateBackLayer
+        
+        // Make sure we handle rotation nicely
+        NotificationCenter.default.addObserver(self, selector: #selector(setCenterPath), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 }
 
