@@ -132,7 +132,7 @@ class MainViewController: UIViewController {
             let anim = CABasicAnimation(keyPath: "path")
             anim.fromValue = innerPath.cgPath
             anim.toValue = outerPath.cgPath
-            anim.duration = 0.8
+            anim.duration = constants.animationDuration
             anim.isRemovedOnCompletion = true
             animateBackLayer.path = outerPath.cgPath
             animateBackLayer.add(anim, forKey: "path")
@@ -273,7 +273,7 @@ class MainViewController: UIViewController {
         // Animate the thing closing
         func animateLayer(_ to: UIBezierPath){
             let anim = CABasicAnimation(keyPath: "path")
-            anim.duration = 0.8
+            anim.duration = constants.animationDuration
             anim.fromValue = animateBackLayer.path
             anim.toValue = to.cgPath
             anim.isRemovedOnCompletion = true
