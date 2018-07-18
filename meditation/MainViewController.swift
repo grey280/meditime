@@ -66,6 +66,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var timerMode: UILabel!
     /// 'Stopwatch' label. Part of the timer/stopwatch dichotomy.
     @IBOutlet weak var stopwatchMode: UILabel!
+    /// The button to go to the Privacy view
+    @IBOutlet weak var privacyButton: UIButton!
+    /// Shows the help text
+    @IBOutlet weak var helpLabel: UILabel!
     
     // MARK: - User Functions
     
@@ -193,6 +197,13 @@ class MainViewController: UIViewController {
     func startSession(){
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
+        // Hide the mode switch stuff
+        UIView.animate(withDuration: 0.02, delay: 0.2, options: [.curveEaseInOut], animations: {
+            self.stopwatchMode.isHidden = true
+            self.timerMode.isHidden = true
+            self.privacyButton.isHidden = true
+            self.helpLabel.isHidden = true
+        }, completion: nil)
         // Analog timer view
         if isTimerMode{
             timeDisplay.totalTime = time
@@ -260,6 +271,15 @@ class MainViewController: UIViewController {
         timeDisplay.frontColor = UIColor.clear
         // Animate the thing closing
         func animateLayer(_ to: UIBezierPath){
+            UIView.animate(withDuration: 0.01, delay: 0.8, options: [.curveEaseInOut], animations: {
+                self.privacyButton.isHidden = false
+                
+                
+                self.stopwatchMode.isHidden = false
+                self.timerMode.isHidden = false
+                self.helpLabel.isHidden = false
+                // TODO: Can't hide these three because the StackView rearranges things if we do; set their colors to the new background color so they vanish neatly, restore properly later?
+            }, completion: nil)
             let anim = CABasicAnimation(keyPath: "path")
             anim.duration = 0.8
             anim.fromValue = animateBackLayer.path

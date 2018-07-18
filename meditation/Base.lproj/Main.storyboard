@@ -133,6 +133,8 @@ Drag up or down to set timer.</string>
                     </view>
                     <connections>
                         <outlet property="clockDisplay" destination="bwc-sa-SOA" id="Tqy-y1-P2E"/>
+                        <outlet property="helpLabel" destination="zO5-7Q-Kne" id="FB8-jR-xN3"/>
+                        <outlet property="privacyButton" destination="5y5-ja-gN8" id="oRQ-1A-7Uc"/>
                         <outlet property="saveToHealthButton" destination="11w-O2-DOa" id="tcN-ra-Fop"/>
                         <outlet property="stopwatchMode" destination="bs2-FI-PFN" id="A7b-Wa-d6M"/>
                         <outlet property="timeDisplay" destination="9el-GC-vqc" id="w66-gJ-dbH"/>
