@@ -47,6 +47,8 @@ class MainViewController: UIViewController {
     var resetTimer: RepeatingTimer?
     /// Whether or not we're in 'timer' mode for the current session
     var isTimerMode = false
+    /// The layer for animating the start/stop of the timer
+    var animateBackLayer = CAShapeLayer()
     
     /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
     private let formatter = DateComponentsFormatter()
@@ -273,6 +275,11 @@ class MainViewController: UIViewController {
         formatter.zeroFormattingBehavior = [ .pad ]
         // Load the time from defaults
         timerReset()
+        
+        animateBackLayer.fillColor = constants.colors.lighter?.cgColor
+        let tempPath = UIBezierPath(ovalIn: CGRect(x: view.bounds.width/2, y: view.bounds.height/2, width: 0.0, height: 0.0))
+        animateBackLayer.path = tempPath.cgPath
+        view.layer.insertSublayer(animateBackLayer, above: timeDisplay.layer)
     }
 }
 
