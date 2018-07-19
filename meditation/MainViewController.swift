@@ -213,6 +213,9 @@ class MainViewController: UIViewController {
             timeDisplay.totalTime = time
             timeDisplay.bypassAnimation = true
             timeDisplay.currentTime = time
+            timeDisplay.hideClock = false
+        }else{
+            timeDisplay.hideClock = true
         }
         sessionStart = Date()
         // Start the timer that'll run everything.
