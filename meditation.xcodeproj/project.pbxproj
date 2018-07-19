@@ -69,6 +69,7 @@
 		2DA3CF4B20EEB5DC0000131E = {
 			isa = PBXGroup;
 			children = (
+				2D98FD9A2101323000338719 /* docs */,
 				2DA3CF5620EEB5DC0000131E /* meditation */,
 				2DA3CF5520EEB5DC0000131E /* Products */,
 				2D449E9520F431FB0008854A /* Frameworks */,
@@ -86,7 +87,6 @@
 		2DA3CF5620EEB5DC0000131E /* meditation */ = {
 			isa = PBXGroup;
 			children = (
-				2D98FD9A2101323000338719 /* docs */,
 				2D4C243020F96DF10063BA28 /* ModalViewController.swift */,
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
