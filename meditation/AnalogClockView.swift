@@ -32,6 +32,18 @@ class AnalogClockView: UIView {
     }
     /// Whether or not to bypass the animation on the next change of `currentTime`
     public var bypassAnimation = false
+    /// Hide the clock; for use when running in stopwatch mode
+    public var hideClock = false{
+        didSet{
+            if hideClock{
+                frontLayer.strokeColor = UIColor.clear.cgColor
+                backLayer.strokeColor = UIColor.clear.cgColor
+            }else{
+                frontLayer.strokeColor = constants.colors.darker?.cgColor
+                backLayer.strokeColor = constants.colors.lighter?.cgColor
+            }
+        }
+    }
     
     /// A single shared bezier path, configured by `setupPath`
     var path = UIBezierPath()
