@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-layout: page
+layout: default
 ---
 
 #  Privacy Policy

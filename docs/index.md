@@ -1,6 +1,6 @@
 ---
 title: Meditime
-layout: page
+layout: default
 ---
 
 #  Meditime
