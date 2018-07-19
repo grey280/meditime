@@ -100,6 +100,9 @@ class MainViewController: UIViewController {
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
             time = time - addValue
+            if isTimerMode && sessionStart != nil{ // If we're in timer mode and adjust the time, we also want the total time available to be updated
+                timeDisplay.totalTime = timeDisplay.totalTime - addValue
+            }
             previousTranslation = currentTrans
             // Transform angle should be between 0 and +/- pi/3
             let transformAngle: CGFloat = (currentTrans.y / view.bounds.maxY) * CGFloat(Double.pi / 3)
