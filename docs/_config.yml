@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
-name: Meditimer
+title: Meditimer
 description: The simplest meditation timer
+show_downloads: false
