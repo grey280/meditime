@@ -126,7 +126,6 @@ class MainViewController: UIViewController {
     ///
     /// - Parameter sender: the tap gesture recognizer; ignored
     @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
-        // TODO: Animation in here?
         if sessionStart == nil{
             startSession()
             let loc = sender.location(in: self.view)
@@ -307,7 +306,7 @@ class MainViewController: UIViewController {
                 self.timerMode.textColor = constants.colors.darker ?? UIColor.black
                 self.stopwatchMode.textColor = constants.colors.mindful ?? UIColor.clear
                 self.isTimerMode = true
-                if self.time % 30 == 0{ // We want a nice tap every 60 seconds.
+                if self.time % 15 == 0{ // We want a nice tap every 15 seconds
                     self.feedbackGenerator?.selectionChanged()
                 }
             }
