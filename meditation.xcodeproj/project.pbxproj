@@ -27,6 +27,7 @@
 		2D4C243020F96DF10063BA28 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		2D98FD9B2101324000338719 /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
+		2D98FD9C21013B0100338719 /* _config.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = _config.yml; sourceTree = "<group>"; };
 		2DA3CF5420EEB5DC0000131E /* meditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA3CF5920EEB5DC0000131E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 			children = (
 				2D98FD9B2101324000338719 /* index.md */,
 				2D4C242D20F96BFD0063BA28 /* privacy.md */,
+				2D98FD9C21013B0100338719 /* _config.yml */,
 			);
 			path = docs;
 			sourceTree = "<group>";
