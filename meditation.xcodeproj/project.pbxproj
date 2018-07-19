@@ -23,9 +23,10 @@
 		2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
 		2D449E9620F431FB0008854A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		2D4C242D20F96BFD0063BA28 /* Privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Privacy.md; sourceTree = "<group>"; };
+		2D4C242D20F96BFD0063BA28 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		2D4C243020F96DF10063BA28 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
+		2D98FD9B2101324000338719 /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
 		2DA3CF5420EEB5DC0000131E /* meditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA3CF5920EEB5DC0000131E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +57,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2D98FD9A2101323000338719 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				2D98FD9B2101324000338719 /* index.md */,
+				2D4C242D20F96BFD0063BA28 /* privacy.md */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
 		2DA3CF4B20EEB5DC0000131E = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		2DA3CF5620EEB5DC0000131E /* meditation */ = {
 			isa = PBXGroup;
 			children = (
+				2D98FD9A2101323000338719 /* docs */,
 				2D4C243020F96DF10063BA28 /* ModalViewController.swift */,
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
@@ -84,7 +95,6 @@
 				2DC372F020F56ABF00371153 /* Constants.swift */,
 				2DA3CF5B20EEB5DC0000131E /* Main.storyboard */,
 				2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */,
-				2D4C242D20F96BFD0063BA28 /* Privacy.md */,
 				2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */,
 				2DA3CF6020EEB5DE0000131E /* LaunchScreen.storyboard */,
 				2DA3CF6320EEB5DE0000131E /* Info.plist */,
