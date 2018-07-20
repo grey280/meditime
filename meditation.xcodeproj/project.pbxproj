@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */; };
-		2D449E9720F431FB0008854A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D449E9620F431FB0008854A /* HealthKit.framework */; };
 		2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* ModalViewController.swift */; };
 		2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */; };
 		2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */; };
@@ -17,12 +16,12 @@
 		2DA3CF5F20EEB5DE0000131E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */; };
 		2DA3CF6220EEB5DE0000131E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF6020EEB5DE0000131E /* LaunchScreen.storyboard */; };
 		2DC372F120F56ABF00371153 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC372F020F56ABF00371153 /* Constants.swift */; };
+		2DFCA96C210175AF00C54E2B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFCA96B210175AF00C54E2B /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
-		2D449E9620F431FB0008854A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		2D4C242D20F96BFD0063BA28 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		2D4C243020F96DF10063BA28 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		2DA3CF6120EEB5DE0000131E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DA3CF6320EEB5DE0000131E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DC372F020F56ABF00371153 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2DFCA96B210175AF00C54E2B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D449E9720F431FB0008854A /* HealthKit.framework in Frameworks */,
+				2DFCA96C210175AF00C54E2B /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +54,7 @@
 		2D449E9520F431FB0008854A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2D449E9620F431FB0008854A /* HealthKit.framework */,
+				2DFCA96B210175AF00C54E2B /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
