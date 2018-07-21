@@ -198,24 +198,24 @@ Drag up or down to set timer.</string>
             <objects>
                 <viewController id="MpX-bI-ZuQ" customClass="ModalViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pC0-07-Qmd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOl-QB-lFO">
-                                <rect key="frame" x="146.5" y="34" width="82" height="31.5"/>
+                                <rect key="frame" x="146.5" y="14" width="82" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyl-fg-Mkf">
-                                <rect key="frame" x="16" y="74" width="339.5" height="240.5"/>
+                                <rect key="frame" x="16" y="54" width="339.5" height="240.5"/>
                                 <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHh-dD-nKm">
-                                <rect key="frame" x="167" y="330.5" width="41" height="33"/>
+                                <rect key="frame" x="167" y="310.5" width="41" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Done"/>
                                 <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
@@ -239,6 +239,7 @@ Drag up or down to set timer.</string>
                         <viewLayoutGuide key="safeArea" id="ufH-TC-Hrb"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="370"/>
+                    <size key="freeformSize" width="375" height="370"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
