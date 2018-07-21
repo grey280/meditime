@@ -19,9 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>The app stores your mindful sessions so you can see your mindfulness history.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>The app stores your mindful sessions so you can see your mindfulness history.</string>
 	<key>UILaunchStoryboardName</key>
@@ -46,7 +48,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSHealthShareUsageDescription</key>
-	<string>The app stores your mindful sessions so you can see your mindfulness history.</string>
 </dict>
 </plist>
