@@ -99,7 +99,9 @@ class MainViewController: UIViewController {
             }
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
-            time = time - addValue
+            if addValue != 0{
+                time = time - addValue
+            }
             if isTimerMode && sessionStart != nil{ // If we're in timer mode and adjust the time, we also want the total time available to be updated
                 timeDisplay.totalTime = timeDisplay.totalTime - addValue
             }
