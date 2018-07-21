@@ -216,47 +216,23 @@ Drag up or down to set timer.</string>
                                     <action selector="dismissVC:" destination="MpX-bI-ZuQ" eventType="touchUpInside" id="Rr5-kH-j72"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymx-xc-h1K">
-                                <rect key="frame" x="0.0" y="53" width="375" height="262"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gA-nS-B8T" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="262"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyl-fg-Mkf">
-                                                <rect key="frame" x="8" y="8" width="358" height="218.5"/>
-                                                <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Qyl-fg-Mkf" secondAttribute="trailing" constant="8" id="0il-yO-qTH"/>
-                                            <constraint firstItem="Qyl-fg-Mkf" firstAttribute="leading" secondItem="7gA-nS-B8T" secondAttribute="leading" constant="8" id="PJq-nC-Ze0"/>
-                                            <constraint firstItem="Qyl-fg-Mkf" firstAttribute="top" secondItem="7gA-nS-B8T" secondAttribute="top" constant="8" id="fOV-7y-cRS"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="7gA-nS-B8T" firstAttribute="top" secondItem="Ymx-xc-h1K" secondAttribute="top" id="CSr-Nl-bTi"/>
-                                    <constraint firstAttribute="trailing" secondItem="7gA-nS-B8T" secondAttribute="trailing" id="IC9-Sp-Fqq"/>
-                                    <constraint firstItem="7gA-nS-B8T" firstAttribute="centerY" secondItem="Ymx-xc-h1K" secondAttribute="centerY" id="VoN-Wq-3D1"/>
-                                    <constraint firstAttribute="bottom" secondItem="7gA-nS-B8T" secondAttribute="bottom" id="gvp-nY-tim"/>
-                                    <constraint firstItem="7gA-nS-B8T" firstAttribute="leading" secondItem="Ymx-xc-h1K" secondAttribute="leading" id="hea-yO-meH"/>
-                                    <constraint firstItem="7gA-nS-B8T" firstAttribute="centerX" secondItem="Ymx-xc-h1K" secondAttribute="centerX" id="lwH-Id-fyo"/>
-                                </constraints>
-                            </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-Qp-Xar">
+                                <rect key="frame" x="16" y="53" width="343" height="262"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ufH-TC-Hrb" firstAttribute="bottom" secondItem="mHh-dD-nKm" secondAttribute="bottom" constant="14" id="0Pe-UF-2Ty"/>
-                            <constraint firstItem="Ymx-xc-h1K" firstAttribute="top" secondItem="AOl-QB-lFO" secondAttribute="bottom" constant="7.5" id="2gw-LW-PPO"/>
-                            <constraint firstItem="Ymx-xc-h1K" firstAttribute="width" secondItem="pC0-07-Qmd" secondAttribute="width" id="7Di-3b-J74"/>
-                            <constraint firstItem="Ymx-xc-h1K" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="UJP-IA-f6u"/>
+                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="leading" secondItem="ufH-TC-Hrb" secondAttribute="leading" constant="16" id="1mq-kJ-dhL"/>
+                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="32t-qz-24m"/>
+                            <constraint firstItem="mHh-dD-nKm" firstAttribute="top" secondItem="WpX-Qp-Xar" secondAttribute="bottom" constant="8" id="NnJ-Ax-VP2"/>
                             <constraint firstItem="AOl-QB-lFO" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="X3Q-9w-iDQ"/>
+                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="top" secondItem="AOl-QB-lFO" secondAttribute="bottom" constant="7.5" id="ZTp-kl-orH"/>
                             <constraint firstItem="AOl-QB-lFO" firstAttribute="top" secondItem="ufH-TC-Hrb" secondAttribute="top" constant="14" id="cxY-Xx-dTx"/>
-                            <constraint firstItem="mHh-dD-nKm" firstAttribute="top" secondItem="Ymx-xc-h1K" secondAttribute="bottom" constant="8" id="voW-FK-pUh"/>
                             <constraint firstItem="mHh-dD-nKm" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="wDz-4E-1MO"/>
                             <constraint firstItem="ufH-TC-Hrb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AOl-QB-lFO" secondAttribute="trailing" constant="16" id="z3J-S9-uZl"/>
                         </constraints>
