@@ -343,6 +343,13 @@ class MainViewController: UIViewController {
         
         // Make sure we handle rotation nicely
         NotificationCenter.default.addObserver(self, selector: #selector(setCenterPath), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        // Initialize health so we don't lose the first session to a `healthStore=nil` bug
+        if HKHealthStore.isHealthDataAvailable(){
+            if healthStore == nil{
+                healthStore = HKHealthStore()
+            }
+        }
     }
 }
 
