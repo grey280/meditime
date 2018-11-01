@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					2DA3CF5320EEB5DC0000131E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -351,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.twoeighty.meditime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -372,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.twoeighty.meditime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -22,7 +22,7 @@ struct constants{
     /// Bits and pieces for the 'analog' clock view.
     struct analogClock{
         static let lineWidth: CGFloat = 5.0
-        static let endCapStyle = kCALineCapButt
+        static let endCapStyle = CAShapeLayerLineCap.butt
     }
     
     /// Colors for use throughout the app
