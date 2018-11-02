@@ -364,12 +364,12 @@ class MainViewController: UIViewController {
             return
         }
         didStartBreatheAnimation = true
-        let orig: [NSNumber] = [0, 0.15, 1]
-        let end: [NSNumber] = [0, 0.85, 1]
+        let orig: [NSNumber] = [0, 0.1, 0.15, 0.2, 1]
+        let end: [NSNumber] = [0, 0.8, 0.85, 0.9, 1]
         
         let layer = CAGradientLayer()
         layer.frame = self.view.bounds
-        layer.colors = [constants.colors.darker!.cgColor, constants.colors.mindful!.cgColor, constants.colors.lighter!.cgColor]
+        layer.colors = [constants.colors.darker!.cgColor, constants.colors.dark!.cgColor, constants.colors.mindful!.cgColor, constants.colors.light!.cgColor, constants.colors.lighter!.cgColor]
         layer.locations = orig
         
         let anim = CABasicAnimation(keyPath: "locations")
