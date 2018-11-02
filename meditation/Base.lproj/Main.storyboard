@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,11 +16,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-jY-Yda">
-                                <rect key="frame" x="17" y="194" width="341" height="299"/>
+                                <rect key="frame" x="-10.5" y="144.5" width="341" height="299"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zO5-7Q-Kne">
                                         <rect key="frame" x="0.0" y="0.0" width="341" height="34"/>
@@ -39,7 +37,7 @@ Drag up or down to set timer.</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="256"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">
-                                                        <rect key="frame" x="88" y="80.5" width="166" height="95.5"/>
+                                                        <rect key="frame" x="87.5" y="80.5" width="166" height="95.5"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                                         </accessibility>
@@ -96,7 +94,7 @@ Drag up or down to set timer.</string>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa">
-                                <rect key="frame" x="132" y="614" width="111" height="33"/>
+                                <rect key="frame" x="104.5" y="515" width="111" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Save to Health"/>
                                 <connections>
@@ -104,7 +102,7 @@ Drag up or down to set timer.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8">
-                                <rect key="frame" x="337" y="20" width="22" height="22"/>
+                                <rect key="frame" x="282" y="20" width="22" height="22"/>
                                 <accessibility key="accessibilityConfiguration" label="Privacy Policy"/>
                                 <connections>
                                     <segue destination="MpX-bI-ZuQ" kind="presentation" identifier="showPrivacy" modalPresentationStyle="formSheet" id="3gB-ja-eva">
@@ -114,13 +112,13 @@ Drag up or down to set timer.</string>
                                 </connections>
                             </button>
                             <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFE-nc-vI4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns8-R8-YTF" userLabel="Time Display" customClass="AnalogClockView" customModule="meditation" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="243" width="341" height="256"/>
+                                        <rect key="frame" x="-10.5" y="193.5" width="341" height="256"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-kM-KxM">
-                                                <rect key="frame" x="88" y="80.5" width="166" height="95.5"/>
+                                                <rect key="frame" x="87.5" y="80.5" width="166" height="95.5"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                                     <bool key="isElement" value="NO"/>
@@ -244,6 +242,85 @@ Drag up or down to set timer.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084" y="132.23388305847078"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IA5-jl-awS">
+            <objects>
+                <viewController id="EKB-ob-rPi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="msA-3g-1eg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-gN-phO">
+                                <rect key="frame" x="139.5" y="527" width="41" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Done"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-Qd-2en">
+                                <rect key="frame" x="113.5" y="363" width="93" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="Darkest"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
+                                <rect key="frame" x="47" y="439" width="257" height="29"/>
+                                <segments>
+                                    <segment title="1 second"/>
+                                    <segment title="5 seconds"/>
+                                    <segment title="30 seconds"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-Vp-yFe">
+                                <rect key="frame" x="187" y="483" width="117" height="29"/>
+                                <segments>
+                                    <segment title="Vibrate"/>
+                                    <segment title="Chime"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer adjustment:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-it-Vy0">
+                                <rect key="frame" x="16" y="410.5" width="139" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When timer is done:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lww-Xs-L3a">
+                                <rect key="frame" x="16" y="483" width="153" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eob-jQ-h3B">
+                                <rect key="frame" x="119" y="20" width="82" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="Darkest"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LWC-Qd-2en" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="6QH-ha-s3Y"/>
+                            <constraint firstItem="lww-Xs-L3a" firstAttribute="top" secondItem="QHO-b5-ihb" secondAttribute="bottom" constant="16" id="7VE-d7-AcR"/>
+                            <constraint firstItem="7f4-it-Vy0" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="8Rx-Zs-ieE"/>
+                            <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="HR1-Vp-yFe" secondAttribute="trailing" constant="16" id="Ac3-nX-l2w"/>
+                            <constraint firstItem="HR1-Vp-yFe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lww-Xs-L3a" secondAttribute="trailing" constant="6" id="CbV-Xb-YBg"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
+                            <constraint firstItem="7f4-it-Vy0" firstAttribute="top" secondItem="LWC-Qd-2en" secondAttribute="bottom" constant="16" id="QbM-Tn-QJx"/>
+                            <constraint firstItem="HR1-Vp-yFe" firstAttribute="top" secondItem="lww-Xs-L3a" secondAttribute="bottom" constant="-20.5" id="R6b-Se-eLD"/>
+                            <constraint firstItem="OiE-gN-phO" firstAttribute="top" secondItem="HR1-Vp-yFe" secondAttribute="bottom" constant="16" id="Ywe-Lt-pav"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" constant="16" id="aZy-I9-kSd"/>
+                            <constraint firstItem="OiE-gN-phO" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="aho-rv-qzn"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="8" id="dCA-Nx-3n0"/>
+                            <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
+                            <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
+                            <constraint firstItem="lww-Xs-L3a" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="nLb-hs-dpX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nLu-QY-AVe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-SG-dX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080" y="719"/>
         </scene>
     </scenes>
     <resources>
