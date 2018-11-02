@@ -279,6 +279,7 @@ Drag up or down to set timer.</string>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="OiE-gN-phO" id="fIL-D0-Bxm"/>
+                        <outlet property="privacyTextView" destination="8Zt-Uo-i5Q" id="2WW-Ic-onF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-SG-dX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
