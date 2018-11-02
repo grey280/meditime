@@ -262,7 +262,7 @@ Drag up or down to set timer.</string>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
                                 <rect key="frame" x="102" y="538" width="257" height="29"/>
                                 <segments>
                                     <segment title="1 second"/>
