@@ -124,6 +124,7 @@
 				2DA3CF5020EEB5DC0000131E /* Sources */,
 				2DA3CF5120EEB5DC0000131E /* Frameworks */,
 				2DA3CF5220EEB5DC0000131E /* Resources */,
+				2DDC8A10218BA0F1005CC7C1 /* Update Build Number */,
 			);
 			buildRules = (
 			);
@@ -185,6 +186,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DDC8A10218BA0F1005CC7C1 /* Update Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(git rev-list --count HEAD)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$PRODUCT_SETTINGS_PATH\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DA3CF5020EEB5DC0000131E /* Sources */ = {

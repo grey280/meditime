@@ -341,6 +341,9 @@ class MainViewController: UIViewController {
         runningView.layer.insertSublayer(animateBackLayer, below: runningView.layer.sublayers?.first)
         runningView.layer.mask = animateBackLayer
         
+        // Start the 'breathe' animation
+        startBreatheAnimation()
+        
         // Make sure we handle rotation nicely
         NotificationCenter.default.addObserver(self, selector: #selector(setCenterPath), name: UIDevice.orientationDidChangeNotification, object: nil)
         
@@ -350,6 +353,35 @@ class MainViewController: UIViewController {
                 healthStore = HKHealthStore()
             }
         }
+        
+    }
+    
+    // MARK: - Animation Functions
+    private var didStartBreatheAnimation = false
+    
+    func startBreatheAnimation(){
+        guard !didStartBreatheAnimation else{
+            return
+        }
+        didStartBreatheAnimation = true
+        let orig: [NSNumber] = [0, 0.15, 1]
+        let end: [NSNumber] = [0, 0.85, 1]
+        
+        let layer = CAGradientLayer()
+        layer.frame = self.view.bounds
+        layer.colors = [constants.colors.darker!.cgColor, constants.colors.mindful!.cgColor, constants.colors.lighter!.cgColor]
+        layer.locations = orig
+        
+        let anim = CABasicAnimation(keyPath: "locations")
+        anim.duration = 6
+        anim.fromValue = orig
+        anim.toValue = end
+        anim.repeatCount = Float.greatestFiniteMagnitude
+        anim.autoreverses = true
+        anim.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        layer.add(anim, forKey: "locations")
+        
+        runningView.layer.addSublayer(layer)
     }
 }
 
