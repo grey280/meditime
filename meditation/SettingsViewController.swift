@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    
-    
+    @IBOutlet weak var doneButton: UIButton!
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let button = sender as? UIButton, let segue = segue as? CircleSegue else{
             return

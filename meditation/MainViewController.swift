@@ -383,16 +383,14 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let button = sender as? UIButton, let segue = segue as? CircleSegue else{
-            return
+        if let button = sender as? UIButton, let segue = segue as? CircleSegue{
+            segue.origin = button.center
         }
-        segue.origin = button.center
     }
     
-    @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
-        guard let segue = segue as? CircleSegue, let sender = segue.source as? SettingsViewController else{
-            return
+    @IBAction func unwindToVC1(segue: UIStoryboardSegue) {
+        if let segue = segue as? CircleSegue, let sender = segue.source as? SettingsViewController{
+            segue.origin = sender.doneButton.center
         }
-        
     }
 }
