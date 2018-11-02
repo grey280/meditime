@@ -131,7 +131,7 @@ class MainViewController: UIViewController {
         if sessionStart == nil{
             startSession()
             let loc = sender.location(in: self.view)
-            let innerPath = UIBezierPath(arcCenter: loc, radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+            let innerPath = UIBezierPath(arcCenter: loc, radius: 0.1, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
             let outerPath = UIBezierPath(arcCenter: loc, radius: view.bounds.height > view.bounds.width ? view.bounds.height * 2 : view.bounds.width * 2, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
             let anim = CABasicAnimation(keyPath: "path")
             anim.fromValue = innerPath.cgPath
@@ -288,7 +288,7 @@ class MainViewController: UIViewController {
                 animateLayer(centerPointPath)
                 return
             }
-            animateLayer(UIBezierPath(arcCenter: loc, radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true))
+            animateLayer(UIBezierPath(arcCenter: loc, radius: 0.1, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true))
         }else{
             animateLayer(centerPointPath)
         }
@@ -322,7 +322,7 @@ class MainViewController: UIViewController {
     
     /// Configures `centerPointPath` based on current layout
     @objc func setCenterPath(){
-        centerPointPath = UIBezierPath(arcCenter: view.convert(clockDisplays[0].center, from: timeDisplay), radius: 0.0, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
+        centerPointPath = UIBezierPath(arcCenter: view.convert(clockDisplays[0].center, from: timeDisplay), radius: 0.1, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
     }
     
     /// Set up! Checks if we've got HealthKit, and sets it up, if available.
