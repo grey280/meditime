@@ -19,6 +19,9 @@ struct constants{
     /// Duration for the animation of the start/stop of the timer
     static let animationDuration: TimeInterval = 0.75
     
+    /// Duration for the transition animations
+    static let transitionDuration: TimeInterval = 0.3
+    
     /// Bits and pieces for the 'analog' clock view.
     struct analogClock{
         static let lineWidth: CGFloat = 5.0

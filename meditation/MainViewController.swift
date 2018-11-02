@@ -381,5 +381,11 @@ class MainViewController: UIViewController {
         breatheAnimation!.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         breatheGradient.add(breatheAnimation!, forKey: "locations")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let button = sender as? UIButton, let segue = segue as? CircleSegue else{
+            return
+        }
+        segue.origin = button.center
+    }
 }
-

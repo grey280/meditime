@@ -75,7 +75,7 @@ class CircleSegue: UIStoryboardSegue, CAAnimationDelegate {
         animation.toValue = destinationPath
         animation.isRemovedOnCompletion = false
         animation.fillMode = CAMediaTimingFillMode.both
-        animation.duration = constants.animationDuration
+        animation.duration = constants.transitionDuration
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         animation.delegate = self
         return animation
