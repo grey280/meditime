@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-jY-Yda">
-                                <rect key="frame" x="-10.5" y="144.5" width="341" height="299"/>
+                                <rect key="frame" x="17" y="194" width="341" height="299"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zO5-7Q-Kne">
                                         <rect key="frame" x="0.0" y="0.0" width="341" height="34"/>
@@ -94,7 +94,7 @@ Drag up or down to set timer.</string>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa">
-                                <rect key="frame" x="104.5" y="515" width="111" height="33"/>
+                                <rect key="frame" x="132" y="614" width="111" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Save to Health"/>
                                 <connections>
@@ -102,7 +102,7 @@ Drag up or down to set timer.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8">
-                                <rect key="frame" x="282" y="20" width="22" height="22"/>
+                                <rect key="frame" x="337" y="20" width="22" height="22"/>
                                 <accessibility key="accessibilityConfiguration" label="Privacy Policy"/>
                                 <connections>
                                     <segue destination="MpX-bI-ZuQ" kind="presentation" identifier="showPrivacy" modalPresentationStyle="formSheet" id="3gB-ja-eva">
@@ -112,10 +112,10 @@ Drag up or down to set timer.</string>
                                 </connections>
                             </button>
                             <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFE-nc-vI4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns8-R8-YTF" userLabel="Time Display" customClass="AnalogClockView" customModule="meditation" customModuleProvider="target">
-                                        <rect key="frame" x="-10.5" y="193.5" width="341" height="256"/>
+                                        <rect key="frame" x="17" y="243" width="341" height="256"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-kM-KxM">
                                                 <rect key="frame" x="87.5" y="80.5" width="166" height="95.5"/>
@@ -248,22 +248,22 @@ Drag up or down to set timer.</string>
             <objects>
                 <viewController id="EKB-ob-rPi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="msA-3g-1eg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-gN-phO">
-                                <rect key="frame" x="139.5" y="527" width="41" height="33"/>
+                                <rect key="frame" x="167" y="626" width="41" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Done"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-Qd-2en">
-                                <rect key="frame" x="113.5" y="363" width="93" height="31.5"/>
+                                <rect key="frame" x="141" y="462" width="93" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
-                                <rect key="frame" x="47" y="439" width="257" height="29"/>
+                                <rect key="frame" x="102" y="538" width="257" height="29"/>
                                 <segments>
                                     <segment title="1 second"/>
                                     <segment title="5 seconds"/>
@@ -271,26 +271,33 @@ Drag up or down to set timer.</string>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-Vp-yFe">
-                                <rect key="frame" x="187" y="483" width="117" height="29"/>
+                                <rect key="frame" x="242" y="582" width="117" height="29"/>
                                 <segments>
                                     <segment title="Vibrate"/>
                                     <segment title="Chime"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer adjustment:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-it-Vy0">
-                                <rect key="frame" x="16" y="410.5" width="139" height="20.5"/>
+                                <rect key="frame" x="16" y="509.5" width="139" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When timer is done:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lww-Xs-L3a">
-                                <rect key="frame" x="16" y="483" width="153" height="20.5"/>
+                                <rect key="frame" x="16" y="582" width="153" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zt-Uo-i5Q">
+                                <rect key="frame" x="16" y="59" width="343" height="395"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eob-jQ-h3B">
-                                <rect key="frame" x="119" y="20" width="82" height="31.5"/>
+                                <rect key="frame" x="146.5" y="20" width="82" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
@@ -299,11 +306,13 @@ Drag up or down to set timer.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LWC-Qd-2en" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="6QH-ha-s3Y"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="top" secondItem="eob-jQ-h3B" secondAttribute="bottom" constant="7.5" id="7B1-0c-YY7"/>
                             <constraint firstItem="lww-Xs-L3a" firstAttribute="top" secondItem="QHO-b5-ihb" secondAttribute="bottom" constant="16" id="7VE-d7-AcR"/>
                             <constraint firstItem="7f4-it-Vy0" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="8Rx-Zs-ieE"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="HR1-Vp-yFe" secondAttribute="trailing" constant="16" id="Ac3-nX-l2w"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lww-Xs-L3a" secondAttribute="trailing" constant="6" id="CbV-Xb-YBg"/>
+                            <constraint firstItem="LWC-Qd-2en" firstAttribute="top" secondItem="8Zt-Uo-i5Q" secondAttribute="bottom" constant="8" id="Eak-rm-cI2"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
                             <constraint firstItem="7f4-it-Vy0" firstAttribute="top" secondItem="LWC-Qd-2en" secondAttribute="bottom" constant="16" id="QbM-Tn-QJx"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="top" secondItem="lww-Xs-L3a" secondAttribute="bottom" constant="-20.5" id="R6b-Se-eLD"/>
@@ -314,13 +323,15 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
                             <constraint firstItem="lww-Xs-L3a" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="nLb-hs-dpX"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="8Zt-Uo-i5Q" secondAttribute="trailing" constant="16" id="vG5-uX-5ez"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="yon-pN-nuU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nLu-QY-AVe"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-SG-dX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="719"/>
+            <point key="canvasLocation" x="1080" y="718.30985915492954"/>
         </scene>
     </scenes>
     <resources>
