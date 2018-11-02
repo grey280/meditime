@@ -8,9 +8,14 @@
 
 import UIKit
 
-class ModalViewController: UIViewController {
+class SettingsViewController: UIViewController {
     
-    @IBAction func dismissVC(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let button = sender as? UIButton, let segue = segue as? CircleSegue else{
+            return
+        }
+        segue.origin = button.center
     }
 }

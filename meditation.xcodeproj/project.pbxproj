@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */; };
-		2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* ModalViewController.swift */; };
+		2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* SettingsViewController.swift */; };
 		2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */; };
 		2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */; };
 		2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5920EEB5DC0000131E /* MainViewController.swift */; };
@@ -24,7 +24,7 @@
 		2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
 		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
 		2D4C242D20F96BFD0063BA28 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
-		2D4C243020F96DF10063BA28 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		2D4C243020F96DF10063BA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		2D98D56721013E400049FD7B /* default.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
 		2D98FD9B2101324000338719 /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		2DA3CF5620EEB5DC0000131E /* meditation */ = {
 			isa = PBXGroup;
 			children = (
-				2D4C243020F96DF10063BA28 /* ModalViewController.swift */,
+				2D4C243020F96DF10063BA28 /* SettingsViewController.swift */,
 				2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */,
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
@@ -216,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */,
+				2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */,
 				2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */,
 				2DBBCD9D218CFD6900A0106D /* CircleSegue.swift in Sources */,
 				2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */,
