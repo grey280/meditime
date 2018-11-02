@@ -209,6 +209,8 @@ class MainViewController: UIViewController {
     func startSession(){
         // Store the time value so that we default to it next time
         userDefaults.set(time, forKey: constants.timeKey)
+        // Start the animation
+        startBreatheAnimation()
         // Analog timer view
         if isTimerMode{
             timeDisplay.totalTime = time
@@ -341,8 +343,9 @@ class MainViewController: UIViewController {
         runningView.layer.insertSublayer(animateBackLayer, below: runningView.layer.sublayers?.first)
         runningView.layer.mask = animateBackLayer
         
-        // Start the 'breathe' animation
-        startBreatheAnimation()
+        // Prep for the 'breathe' animation
+        breatheGradient.frame = self.view.bounds
+        runningView.layer.insertSublayer(breatheGradient, below: timeDisplay.layer)
         
         // Make sure we handle rotation nicely
         NotificationCenter.default.addObserver(self, selector: #selector(setCenterPath), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -357,31 +360,26 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Animation Functions
-    private var didStartBreatheAnimation = false
+    var breatheGradient: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [constants.colors.darker!.cgColor, constants.colors.dark!.cgColor, constants.colors.mindful!.cgColor, constants.colors.light!.cgColor, constants.colors.lighter!.cgColor]
+        layer.locations = [0, 0.8, 0.85, 0.9, 1]
+        return layer
+    }()
+    var breatheAnimation: CABasicAnimation?
     
     func startBreatheAnimation(){
-        guard !didStartBreatheAnimation else{
-            return
-        }
-        didStartBreatheAnimation = true
-        let orig: [NSNumber] = [0, 0.1, 0.15, 0.2, 1]
-        let end: [NSNumber] = [0, 0.8, 0.85, 0.9, 1]
-        
-        let layer = CAGradientLayer()
-        layer.frame = self.view.bounds
-        layer.colors = [constants.colors.darker!.cgColor, constants.colors.dark!.cgColor, constants.colors.mindful!.cgColor, constants.colors.light!.cgColor, constants.colors.lighter!.cgColor]
-        layer.locations = orig
-        
-        let anim = CABasicAnimation(keyPath: "locations")
-        anim.duration = 6
-        anim.fromValue = orig
-        anim.toValue = end
-        anim.repeatCount = Float.greatestFiniteMagnitude
-        anim.autoreverses = true
-        anim.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        layer.add(anim, forKey: "locations")
-        
-        runningView.layer.insertSublayer(layer, below: timeDisplay.layer)
+        breatheGradient.removeAnimation(forKey: "locations")
+        let end: [NSNumber] = [0, 0.1, 0.15, 0.2, 1]
+        let orig: [NSNumber] = [0, 0.8, 0.85, 0.9, 1]
+        breatheAnimation = CABasicAnimation(keyPath: "locations")
+        breatheAnimation!.duration = 6
+        breatheAnimation!.fromValue = orig
+        breatheAnimation!.toValue = end
+        breatheAnimation!.repeatCount = Float.greatestFiniteMagnitude
+        breatheAnimation!.autoreverses = true
+        breatheAnimation!.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        breatheGradient.add(breatheAnimation!, forKey: "locations")
     }
 }
 
