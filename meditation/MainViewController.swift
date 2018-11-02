@@ -381,7 +381,7 @@ class MainViewController: UIViewController {
         anim.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         layer.add(anim, forKey: "locations")
         
-        runningView.layer.addSublayer(layer)
+        runningView.layer.insertSublayer(layer, below: timeDisplay.layer)
     }
 }
 
