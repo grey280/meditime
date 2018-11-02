@@ -189,58 +189,6 @@ Drag up or down to set timer.</string>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
         <!--Settings View Controller-->
-        <scene sceneID="HSu-ig-3fj">
-            <objects>
-                <viewController id="MpX-bI-ZuQ" customClass="SettingsViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pC0-07-Qmd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOl-QB-lFO">
-                                <rect key="frame" x="146.5" y="14" width="82" height="31.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" name="Darkest"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHh-dD-nKm">
-                                <rect key="frame" x="167" y="323" width="41" height="33"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="Done"/>
-                                <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
-                                <connections>
-                                    <action selector="dismissVC:" destination="MpX-bI-ZuQ" eventType="touchUpInside" id="Rr5-kH-j72"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-Qp-Xar">
-                                <rect key="frame" x="16" y="53" width="343" height="262"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ufH-TC-Hrb" firstAttribute="bottom" secondItem="mHh-dD-nKm" secondAttribute="bottom" constant="14" id="0Pe-UF-2Ty"/>
-                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="leading" secondItem="ufH-TC-Hrb" secondAttribute="leading" constant="16" id="1mq-kJ-dhL"/>
-                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="32t-qz-24m"/>
-                            <constraint firstItem="mHh-dD-nKm" firstAttribute="top" secondItem="WpX-Qp-Xar" secondAttribute="bottom" constant="8" id="NnJ-Ax-VP2"/>
-                            <constraint firstItem="AOl-QB-lFO" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="X3Q-9w-iDQ"/>
-                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="top" secondItem="AOl-QB-lFO" secondAttribute="bottom" constant="7.5" id="ZTp-kl-orH"/>
-                            <constraint firstItem="AOl-QB-lFO" firstAttribute="top" secondItem="ufH-TC-Hrb" secondAttribute="top" constant="14" id="cxY-Xx-dTx"/>
-                            <constraint firstItem="mHh-dD-nKm" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="wDz-4E-1MO"/>
-                            <constraint firstItem="ufH-TC-Hrb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AOl-QB-lFO" secondAttribute="trailing" constant="16" id="z3J-S9-uZl"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ufH-TC-Hrb"/>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="370"/>
-                    <size key="freeformSize" width="375" height="370"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1084" y="132.23388305847078"/>
-        </scene>
-        <!--Settings View Controller-->
         <scene sceneID="IA5-jl-awS">
             <objects>
                 <viewController id="EKB-ob-rPi" customClass="SettingsViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
@@ -311,6 +259,7 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="7f4-it-Vy0" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="8Rx-Zs-ieE"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="HR1-Vp-yFe" secondAttribute="trailing" constant="16" id="Ac3-nX-l2w"/>
+                            <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="Azo-nX-wVv"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lww-Xs-L3a" secondAttribute="trailing" constant="6" id="CbV-Xb-YBg"/>
                             <constraint firstItem="LWC-Qd-2en" firstAttribute="top" secondItem="8Zt-Uo-i5Q" secondAttribute="bottom" constant="8" id="Eak-rm-cI2"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
@@ -332,7 +281,7 @@ Drag up or down to set timer.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-SG-dX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="PVW-F0-JbT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="718.30985915492954"/>
+            <point key="canvasLocation" x="1060" y="133"/>
         </scene>
     </scenes>
     <resources>
