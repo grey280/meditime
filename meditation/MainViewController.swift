@@ -391,6 +391,7 @@ class MainViewController: UIViewController {
     @IBAction func unwindToVC1(segue: UIStoryboardSegue) {
         if let segue = segue as? CircleSegue, let sender = segue.source as? SettingsViewController{
             segue.origin = sender.doneButton.center
+            segue.shouldUnwind = true
         }
     }
 }
