@@ -12,22 +12,14 @@ import Foundation
 import UIKit
 
 class CircleSegue: UIStoryboardSegue, CAAnimationDelegate {
-    private static let stack = Stack()
     private static var isAnimating = false
     
     var origin = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-    private var shouldUnwind = false
+    var shouldUnwind = false
     
     override func perform() {
         if CircleSegue.isAnimating {
             return
-        }
-        
-        if CircleSegue.stack.peek() !== destination {
-            CircleSegue.stack.push(vc: source)
-        } else {
-            _ = CircleSegue.stack.pop()
-            shouldUnwind = true
         }
         
         let sourceView = source.view
@@ -100,34 +92,5 @@ class CircleSegue: UIStoryboardSegue, CAAnimationDelegate {
         
         // If unwinding, shrink the circle; otherwise, grow it
         return shouldUnwind ? (path1, path2) : (path2, path1)
-    }
-    
-    // MARK: Stack implementation
-    
-    // Simple stack implementation for keeping track of our view controllers
-    private class Stack {
-        
-        private var stackArray = Array<UIViewController>()
-        private var size: Int {
-            get {
-                return stackArray.count
-            }
-        }
-        
-        func push(vc: UIViewController) {
-            stackArray.append(vc)
-        }
-        
-        func pop() -> UIViewController? {
-            if let last = stackArray.last {
-                stackArray.removeLast()
-                return last
-            }
-            return nil
-        }
-        
-        func peek() -> UIViewController? {
-            return stackArray.last
-        }
     }
 }
