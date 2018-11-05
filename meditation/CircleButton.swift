@@ -20,7 +20,7 @@ import UIKit
     }
     
     func customConfig(){
-        layer.cornerRadius = bounds.size.width / 2
+        layer.cornerRadius = bounds.size.height / 2
         clipsToBounds = true
         imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
