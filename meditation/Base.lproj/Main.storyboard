@@ -93,10 +93,18 @@ Drag up or down to set timer.</string>
                                     <constraint firstItem="zO5-7Q-Kne" firstAttribute="width" secondItem="uCG-jY-Yda" secondAttribute="width" id="j8G-sn-9fp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa">
-                                <rect key="frame" x="132" y="614" width="111" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa" customClass="CircleButton" customModule="meditation" customModuleProvider="target">
+                                <rect key="frame" x="118.5" y="618" width="138" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="Save to Health"/>
+                                <state key="normal" title="   Save to Health   ">
+                                    <color key="titleColor" name="Health"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveToHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Je6-Sw-jvl"/>
                                 </connections>
@@ -156,7 +164,7 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5y5-ja-gN8" secondAttribute="trailing" constant="16" id="RrC-3L-wUH"/>
                             <constraint firstAttribute="leading" secondItem="yFE-nc-vI4" secondAttribute="leading" id="ZRH-Ng-Y13"/>
                             <constraint firstItem="yFE-nc-vI4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gab-Nt-ikK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="20" id="h0G-Zt-s7S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="16" id="h0G-Zt-s7S"/>
                             <constraint firstItem="5y5-ja-gN8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-16" id="jeo-81-xNw"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pCx-hK-gi3"/>
                             <constraint firstItem="yFE-nc-vI4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="tRj-8v-569"/>
@@ -314,6 +322,9 @@ Drag up or down to set timer.</string>
         </namedColor>
         <namedColor name="Darkest">
             <color red="0.039215686274509803" green="0.20784313725490197" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Health">
+            <color red="0.91764705882352937" green="0.3411764705882353" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Lightest">
             <color red="0.62745098039215685" green="0.92549019607843142" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
