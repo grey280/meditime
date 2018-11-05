@@ -101,9 +101,16 @@ Drag up or down to set timer.</string>
                                     <action selector="saveToHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Je6-Sw-jvl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8">
-                                <rect key="frame" x="337" y="20" width="22" height="22"/>
-                                <accessibility key="accessibilityConfiguration" label="Privacy Policy"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8" customClass="CircleButton" customModule="meditation" customModuleProvider="target">
+                                <rect key="frame" x="331" y="623" width="28" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" label="Settings"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5y5-ja-gN8" secondAttribute="height" multiplier="1:1" id="8ZP-Os-Sbo"/>
+                                    <constraint firstAttribute="width" constant="28" id="gFR-KS-FS4"/>
+                                </constraints>
+                                <color key="tintColor" name="Darker"/>
+                                <state key="normal" image="Settings"/>
                                 <connections>
                                     <segue destination="EKB-ob-rPi" kind="presentation" identifier="showPrivacy" customClass="CircleSegue" customModule="meditation" customModuleProvider="target" id="bmN-kc-vaZ"/>
                                 </connections>
@@ -150,7 +157,7 @@ Drag up or down to set timer.</string>
                             <constraint firstAttribute="leading" secondItem="yFE-nc-vI4" secondAttribute="leading" id="ZRH-Ng-Y13"/>
                             <constraint firstItem="yFE-nc-vI4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gab-Nt-ikK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="20" id="h0G-Zt-s7S"/>
-                            <constraint firstItem="5y5-ja-gN8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jeo-81-xNw"/>
+                            <constraint firstItem="5y5-ja-gN8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-16" id="jeo-81-xNw"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pCx-hK-gi3"/>
                             <constraint firstItem="yFE-nc-vI4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="tRj-8v-569"/>
                             <constraint firstItem="ns8-R8-YTF" firstAttribute="trailing" secondItem="9el-GC-vqc" secondAttribute="trailing" id="vbd-MD-p3d"/>
@@ -289,6 +296,7 @@ Drag up or down to set timer.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Settings" width="500" height="500"/>
         <namedColor name="Darker">
             <color red="0.0" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
