@@ -15,6 +15,7 @@ class CircleSegue: UIStoryboardSegue, CAAnimationDelegate {
     private static var isAnimating = false
     
     var origin = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+    var button: UIButton?
     var shouldUnwind = false
     
     override func perform() {
@@ -87,7 +88,14 @@ class CircleSegue: UIStoryboardSegue, CAAnimationDelegate {
         let dia = h1 + hyp
         
         // The two circle sizes we will animate to/from
-        let path1 = UIBezierPath(ovalIn: CGRect.zero).cgPath
+        let path1: CGPath
+        if let btn = button{
+            let shift = CGAffineTransform(translationX: -(btn.bounds.width / 2), y: -(btn.bounds.height / 2))
+            let newRect = btn.bounds.applying(shift)
+            path1 = UIBezierPath(ovalIn: newRect).cgPath
+        }else{
+            path1 = UIBezierPath(ovalIn: CGRect.zero).cgPath
+        }
         let path2 = UIBezierPath(ovalIn: CGRect(x:-dia/2, y:-dia/2, width:dia, height:dia)).cgPath
         
         // If unwinding, shrink the circle; otherwise, grow it

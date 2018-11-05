@@ -385,6 +385,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let button = sender as? UIButton, let segue = segue as? CircleSegue{
             segue.origin = button.center
+            segue.button = button
         }
     }
     
@@ -392,6 +393,7 @@ class MainViewController: UIViewController {
         if let segue = segue as? CircleSegue, let sender = segue.source as? SettingsViewController{
             segue.origin = sender.doneButton.center
             segue.shouldUnwind = true
+            segue.button = sender.doneButton
         }
     }
 }
