@@ -203,22 +203,33 @@ Drag up or down to set timer.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-gN-phO">
-                                <rect key="frame" x="167" y="626" width="41" height="33"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="Done"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-gN-phO" customClass="CircleButton" customModule="meditation" customModuleProvider="target">
+                                <rect key="frame" x="331" y="623" width="28" height="28"/>
+                                <color key="backgroundColor" name="Mindful"/>
+                                <accessibility key="accessibilityConfiguration" label="Done"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="SWu-5x-3sL"/>
+                                    <constraint firstAttribute="width" secondItem="OiE-gN-phO" secondAttribute="height" multiplier="1:1" id="wCh-BG-8Xl"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Close"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="PVW-F0-JbT" kind="unwind" customClass="CircleSegue" customModule="meditation" customModuleProvider="target" unwindAction="unwindToVC1WithSegue:" id="HKs-oX-VlG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-Qd-2en">
-                                <rect key="frame" x="141" y="462" width="93" height="31.5"/>
+                                <rect key="frame" x="141" y="459" width="93" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
-                                <rect key="frame" x="102" y="538" width="257" height="29"/>
+                                <rect key="frame" x="102" y="535" width="257" height="29"/>
                                 <segments>
                                     <segment title="1 second"/>
                                     <segment title="5 seconds"/>
@@ -226,26 +237,26 @@ Drag up or down to set timer.</string>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-Vp-yFe">
-                                <rect key="frame" x="242" y="582" width="117" height="29"/>
+                                <rect key="frame" x="242" y="579" width="117" height="29"/>
                                 <segments>
                                     <segment title="Vibrate"/>
                                     <segment title="Chime"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer adjustment:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-it-Vy0">
-                                <rect key="frame" x="16" y="509.5" width="139" height="20.5"/>
+                                <rect key="frame" x="16" y="506.5" width="139" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When timer is done:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lww-Xs-L3a">
-                                <rect key="frame" x="16" y="582" width="153" height="20.5"/>
+                                <rect key="frame" x="16" y="579" width="153" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zt-Uo-i5Q">
-                                <rect key="frame" x="16" y="59" width="343" height="395"/>
+                                <rect key="frame" x="16" y="59" width="343" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -267,6 +278,7 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="HR1-Vp-yFe" secondAttribute="trailing" constant="16" id="Ac3-nX-l2w"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="Azo-nX-wVv"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="OiE-gN-phO" secondAttribute="trailing" constant="16" id="B1r-kw-jTw"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lww-Xs-L3a" secondAttribute="trailing" constant="6" id="CbV-Xb-YBg"/>
                             <constraint firstItem="LWC-Qd-2en" firstAttribute="top" secondItem="8Zt-Uo-i5Q" secondAttribute="bottom" constant="8" id="Eak-rm-cI2"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
@@ -274,8 +286,7 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="top" secondItem="lww-Xs-L3a" secondAttribute="bottom" constant="-20.5" id="R6b-Se-eLD"/>
                             <constraint firstItem="OiE-gN-phO" firstAttribute="top" secondItem="HR1-Vp-yFe" secondAttribute="bottom" constant="16" id="Ywe-Lt-pav"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" constant="16" id="aZy-I9-kSd"/>
-                            <constraint firstItem="OiE-gN-phO" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="aho-rv-qzn"/>
-                            <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="8" id="dCA-Nx-3n0"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="16" id="dCA-Nx-3n0"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
                             <constraint firstItem="lww-Xs-L3a" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="nLb-hs-dpX"/>
@@ -296,6 +307,7 @@ Drag up or down to set timer.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Close" width="48" height="48"/>
         <image name="Settings" width="500" height="500"/>
         <namedColor name="Darker">
             <color red="0.0" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -8,8 +8,18 @@
 
 import UIKit
 
-class CircleButton: UIButton {
-    func customConfig(_ inset: CGFloat = 3.0){
+@IBDesignable class CircleButton: UIButton {
+    override func prepareForInterfaceBuilder() {
+        customConfig()
+    }
+    
+    @IBInspectable var inset: CGFloat = 3.0{
+        didSet{
+            customConfig()
+        }
+    }
+    
+    func customConfig(){
         layer.cornerRadius = bounds.size.width / 2
         clipsToBounds = true
         imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
