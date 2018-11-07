@@ -45,7 +45,11 @@ class MainViewController: UIViewController {
     var timer: RepeatingTimer?
     /// Used to delay resetting the timer to the last-used value after the session ends
     var resetTimer: RepeatingTimer?
-    /// Whether or not we're in 'timer' mode for the current session
+    /**
+     Whether or not we're in 'timer' mode for the current session.
+     
+     - Note: True means we're counting down.
+    */
     var isTimerMode = false
     /// The layer for animating the start/stop of the timer
     var animateBackLayer = CAShapeLayer()
