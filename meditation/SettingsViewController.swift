@@ -19,6 +19,17 @@ class SettingsViewController: UIViewController {
     // MARK: - Interactionos
     
     @IBAction func granularityAdjusted(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex{
+        case 0:
+            Settings.timerGranularity = 1
+        case 1:
+            Settings.timerGranularity = 5
+        case 2:
+            Settings.timerGranularity = 60
+        default:
+            // We'll assume 5 seconds if we somehow get a value that shouldn't happen. Yay, defaults!
+            Settings.timerGranularity = 5
+        }
     }
     
     @IBAction func timerDoneChanged(_ sender: UISegmentedControl) {
@@ -28,9 +39,26 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // We have to do this because, for some reason, the UITextView defaults to being scrolled down
+        
+        let timerGranularity = Settings.timerGranularity
+        let timerSettingSelected: Int
+        switch timerGranularity{
+        case 1:
+            timerSettingSelected = 0
+        case 5:
+            timerSettingSelected = 1
+        case 60:
+            timerSettingSelected = 2
+        default:
+            // We'll assume 5 seconds, if we get a weird number that shouldn't happen.
+            timerSettingSelected = 1
+        }
+        
         DispatchQueue.main.async {
+            // We have to do this because, for some reason, the UITextView defaults to being scrolled down
             self.privacyTextView.scrollRangeToVisible(NSMakeRange(0, 1))
+            
+            self.timerSetting.selectedSegmentIndex = timerSettingSelected
         }
     }
 

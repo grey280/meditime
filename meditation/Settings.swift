@@ -22,7 +22,7 @@ class Settings{
         static let timerGranularity = "timerGranularity"
     }
     
-    /// The granularity of timer adjustments, in seconds
+    /// The granularity of timer adjustments, in seconds.
     static var timerGranularity: Int{
         get{
             let stored = UD.integer(forKey: keys.timerGranularity)
