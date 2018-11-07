@@ -15,11 +15,13 @@ class Settings{
     /// Default values for settings
     private struct defaults{
         static let timerGranularity = 5
+        static let time = 0
     }
     
     /// Keys for use with UserDefaults
     private struct keys{
         static let timerGranularity = "timerGranularity"
+        static let time = "net.twoeighty.meditation.time"
     }
     
     /// The granularity of timer adjustments, in seconds.
@@ -34,6 +36,16 @@ class Settings{
         }
         set{
             UD.set(newValue, forKey: keys.timerGranularity)
+        }
+    }
+    
+    /// Last-used time, in seconds.
+    static var time: Int{
+        get{
+            return UD.integer(forKey: keys.time)
+        }
+        set{
+            UD.set(newValue, forKey: keys.time)
         }
     }
 }

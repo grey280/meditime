@@ -26,13 +26,11 @@ class MainViewController: UIViewController {
             // Format the amount of seconds and write it to the screen
             DispatchQueue.main.async {
                 for clockDisplay in self.clockDisplays{
-                    clockDisplay.text = self.formatter.string(from: TimeInterval(self.time))
+                    clockDisplay.text = constants.formatter.string(from: TimeInterval(self.time))
                 }
             }
         }
     }
-    /// Locally-accessible connection to `UserDefaults.standard`
-    let userDefaults = UserDefaults.standard
     /// Used for providing haptic feedback when the user adjusts the time
     var feedbackGenerator: UISelectionFeedbackGenerator?
     /// Used to create deltas during `swipe(_:)`
@@ -53,9 +51,6 @@ class MainViewController: UIViewController {
     var animateBackLayer = CAShapeLayer()
     /// The path to animate `animateBackLayer` to when the timer ends
     var centerPointPath = UIBezierPath()
-    
-    /// Our date components formatter; configured during `viewDidLoad`, can then be used to get formatted strings in the way we want.
-    private let formatter = DateComponentsFormatter()
     
     // MARK: - Outlets
     
@@ -200,7 +195,7 @@ class MainViewController: UIViewController {
     /// Reset the timer to the last-used value
     @objc func timerReset(_ timer: Timer? = nil){
         // Helpfully, we want 0 to be the default if we don't have something set
-        time = userDefaults.integer(forKey: constants.timeKey)
+        time = Settings.time
         resetTimer = nil
         timeChange()
     }
@@ -208,7 +203,7 @@ class MainViewController: UIViewController {
     /// Handles the session being started; store the time as the new default, and start the timer
     func startSession(){
         // Store the time value so that we default to it next time
-        userDefaults.set(time, forKey: constants.timeKey)
+        Settings.time = time
         // Start the animation
         startBreatheAnimation()
         // Analog timer view
@@ -330,10 +325,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Hide the 'save to health' button; it'll be displayed at the end of a session if we need to ask for permission to save it.
         saveToHealthButton.isHidden = true
-        // Configure the date/time formatter, since it'll be used by setting the time, which is one of our next steps. Thanks go to [CrunchyBagel](https://crunchybagel.com/formatting-a-duration-with-nsdatecomponentsformatter/) for the how-to on this.
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [ .minute, .second ]
-        formatter.zeroFormattingBehavior = [ .pad ]
         // Load the time from defaults
         timerReset()
         
