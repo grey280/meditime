@@ -243,6 +243,9 @@ Drag up or down to set timer.</string>
                                     <segment title="5 seconds"/>
                                     <segment title="30 seconds"/>
                                 </segments>
+                                <connections>
+                                    <action selector="granularityAdjusted:" destination="EKB-ob-rPi" eventType="valueChanged" id="RTF-WR-hH6"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-Vp-yFe">
                                 <rect key="frame" x="242" y="579" width="117" height="29"/>
@@ -250,6 +253,9 @@ Drag up or down to set timer.</string>
                                     <segment title="Vibrate"/>
                                     <segment title="Chime"/>
                                 </segments>
+                                <connections>
+                                    <action selector="timerDoneChanged:" destination="EKB-ob-rPi" eventType="valueChanged" id="ACE-m9-E0Y"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer adjustment:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-it-Vy0">
                                 <rect key="frame" x="16" y="506.5" width="139" height="20.5"/>
@@ -306,6 +312,8 @@ Drag up or down to set timer.</string>
                     <connections>
                         <outlet property="doneButton" destination="OiE-gN-phO" id="fIL-D0-Bxm"/>
                         <outlet property="privacyTextView" destination="8Zt-Uo-i5Q" id="2WW-Ic-onF"/>
+                        <outlet property="timerDoneSetting" destination="HR1-Vp-yFe" id="DNJ-IT-InS"/>
+                        <outlet property="timerSetting" destination="QHO-b5-ihb" id="fJR-lc-J0f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-SG-dX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
