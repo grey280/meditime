@@ -83,15 +83,17 @@ class MainViewController: UIViewController {
             previousTranslation = sender.translation(in: sender.view)
         case .changed:
             let currentTrans = sender.translation(in: sender.view)
-            if sessionStart != nil && (currentTrans.y < 10 && currentTrans.y > -10) { // Don't want it to be *too* easy to mess up the time
+            
+            if sessionStart != nil && (!isTimerMode || (currentTrans.y < 10 && currentTrans.y > -10)) { // Don't want it to be *too* easy to mess up the time
                 // TODO: Verify that 10 is the right number to use there, does that feel right?
-                break
+                return
             }
             // If you manually set the time again before we've reset it, then forget about doing that.
             if resetTimer != nil{
                 resetTimer?.suspend()
                 resetTimer = nil
             }
+            
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
             if addValue != 0{
@@ -101,12 +103,14 @@ class MainViewController: UIViewController {
                 timeDisplay.totalTime = timeDisplay.totalTime - addValue
             }
             previousTranslation = currentTrans
+            
             // Transform angle should be between 0 and +/- pi/3
             let transformAngle: CGFloat = (currentTrans.y / view.bounds.maxY) * CGFloat(Double.pi / 3)
             let newTransform = CATransform3DMakeRotation(transformAngle, 1.0, 0.0, 0.0)
             for clockDisplay in clockDisplays{
                 clockDisplay.layer.transform = newTransform
             }
+            
             timeChange()
         case .cancelled, .ended, .failed:
             feedbackGenerator = nil
