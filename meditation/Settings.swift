@@ -9,12 +9,15 @@
 import Foundation
 
 class Settings{
-    private static let UD = UserDefaults.standard
+    /// A single shared instance of UserDefaults
+    private static let UD = UserDefaults.standard // good to have this in one place, in case we need to switch to a custom suite later
     
+    /// Default values for settings
     private struct defaults{
         static let timerGranularity = 5
     }
     
+    /// Keys for use with UserDefaults
     private struct keys{
         static let timerGranularity = "timerGranularity"
     }
