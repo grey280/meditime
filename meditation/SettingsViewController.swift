@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
         case 1:
             Settings.timerGranularity = 5
         case 2:
-            Settings.timerGranularity = 60
+            Settings.timerGranularity = 30
         default:
             // We'll assume 5 seconds if we somehow get a value that shouldn't happen. Yay, defaults!
             Settings.timerGranularity = 5
@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController {
             timerSettingSelected = 0
         case 5:
             timerSettingSelected = 1
-        case 60:
+        case 30:
             timerSettingSelected = 2
         default:
             // We'll assume 5 seconds, if we get a weird number that shouldn't happen.

@@ -99,6 +99,14 @@ class MainViewController: UIViewController {
             }
             
             let addValue = Int((currentTrans.y - (previousTranslation?.y ?? 0.0))/2)
+            
+            guard (abs(addValue) % Settings.timerGranularity) == 0 else{
+                // Respect the user's setting about how granular the adjustments should be.
+                // 'abs' as it may be negative
+                // mod as it might be greater than but not equal to, and we want nice increments if that's what the user set
+                return
+            }
+            
             // Subtract addValue, since it'll be negative if you're swiping upwards, and positive if you're swiping downwards.
             if addValue != 0{
                 time = time - addValue
