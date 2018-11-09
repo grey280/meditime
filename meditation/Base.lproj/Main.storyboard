@@ -272,6 +272,9 @@ Drag up or down to set timer.</string>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zt-Uo-i5Q">
                                 <rect key="frame" x="16" y="59" width="343" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Mwr-gh-M8H"/>
+                                </constraints>
                                 <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -288,9 +291,8 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="LWC-Qd-2en" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="6QH-ha-s3Y"/>
                             <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="top" secondItem="eob-jQ-h3B" secondAttribute="bottom" constant="7.5" id="7B1-0c-YY7"/>
                             <constraint firstItem="lww-Xs-L3a" firstAttribute="top" secondItem="QHO-b5-ihb" secondAttribute="bottom" constant="16" id="7VE-d7-AcR"/>
-                            <constraint firstItem="7f4-it-Vy0" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="8Rx-Zs-ieE"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
-                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="HR1-Vp-yFe" secondAttribute="trailing" constant="16" id="Ac3-nX-l2w"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="AEm-cL-uk0"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="Azo-nX-wVv"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="OiE-gN-phO" secondAttribute="trailing" constant="16" id="B1r-kw-jTw"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lww-Xs-L3a" secondAttribute="trailing" constant="6" id="CbV-Xb-YBg"/>
@@ -298,14 +300,15 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
                             <constraint firstItem="7f4-it-Vy0" firstAttribute="top" secondItem="LWC-Qd-2en" secondAttribute="bottom" constant="16" id="QbM-Tn-QJx"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="top" secondItem="lww-Xs-L3a" secondAttribute="bottom" constant="-20.5" id="R6b-Se-eLD"/>
+                            <constraint firstItem="lww-Xs-L3a" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="-139" id="SGA-xi-1zL"/>
                             <constraint firstItem="OiE-gN-phO" firstAttribute="top" secondItem="HR1-Vp-yFe" secondAttribute="bottom" constant="16" id="Ywe-Lt-pav"/>
-                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" constant="16" id="aZy-I9-kSd"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="16" id="dCA-Nx-3n0"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
-                            <constraint firstItem="lww-Xs-L3a" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="nLb-hs-dpX"/>
-                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="8Zt-Uo-i5Q" secondAttribute="trailing" constant="16" id="vG5-uX-5ez"/>
-                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="yon-pN-nuU"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="-139" id="qY7-c1-N9y"/>
+                            <constraint firstItem="HR1-Vp-yFe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" id="s9O-Ju-CsV"/>
+                            <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" secondItem="8Zt-Uo-i5Q" secondAttribute="trailing" constant="-257" id="s9s-Tg-mad"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="yon-pN-nuU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nLu-QY-AVe"/>
                     </view>
