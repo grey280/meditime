@@ -305,7 +305,7 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="16" id="dCA-Nx-3n0"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
-                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="-139" id="qY7-c1-N9y"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="leading" id="qY7-c1-N9y"/>
                             <constraint firstItem="HR1-Vp-yFe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" id="s9O-Ju-CsV"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" secondItem="8Zt-Uo-i5Q" secondAttribute="trailing" constant="-257" id="s9s-Tg-mad"/>
                             <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="yon-pN-nuU"/>
