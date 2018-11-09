@@ -16,12 +16,14 @@ class Settings{
     private struct defaults{
         static let timerGranularity = 5
         static let time = 0
+        static let lastTimer = 60*5
     }
     
     /// Keys for use with UserDefaults
     private struct keys{
         static let timerGranularity = "timerGranularity"
         static let time = "net.twoeighty.meditation.time"
+        static let lastTimer = "lastTimer"
     }
     
     /// The granularity of timer adjustments, in seconds.
@@ -46,6 +48,17 @@ class Settings{
         }
         set{
             UD.set(newValue, forKey: keys.time)
+            if newValue > 0{
+                UD.set(newValue, forKey: keys.lastTimer)
+            }
+        }
+    }
+    
+    /// Last-used timer, in seconds. Cannot be 0. Automatically stored when saving `time`
+    static var lastTimer: Int{
+        get{
+            let current = UD.integer(forKey: keys.lastTimer)
+            return current > 0 ? current : defaults.lastTimer
         }
     }
 }
