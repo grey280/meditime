@@ -11,7 +11,9 @@ import HealthKit
 
 /// Handles all the interactions with HealthKit
 class Health{
-    static var healthStore: HKHealthStore?
+    static var healthStore: HKHealthStore? = {
+        return HKHealthStore.isHealthDataAvailable() ? HKHealthStore() : nil
+    }()
     
     /// Whether or not the "save to Health" button should be displayed. True if HK is available and we haven't already got permission to save.
     static var shouldShowHealth: Bool{
@@ -47,5 +49,15 @@ class Health{
         healthStore?.save(sample, withCompletion: { (success, err) in
             // No error handling, because what can I do with it?
         })
+    }
+    
+    /// Request permission to store to Health
+    ///
+    /// - Parameter completion: passed through to the call to `HKHealthStore.requestAuthorization(toShare:read:completion:)`
+    static func requestPermission(completion: @escaping (Bool, Error?) -> Void){
+        guard let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
+            return
+        }
+        healthStore?.requestAuthorization(toShare: [catType], read: nil, completion: completion)
     }
 }

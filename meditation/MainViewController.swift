@@ -160,8 +160,7 @@ class MainViewController: UIViewController {
     ///
     /// - Parameter sender: the button that sent it; ignored
     @IBAction func saveToHealth(_ sender: Any? = nil) {
-        let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession)!
-        healthStore?.requestAuthorization(toShare: [catType], read: nil, completion: { (success, err) in
+        Health.requestPermission(completion: { (success, err) in
             if success{
                 self.logLastSession()
                 DispatchQueue.main.async {
