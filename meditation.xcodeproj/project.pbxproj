@@ -19,6 +19,7 @@
 		2DA3CF6220EEB5DE0000131E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF6020EEB5DE0000131E /* LaunchScreen.storyboard */; };
 		2DBBCD9D218CFD6900A0106D /* CircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */; };
 		2DC372F120F56ABF00371153 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC372F020F56ABF00371153 /* Constants.swift */; };
+		2DDFF9E7219E6E1200804E44 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDFF9E6219E6E1200804E44 /* Health.swift */; };
 		2DFCA96C210175AF00C54E2B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFCA96B210175AF00C54E2B /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		2DA3CF6320EEB5DE0000131E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSegue.swift; sourceTree = "<group>"; };
 		2DC372F020F56ABF00371153 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2DDFF9E6219E6E1200804E44 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
 		2DFCA96B210175AF00C54E2B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
 				2DA3CF5920EEB5DC0000131E /* MainViewController.swift */,
+				2DDFF9E6219E6E1200804E44 /* Health.swift */,
 				2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */,
 				2DC372F020F56ABF00371153 /* Constants.swift */,
 				2DA3CF5B20EEB5DC0000131E /* Main.storyboard */,
@@ -225,6 +228,7 @@
 				2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */,
 				2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */,
 				2DBBCD9D218CFD6900A0106D /* CircleSegue.swift in Sources */,
+				2DDFF9E7219E6E1200804E44 /* Health.swift in Sources */,
 				2D31DB572190E2E700A5B1D4 /* CircleButton.swift in Sources */,
 				2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */,
 				2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */,
