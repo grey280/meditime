@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import HealthKit
 import AudioToolbox
 
 /// The main view controller for the app.
 class MainViewController: UIViewController {
     // MARK: Variables
-    /// Does what it says on the tin.
-    @available(*, deprecated) var healthStore: HKHealthStore?
     /// The 'save to health' button; should only be displayed if it's not automatically doing it
     @IBOutlet weak var saveToHealthButton: UIButton!
     /// The amount of time, in seconds, for the session
@@ -328,14 +325,6 @@ class MainViewController: UIViewController {
         
         // Make sure we handle rotation nicely
         NotificationCenter.default.addObserver(self, selector: #selector(setCenterPath), name: UIDevice.orientationDidChangeNotification, object: nil)
-        
-        // Initialize health so we don't lose the first session to a `healthStore=nil` bug
-        if HKHealthStore.isHealthDataAvailable(){
-            if healthStore == nil{
-                healthStore = HKHealthStore()
-            }
-        }
-        
     }
     
     // MARK: - Animation Functions
