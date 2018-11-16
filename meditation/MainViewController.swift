@@ -14,7 +14,7 @@ import AudioToolbox
 class MainViewController: UIViewController {
     // MARK: Variables
     /// Does what it says on the tin.
-    var healthStore: HKHealthStore?
+    @available(*, deprecated) var healthStore: HKHealthStore?
     /// The 'save to health' button; should only be displayed if it's not automatically doing it
     @IBOutlet weak var saveToHealthButton: UIButton!
     /// The amount of time, in seconds, for the session
@@ -165,29 +165,10 @@ class MainViewController: UIViewController {
             if success{
                 self.logLastSession()
                 DispatchQueue.main.async {
-                    self.saveToHealthButton.isHidden = !self.shouldShowHealth()
+                    self.saveToHealthButton.isHidden = !Health.shouldShowHealth
                 }
             }
         })
-    }
-    
-    /// Whether or not the "save to health" button should be displayed.
-    ///
-    /// - Returns: True if HK is available and we haven't already got permission to save, false otherwise.
-    private func shouldShowHealth() -> Bool{
-        if HKHealthStore.isHealthDataAvailable(){
-            if healthStore == nil{
-                healthStore = HKHealthStore()
-            }
-            let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession)!
-            if healthStore?.authorizationStatus(for: mindfulType) != .notDetermined{
-                return false
-            }else{
-                return true
-            }
-        }else{
-            return false
-        }
     }
     
     // MARK: - Internal Functions
@@ -242,18 +223,10 @@ class MainViewController: UIViewController {
     
     /// Log the last session to HealthKit, if possible
     func logLastSession(){
-        guard lastSessionStart != nil, lastSessionEnd != nil, let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
-            // Something went horribly wrong!
+        guard lastSessionStart != nil, lastSessionEnd != nil else{
             return
         }
-        if healthStore?.authorizationStatus(for: catType) != .sharingAuthorized{
-            // Whoops, we don't have permission yet; since everything is still stored, though, we can just let the 'save to Health' button handle it instead
-            return
-        }
-        let sample = HKCategorySample(type: catType, value: 0, start: lastSessionStart!, end: lastSessionEnd!)
-        healthStore?.save(sample, withCompletion: { (success, err) in
-            // Honestly we're not gonna handle errors here, because what else can we do if it fails? I'm not writing caching or anything, so whatever.
-        })
+        Health.logSession(start: lastSessionStart!, end: lastSessionEnd!)
     }
     
     /// Handles the session being ended; logs to Health, if available, and cleans things up to run again.
@@ -278,7 +251,7 @@ class MainViewController: UIViewController {
         resetTimer?.resume()
         // Show the 'save to health' button, if we need to
         DispatchQueue.main.async {
-            self.saveToHealthButton.isHidden = !self.shouldShowHealth()
+            self.saveToHealthButton.isHidden = !Health.shouldShowHealth
         }
         // Store the session to HK, if we can
         logLastSession()
