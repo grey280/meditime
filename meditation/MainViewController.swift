@@ -136,10 +136,10 @@ class MainViewController: UIViewController {
     /// Handle a double tap, either starting or stopping a mindfulness session.
     ///
     /// - Parameter sender: the tap gesture recognizer; ignored
-    @IBAction func doubleTap(_ sender: UITapGestureRecognizer) {
+    @IBAction func doubleTap(_ sender: UITapGestureRecognizer? = nil) {
         if sessionStart == nil{
             startSession()
-            let loc = sender.location(in: self.view)
+            let loc = sender?.location(in: self.view) ?? CGPoint(x: view.bounds.midX, y: view.bounds.midY)
             let innerPath = UIBezierPath(arcCenter: loc, radius: 0.1, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
             let outerPath = UIBezierPath(arcCenter: loc, radius: view.bounds.height > view.bounds.width ? view.bounds.height * 2 : view.bounds.width * 2, startAngle: 0.0, endAngle: CGFloat(2*Double.pi), clockwise: true)
             let anim = CABasicAnimation(keyPath: "path")
