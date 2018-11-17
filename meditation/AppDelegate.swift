@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let main = window?.rootViewController as? MainViewController else{
             return false
         }
-        if (userActivity.interaction?.intent as? EndSessionIntent) != nil && main.timer != nil{
-            main.endSession()
-            return true
-        }
         if main.timer != nil{
+            if (userActivity.interaction?.intent as? EndSessionIntent) != nil{
+                main.endSession()
+                return true
+            }
             return false
         }
         if (userActivity.interaction?.intent as? StartStopwatchIntent) != nil{
