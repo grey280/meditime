@@ -22,11 +22,26 @@
 			<key>INIntentDescriptionID</key>
 			<string>YFhqiC</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>2</integer>
+			<integer>4</integer>
 			<key>INIntentName</key>
 			<string>StartTimer</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
+				<key>durationMinutes</key>
+				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<false/>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string></string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>x6VTZ7</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<false/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Start ${durationMinutes}-minute timer</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>mw8RHk</string>
+				</dict>
 				<key>durationSeconds</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
@@ -38,7 +53,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Start ${durationSeconds}-Second Timer</string>
+					<string>Start ${durationSeconds}-second timer</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>sXc1p8</string>
 				</dict>
@@ -56,6 +71,18 @@
 					<integer>2</integer>
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterName</key>
+					<string>durationMinutes</string>
+					<key>INIntentParameterSupportsMultipleValues</key>
+					<false/>
+					<key>INIntentParameterTag</key>
+					<integer>4</integer>
+					<key>INIntentParameterType</key>
+					<string>Decimal</string>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
@@ -125,7 +152,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>End Session</string>
+					<string>End session</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>WwP66y</string>
 				</dict>
@@ -199,7 +226,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Start Stopwatch</string>
+					<string>Start stopwatch</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>rUOHXi</string>
 				</dict>
