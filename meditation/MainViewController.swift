@@ -243,6 +243,11 @@ class MainViewController: UIViewController {
         // If we were in timer mode and ended because the timer ran out, buzz the phone to make it clear we're done
         if isTimerMode && time == 0{
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        }else{
+            // We ended manually, so we want to suggest that to the Intents engine
+            let stopIntent = EndSessionIntent()
+            let interaction = INInteraction(intent: stopIntent, response: nil)
+            interaction.donate(completion: nil)
         }
         // Copy the start time, and then reset the session start so we know the timer isn't running anymore.
         lastSessionStart = sessionStart
