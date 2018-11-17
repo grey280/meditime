@@ -22,25 +22,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let main = window?.rootViewController as? MainViewController else{
             return false
         }
+        if (userActivity.interaction?.intent as? EndSessionIntent) != nil && main.timer != nil{
+            main.endSession()
+            return true
+        }
+        if main.timer != nil{
+            return false
+        }
         if (userActivity.interaction?.intent as? StartStopwatchIntent) != nil{
             main.time = 0
-            main.startSession()
+            main.doubleTap()
             return true
         }
         if let start = userActivity.interaction?.intent as? StartTimerIntent{
             if let minutes = start.durationMinutes{
                 let min = Double(truncating: minutes)
                 main.time = Int(min*60)
-                main.startSession()
+                main.doubleTap()
             }else{
                 let seconds = start.durationSeconds!
                 main.time = Int(truncating: seconds)
-                main.startSession()
+                main.doubleTap()
             }
-            return true
-        }
-        if (userActivity.interaction?.intent as? EndSessionIntent) != nil{
-            main.endSession()
             return true
         }
         return false
