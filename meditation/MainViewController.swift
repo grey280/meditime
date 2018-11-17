@@ -208,7 +208,11 @@ class MainViewController: UIViewController {
             timeDisplay.hideClock = false
             
             let startTimerSuggestion = StartTimerIntent()
-            startTimerSuggestion.durationSeconds = NSNumber(value: time)
+            if time%60 == 0{
+                startTimerSuggestion.durationMinutes = NSNumber(value: Double(time)/60)
+            }else{
+                startTimerSuggestion.durationSeconds = NSNumber(value: time)
+            }
             let interaction = INInteraction(intent: startTimerSuggestion, response: nil)
             interaction.dateInterval = DateInterval(start: Date(), end: Date().addingTimeInterval(TimeInterval(time)))
             interaction.donate(completion: nil)
