@@ -12,11 +12,38 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        guard let main = window?.rootViewController as? MainViewController else{
+            return false
+        }
+        if (userActivity.interaction?.intent as? StartStopwatchIntent) != nil{
+            main.time = 0
+            main.startSession()
+            return true
+        }
+        if let start = userActivity.interaction?.intent as? StartTimerIntent{
+            if let minutes = start.durationMinutes{
+                let min = Double(truncating: minutes)
+                main.time = Int(min*60)
+                main.startSession()
+            }else{
+                let seconds = start.durationSeconds!
+                main.time = Int(truncating: seconds)
+                main.startSession()
+            }
+            return true
+        }
+        if (userActivity.interaction?.intent as? EndSessionIntent) != nil{
+            main.endSession()
+            return true
+        }
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
