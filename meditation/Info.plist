@@ -26,6 +26,12 @@
 	<string>The app stores your mindful sessions so you can see your mindfulness history.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>The app stores your mindful sessions so you can see your mindfulness history.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>EndSessionIntent</string>
+		<string>StartStopwatchIntent</string>
+		<string>StartTimerIntent</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

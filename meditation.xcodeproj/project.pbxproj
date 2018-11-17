@@ -10,6 +10,7 @@
 		2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */; };
 		2D31DB572190E2E700A5B1D4 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31DB562190E2E700A5B1D4 /* CircleButton.swift */; };
 		2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* SettingsViewController.swift */; };
+		2D6DB76D21A0C538006FA07B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2D6DB76C21A0C537006FA07B /* Intents.intentdefinition */; };
 		2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */; };
 		2D9C608721926B5500E0B50D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C608621926B5500E0B50D /* Settings.swift */; };
 		2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
 		2D4C242D20F96BFD0063BA28 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
 		2D4C243020F96DF10063BA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2D6DB76C21A0C537006FA07B /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		2D98D56721013E400049FD7B /* default.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
 		2D98FD9B2101324000338719 /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2D4C243020F96DF10063BA28 /* SettingsViewController.swift */,
+				2D6DB76C21A0C537006FA07B /* Intents.intentdefinition */,
 				2D9C608621926B5500E0B50D /* Settings.swift */,
 				2D31DB562190E2E700A5B1D4 /* CircleButton.swift */,
 				2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */,
@@ -228,6 +231,7 @@
 				2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */,
 				2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */,
 				2DBBCD9D218CFD6900A0106D /* CircleSegue.swift in Sources */,
+				2D6DB76D21A0C538006FA07B /* Intents.intentdefinition in Sources */,
 				2DDFF9E7219E6E1200804E44 /* Health.swift in Sources */,
 				2D31DB572190E2E700A5B1D4 /* CircleButton.swift in Sources */,
 				2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */,
