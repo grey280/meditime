@@ -231,13 +231,13 @@ Drag up or down to set timer.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-Qd-2en">
-                                <rect key="frame" x="141" y="459" width="93" height="31.5"/>
+                                <rect key="frame" x="141" y="503" width="93" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
-                                <rect key="frame" x="102" y="535" width="257" height="29"/>
+                                <rect key="frame" x="102" y="579" width="257" height="29"/>
                                 <segments>
                                     <segment title="1 second"/>
                                     <segment title="5 seconds"/>
@@ -247,30 +247,14 @@ Drag up or down to set timer.</string>
                                     <action selector="granularityAdjusted:" destination="EKB-ob-rPi" eventType="valueChanged" id="RTF-WR-hH6"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HR1-Vp-yFe">
-                                <rect key="frame" x="242" y="579" width="117" height="29"/>
-                                <segments>
-                                    <segment title="Vibrate"/>
-                                    <segment title="Chime"/>
-                                </segments>
-                                <connections>
-                                    <action selector="timerDoneChanged:" destination="EKB-ob-rPi" eventType="valueChanged" id="ACE-m9-E0Y"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer adjustment:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-it-Vy0">
-                                <rect key="frame" x="16" y="506.5" width="139" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When timer is done:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lww-Xs-L3a">
-                                <rect key="frame" x="16" y="579" width="153" height="20.5"/>
+                                <rect key="frame" x="16" y="550.5" width="139" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zt-Uo-i5Q">
-                                <rect key="frame" x="16" y="59" width="343" height="392"/>
+                                <rect key="frame" x="16" y="59" width="343" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Mwr-gh-M8H"/>
@@ -290,24 +274,19 @@ Drag up or down to set timer.</string>
                         <constraints>
                             <constraint firstItem="LWC-Qd-2en" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="6QH-ha-s3Y"/>
                             <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="top" secondItem="eob-jQ-h3B" secondAttribute="bottom" constant="7.5" id="7B1-0c-YY7"/>
-                            <constraint firstItem="lww-Xs-L3a" firstAttribute="top" secondItem="QHO-b5-ihb" secondAttribute="bottom" constant="16" id="7VE-d7-AcR"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
                             <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="AEm-cL-uk0"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="Azo-nX-wVv"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="OiE-gN-phO" secondAttribute="trailing" constant="16" id="B1r-kw-jTw"/>
-                            <constraint firstItem="HR1-Vp-yFe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lww-Xs-L3a" secondAttribute="trailing" constant="6" id="CbV-Xb-YBg"/>
                             <constraint firstItem="LWC-Qd-2en" firstAttribute="top" secondItem="8Zt-Uo-i5Q" secondAttribute="bottom" constant="8" id="Eak-rm-cI2"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
                             <constraint firstItem="7f4-it-Vy0" firstAttribute="top" secondItem="LWC-Qd-2en" secondAttribute="bottom" constant="16" id="QbM-Tn-QJx"/>
-                            <constraint firstItem="HR1-Vp-yFe" firstAttribute="top" secondItem="lww-Xs-L3a" secondAttribute="bottom" constant="-20.5" id="R6b-Se-eLD"/>
-                            <constraint firstItem="lww-Xs-L3a" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="-139" id="SGA-xi-1zL"/>
-                            <constraint firstItem="OiE-gN-phO" firstAttribute="top" secondItem="HR1-Vp-yFe" secondAttribute="bottom" constant="16" id="Ywe-Lt-pav"/>
                             <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="16" id="dCA-Nx-3n0"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
                             <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
                             <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="leading" id="qY7-c1-N9y"/>
-                            <constraint firstItem="HR1-Vp-yFe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" id="s9O-Ju-CsV"/>
                             <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" secondItem="8Zt-Uo-i5Q" secondAttribute="trailing" constant="-257" id="s9s-Tg-mad"/>
+                            <constraint firstItem="OiE-gN-phO" firstAttribute="top" secondItem="QHO-b5-ihb" secondAttribute="bottom" constant="16" id="sTb-UV-Ysd"/>
                             <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="yon-pN-nuU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nLu-QY-AVe"/>
@@ -315,7 +294,6 @@ Drag up or down to set timer.</string>
                     <connections>
                         <outlet property="doneButton" destination="OiE-gN-phO" id="fIL-D0-Bxm"/>
                         <outlet property="privacyTextView" destination="8Zt-Uo-i5Q" id="2WW-Ic-onF"/>
-                        <outlet property="timerDoneSetting" destination="HR1-Vp-yFe" id="DNJ-IT-InS"/>
                         <outlet property="timerSetting" destination="QHO-b5-ihb" id="fJR-lc-J0f"/>
                     </connections>
                 </viewController>

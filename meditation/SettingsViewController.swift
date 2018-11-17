@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var privacyTextView: UITextView!
     @IBOutlet weak var timerSetting: UISegmentedControl!
-    @IBOutlet weak var timerDoneSetting: UISegmentedControl!
     
     @IBOutlet weak var doneButton: UIButton!
     
@@ -30,9 +29,6 @@ class SettingsViewController: UIViewController {
             // We'll assume 5 seconds if we somehow get a value that shouldn't happen. Yay, defaults!
             Settings.timerGranularity = 5
         }
-    }
-    
-    @IBAction func timerDoneChanged(_ sender: UISegmentedControl) {
     }
     
     // MARK: - Navigation
