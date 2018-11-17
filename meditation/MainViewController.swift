@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import Intents
 
 /// The main view controller for the app.
 class MainViewController: UIViewController {
@@ -205,6 +206,14 @@ class MainViewController: UIViewController {
             timeDisplay.bypassAnimation = true
             timeDisplay.currentTime = time
             timeDisplay.hideClock = false
+            
+            let startTimerSuggestion = StartTimerIntent()
+            startTimerSuggestion.durationSeconds = NSNumber(value: time)
+            let interaction = INInteraction(intent: startTimerSuggestion, response: nil)
+            interaction.dateInterval = DateInterval(start: Date(), end: Date().addingTimeInterval(TimeInterval(time)))
+            interaction.donate { (error) in
+                // do nothing with the error!
+            }
         }else{
             timeDisplay.hideClock = true
         }

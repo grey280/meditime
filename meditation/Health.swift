@@ -8,7 +8,6 @@
 
 import Foundation
 import HealthKit
-import Intents
 
 /// Handles all the interactions with HealthKit
 class Health{
@@ -41,15 +40,6 @@ class Health{
     static func logSession(start: Date, end: Date){
         guard let catType = HKCategoryType.categoryType(forIdentifier: .mindfulSession) else{
             return
-        }
-        
-        let startTimerSuggestion = StartTimerIntent()
-        let difference = end.timeIntervalSince(start)
-        startTimerSuggestion.durationSeconds = NSNumber(value: difference)
-        let interaction = INInteraction(intent: startTimerSuggestion, response: nil)
-        interaction.dateInterval = DateInterval(start: start, end: end)
-        interaction.donate { (error) in
-            // do nothing with the error!
         }
         
         if healthStore?.authorizationStatus(for: catType) != .sharingAuthorized{
