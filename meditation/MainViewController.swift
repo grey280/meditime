@@ -211,11 +211,13 @@ class MainViewController: UIViewController {
             startTimerSuggestion.durationSeconds = NSNumber(value: time)
             let interaction = INInteraction(intent: startTimerSuggestion, response: nil)
             interaction.dateInterval = DateInterval(start: Date(), end: Date().addingTimeInterval(TimeInterval(time)))
-            interaction.donate { (error) in
-                // do nothing with the error!
-            }
+            interaction.donate(completion: nil)
         }else{
             timeDisplay.hideClock = true
+            
+            let startStopwatchSuggestion = StartStopwatchIntent()
+            let interaction = INInteraction(intent: startStopwatchSuggestion, response: nil)
+            interaction.donate(completion: nil)
         }
         sessionStart = Date()
         // Start the timer that'll run everything.
