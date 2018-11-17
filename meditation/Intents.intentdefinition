@@ -38,7 +38,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Start Timer</string>
+					<string>Start ${durationSeconds}-Second Timer</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>sXc1p8</string>
 				</dict>
