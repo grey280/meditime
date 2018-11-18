@@ -85,6 +85,7 @@ class SettingsViewController: UIViewController {
         if !didSetupSiriButtons, let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
             if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()){
                 siriStack.addArrangedSubview(addWatchLabel)
+                addWatchLabel.widthAnchor.constraint(equalTo: siriStack.widthAnchor, multiplier: 1.0).isActive = true
                 let filtered = shortcuts.filter({ $0.shortcut == stopwatchShortcut })
                 if filtered.count > 0{
                     addWatchButton = createAddButton(for: filtered[0].shortcut)
@@ -97,6 +98,7 @@ class SettingsViewController: UIViewController {
             }
             if let stopShortcut = INShortcut(intent: EndSessionIntent()){
                 siriStack.addArrangedSubview(addStopLabel)
+                addStopLabel.widthAnchor.constraint(equalTo: siriStack.widthAnchor, multiplier: 1.0).isActive = true
                 let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
                 if filtered.count > 0{
                     addStopButton = createAddButton(for: filtered[0].shortcut)
