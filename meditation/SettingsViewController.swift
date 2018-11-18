@@ -61,6 +61,13 @@ class SettingsViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    func createAddButton(for shortcut: INShortcut? = nil) -> INUIAddVoiceShortcutButton{
+        let button = INUIAddVoiceShortcutButton(style: .black)
+        button.translatesAutoresizingMaskIntoConstraints = true
+        button.shortcut = shortcut
+        return button
+    }
+    
     // MARK: - Navigation
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,14 +89,16 @@ class SettingsViewController: UIViewController {
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
             if let stopShortcut = INShortcut(intent: EndSessionIntent()){
-                if shortcuts.filter({ $0.shortcut == stopShortcut }).count > 0{
+                let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
+                if filtered.count > 0{
                     // TODO: The shortcut already exists! Show an 'edit' button instead of an 'add' button
                 }else{
                     // TODO: Shortcut doesn't exist, show 'add' button
                 }
             }
             if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()){
-                if shortcuts.filter({ $0.shortcut == stopwatchShortcut }).count > 0{
+                let filtered = shortcuts.filter({ $0.shortcut == stopwatchShortcut })
+                if filtered.count > 0{
                     // TODO: The shortcut already exists! Show an 'edit' button instead of an 'add' button
                 }else{
                     // TODO: Shortcut doesn't exist, show 'add' button
