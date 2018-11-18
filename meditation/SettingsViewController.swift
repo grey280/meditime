@@ -40,7 +40,7 @@ class SettingsViewController: UIViewController {
     @objc func addStopwatch(){
         let stopwatchIntent = StartStopwatchIntent()
         guard let stopwatchShortcut = INShortcut(intent: stopwatchIntent) else{
-            os_log("Failed to create shortcut from StartStopwatchIntent", log: OSLog.default, type: .error)
+            os_log("Failed to create shortcut from StartStopwatchIntent", log: Log.shortcuts, type: .error)
             return
         }
         add(shortcut: stopwatchShortcut)
@@ -49,7 +49,7 @@ class SettingsViewController: UIViewController {
     @objc func addStop(){
         let stopIntent = EndSessionIntent()
         guard let stopShortcut = INShortcut(intent: stopIntent) else{
-            os_log("Failed to create shortcut from EndSessionIntent", log: OSLog.default, type: .error)
+            os_log("Failed to create shortcut from EndSessionIntent", log: Log.shortcuts, type: .error)
             return
         }
         add(shortcut: stopShortcut)

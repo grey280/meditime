@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import os
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var activeShortcuts: [INVoiceShortcut]?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        INVoiceShortcutCenter.shared.getAllVoiceShortcuts { (shortcuts, error) in
+            if let err = error{
+                os_log("Failed to load shortcuts: %@", log: Log.shortcuts, type: .error, err)
+            }
+        }
+        
         return true
     }
     
