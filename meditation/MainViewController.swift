@@ -361,7 +361,7 @@ class MainViewController: UIViewController {
         let end: [NSNumber] = [0, 0.1, 0.15, 0.2, 1]
         let orig: [NSNumber] = [0, 0.8, 0.85, 0.9, 1]
         breatheAnimation = CABasicAnimation(keyPath: "locations")
-        breatheAnimation!.duration = 6
+        breatheAnimation!.duration = 5
         breatheAnimation!.fromValue = orig
         breatheAnimation!.toValue = end
         breatheAnimation!.repeatCount = Float.greatestFiniteMagnitude
