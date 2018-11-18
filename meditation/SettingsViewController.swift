@@ -80,6 +80,23 @@ class SettingsViewController: UIViewController {
             timerSettingSelected = 1
         }
         
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
+            if let stopShortcut = INShortcut(intent: EndSessionIntent()){
+                if shortcuts.filter({ $0.shortcut == stopShortcut }).count > 0{
+                    // TODO: The shortcut already exists! Show an 'edit' button instead of an 'add' button
+                }else{
+                    // TODO: Shortcut doesn't exist, show 'add' button
+                }
+            }
+            if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()){
+                if shortcuts.filter({ $0.shortcut == stopwatchShortcut }).count > 0{
+                    // TODO: The shortcut already exists! Show an 'edit' button instead of an 'add' button
+                }else{
+                    // TODO: Shortcut doesn't exist, show 'add' button
+                }
+            }
+        }
+        
         DispatchQueue.main.async {
             // We have to do this because, for some reason, the UITextView defaults to being scrolled down
             self.privacyTextView.scrollRangeToVisible(NSMakeRange(0, 1))
