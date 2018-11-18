@@ -269,7 +269,7 @@ Drag up or down to set timer.</string>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qO1-bH-6eq">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qO1-bH-6eq">
                                 <rect key="frame" x="16" y="485.5" width="343" height="57"/>
                             </stackView>
                         </subviews>
