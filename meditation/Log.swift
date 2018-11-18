@@ -8,7 +8,7 @@
 
 import os.log
 
-fileprivate static let subsystem = "net.twoeighty.meditation"
+fileprivate let subsystem = "net.twoeighty.meditation"
 
 struct Log{
     static var general = OSLog(subsystem: subsystem, category: "general")
