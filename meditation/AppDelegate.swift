@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         INVoiceShortcutCenter.shared.getAllVoiceShortcuts { (shortcuts, error) in
             if let err = error{
                 os_log("Failed to load shortcuts: %@", log: Log.shortcuts, type: .error, [err])
+                return
             }
+            self.activeShortcuts = shortcuts
         }
         
         return true
