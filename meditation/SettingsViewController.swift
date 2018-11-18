@@ -45,21 +45,23 @@ class SettingsViewController: UIViewController {
         return button
     }
     
-    private var didAddStopButton = false
     var addStopButton: INUIAddVoiceShortcutButton?
     var addStopLabel: UILabel = {
         let label = UILabel()
         label.text = "End session: "
         return label
     }()
+    private var addStopUUID: UUID?
     
-    private var didAddWatchButton = false
     var addWatchButton: INUIAddVoiceShortcutButton?
     var addWatchLabel: UILabel = {
         let label = UILabel()
         label.text = "Start stopwatch: "
         return label
     }()
+    private var addWatchUUID: UUID?
+    
+    private var didSetupSiriButtons = false
     
     // MARK: - Navigation
     
@@ -80,31 +82,32 @@ class SettingsViewController: UIViewController {
             timerSettingSelected = 1
         }
         
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
-            if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()), !didAddWatchButton{
+        if !didSetupSiriButtons, let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
+            if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()){
+                siriStack.addArrangedSubview(addStopLabel)
                 let filtered = shortcuts.filter({ $0.shortcut == stopwatchShortcut })
                 if filtered.count > 0{
                     addWatchButton = createAddButton(for: filtered[0].shortcut)
-                    siriStack.addArrangedSubview(addWatchButton!)
+                    addWatchLabel.isHidden = true
+                    addWatchUUID = filtered[0].identifier
                 }else{
                     addWatchButton = createAddButton(for: stopwatchShortcut)
-                    siriStack.addArrangedSubview(addStopLabel)
-                    siriStack.addArrangedSubview(addWatchButton!)
                 }
-                didAddWatchButton = true
+                siriStack.addArrangedSubview(addWatchButton!)
             }
-            if let stopShortcut = INShortcut(intent: EndSessionIntent()), !didAddStopButton{
+            if let stopShortcut = INShortcut(intent: EndSessionIntent()){
+                siriStack.addArrangedSubview(addStopLabel)
                 let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
                 if filtered.count > 0{
                     addStopButton = createAddButton(for: filtered[0].shortcut)
-                    siriStack.addArrangedSubview(addStopButton!)
+                    addStopLabel.isHidden = true
+                    addStopUUID = filtered[0].identifier
                 }else{
                     addStopButton = createAddButton(for: stopShortcut)
-                    siriStack.addArrangedSubview(addStopLabel)
-                    siriStack.addArrangedSubview(addStopButton!)
                 }
-                didAddStopButton = true
+                siriStack.addArrangedSubview(addStopButton!)
             }
+            didSetupSiriButtons = true
         }
         
         DispatchQueue.main.async {
@@ -139,25 +142,36 @@ extension SettingsViewController: INUIAddVoiceShortcutButtonDelegate{
 
 extension SettingsViewController: INUIAddVoiceShortcutViewControllerDelegate{
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
-        // TODO: Better implement this?
-//        addWatchButton?.shortcut = voiceShortcut?.shortcut
+        if voiceShortcut?.shortcut == addWatchButton?.shortcut{
+            addWatchLabel.isHidden = true
+            addWatchUUID = voiceShortcut?.identifier
+        }
+        if voiceShortcut?.shortcut == addStopButton?.shortcut{
+            addStopLabel.isHidden = true
+            addStopUUID = voiceShortcut?.identifier
+        }
         controller.dismiss(animated: true, completion: nil)
     }
     
     func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension SettingsViewController: INUIEditVoiceShortcutViewControllerDelegate{
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
-        // TODO: Properly implement this
         controller.dismiss(animated: true, completion: nil)
     }
     
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
-        // TODO: Properly implement this
+        if addWatchUUID == deletedVoiceShortcutIdentifier{
+            addWatchLabel.isHidden = false
+            addWatchUUID = nil
+        }
+        if addStopUUID == deletedVoiceShortcutIdentifier{
+            addStopLabel.isHidden = false
+            addStopUUID = nil
+        }
         controller.dismiss(animated: true, completion: nil)
     }
     
