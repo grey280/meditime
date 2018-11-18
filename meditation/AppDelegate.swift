@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         INVoiceShortcutCenter.shared.getAllVoiceShortcuts { (shortcuts, error) in
             if let err = error{
-                os_log("Failed to load shortcuts: %@", log: Log.shortcuts, type: .error, err)
+                os_log("Failed to load shortcuts: %@", log: Log.shortcuts, type: .error, [err])
             }
         }
         
