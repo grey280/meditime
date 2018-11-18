@@ -6,16 +6,20 @@
 //  Copyright © 2018 Grey Patterson. All rights reserved.
 //
 
+import os
 import UIKit
+import Intents
+import IntentsUI
 
 class SettingsViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var privacyTextView: UITextView!
     @IBOutlet weak var timerSetting: UISegmentedControl!
+    @IBOutlet weak var siriStack: UIStackView!
     
     @IBOutlet weak var doneButton: UIButton!
     
-    // MARK: - Interactionos
+    // MARK: - Interactions
     
     @IBAction func granularityAdjusted(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
@@ -29,6 +33,32 @@ class SettingsViewController: UIViewController {
             // We'll assume 5 seconds if we somehow get a value that shouldn't happen. Yay, defaults!
             Settings.timerGranularity = 5
         }
+    }
+    
+    // MARK: - SiriKit
+    
+    @objc func addStopwatch(){
+        let stopwatchIntent = StartStopwatchIntent()
+        guard let stopwatchShortcut = INShortcut(intent: stopwatchIntent) else{
+            os_log("Failed to create shortcut from StartStopwatchIntent", log: OSLog.default, type: .error)
+            return
+        }
+        add(shortcut: stopwatchShortcut)
+    }
+    
+    @objc func addStop(){
+        let stopIntent = EndSessionIntent()
+        guard let stopShortcut = INShortcut(intent: stopIntent) else{
+            os_log("Failed to create shortcut from EndSessionIntent", log: OSLog.default, type: .error)
+            return
+        }
+        add(shortcut: stopShortcut)
+    }
+    
+    func add(shortcut: INShortcut){
+        let vc = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+        vc.modalPresentationStyle = .formSheet
+        present(vc, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -53,7 +83,6 @@ class SettingsViewController: UIViewController {
         DispatchQueue.main.async {
             // We have to do this because, for some reason, the UITextView defaults to being scrolled down
             self.privacyTextView.scrollRangeToVisible(NSMakeRange(0, 1))
-            
             self.timerSetting.selectedSegmentIndex = timerSettingSelected
         }
     }
