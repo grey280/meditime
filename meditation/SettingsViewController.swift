@@ -51,7 +51,6 @@ class SettingsViewController: UIViewController {
         label.text = "End session: "
         return label
     }()
-    private var addStopUUID: UUID?
     
     var addWatchButton: INUIAddVoiceShortcutButton?
     var addWatchLabel: UILabel = {
@@ -59,7 +58,6 @@ class SettingsViewController: UIViewController {
         label.text = "Start stopwatch: "
         return label
     }()
-    private var addWatchUUID: UUID?
     
     private var didSetupSiriButtons = false
     
@@ -89,8 +87,6 @@ class SettingsViewController: UIViewController {
                 let filtered = shortcuts.filter({ $0.shortcut == stopwatchShortcut })
                 if filtered.count > 0{
                     addWatchButton = createAddButton(for: filtered[0].shortcut)
-                    addWatchLabel.isHidden = true
-                    addWatchUUID = filtered[0].identifier
                 }else{
                     addWatchButton = createAddButton(for: stopwatchShortcut)
                 }
@@ -102,8 +98,6 @@ class SettingsViewController: UIViewController {
                 let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
                 if filtered.count > 0{
                     addStopButton = createAddButton(for: filtered[0].shortcut)
-                    addStopLabel.isHidden = true
-                    addStopUUID = filtered[0].identifier
                 }else{
                     addStopButton = createAddButton(for: stopShortcut)
                 }
@@ -144,14 +138,6 @@ extension SettingsViewController: INUIAddVoiceShortcutButtonDelegate{
 
 extension SettingsViewController: INUIAddVoiceShortcutViewControllerDelegate{
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
-        if voiceShortcut?.shortcut == addWatchButton?.shortcut{
-            addWatchLabel.isHidden = true
-            addWatchUUID = voiceShortcut?.identifier
-        }
-        if voiceShortcut?.shortcut == addStopButton?.shortcut{
-            addStopLabel.isHidden = true
-            addStopUUID = voiceShortcut?.identifier
-        }
         controller.dismiss(animated: true, completion: nil)
     }
     
@@ -166,14 +152,6 @@ extension SettingsViewController: INUIEditVoiceShortcutViewControllerDelegate{
     }
     
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
-        if addWatchUUID == deletedVoiceShortcutIdentifier{
-            addWatchLabel.isHidden = false
-            addWatchUUID = nil
-        }
-        if addStopUUID == deletedVoiceShortcutIdentifier{
-            addStopLabel.isHidden = false
-            addStopUUID = nil
-        }
         controller.dismiss(animated: true, completion: nil)
     }
     
