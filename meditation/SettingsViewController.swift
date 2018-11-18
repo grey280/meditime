@@ -37,36 +37,16 @@ class SettingsViewController: UIViewController {
     
     // MARK: - SiriKit
     
-    @objc func addStopwatch(){
-        let stopwatchIntent = StartStopwatchIntent()
-        guard let stopwatchShortcut = INShortcut(intent: stopwatchIntent) else{
-            os_log("Failed to create shortcut from StartStopwatchIntent", log: Log.shortcuts, type: .error)
-            return
-        }
-        add(shortcut: stopwatchShortcut)
-    }
-    
-    @objc func addStop(){
-        let stopIntent = EndSessionIntent()
-        guard let stopShortcut = INShortcut(intent: stopIntent) else{
-            os_log("Failed to create shortcut from EndSessionIntent", log: Log.shortcuts, type: .error)
-            return
-        }
-        add(shortcut: stopShortcut)
-    }
-    
-    func add(shortcut: INShortcut){
-        let vc = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-        vc.modalPresentationStyle = .formSheet
-        present(vc, animated: true, completion: nil)
-    }
-    
     func createAddButton(for shortcut: INShortcut? = nil) -> INUIAddVoiceShortcutButton{
         let button = INUIAddVoiceShortcutButton(style: .black)
         button.translatesAutoresizingMaskIntoConstraints = true
         button.shortcut = shortcut
+        button.delegate = self
         return button
     }
+    
+    var addStopButton: INUIAddVoiceShortcutButton?
+    var addWatchButton: INUIAddVoiceShortcutButton?
     
     // MARK: - Navigation
     
@@ -89,21 +69,28 @@ class SettingsViewController: UIViewController {
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
             if let stopShortcut = INShortcut(intent: EndSessionIntent()){
+                
                 let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
                 if filtered.count > 0{
-                    // TODO: The shortcut already exists! Show an 'edit' button instead of an 'add' button
+                    addStopButton = createAddButton(for: filtered[0].shortcut)
                 }else{
-                    // TODO: Shortcut doesn't exist, show 'add' button
+                    addStopButton = createAddButton(for: stopShortcut)
                 }
             }
             if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()){
+                
                 let filtered = shortcuts.filter({ $0.shortcut == stopwatchShortcut })
                 if filtered.count > 0{
-                    // TODO: The shortcut already exists! Show an 'edit' button instead of an 'add' button
+                    addWatchButton = createAddButton(for: filtered[0].shortcut)
                 }else{
-                    // TODO: Shortcut doesn't exist, show 'add' button
+                    addWatchButton = createAddButton(for: stopwatchShortcut)
                 }
             }
+        }
+        
+        if siriStack.arrangedSubviews.count < 2{
+            siriStack.addArrangedSubview(addWatchButton!)
+            siriStack.addArrangedSubview(addStopButton!)
         }
         
         DispatchQueue.main.async {
@@ -119,5 +106,47 @@ class SettingsViewController: UIViewController {
         }
         segue.origin = button.center
         segue.button = button
+    }
+}
+
+extension SettingsViewController: INUIAddVoiceShortcutButtonDelegate{
+    func present(_ editVoiceShortcutViewController: INUIEditVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+        editVoiceShortcutViewController.modalPresentationStyle = .formSheet
+        present(editVoiceShortcutViewController, animated: true, completion: nil)
+    }
+    
+    func present(_ addVoiceShortcutViewController: INUIAddVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+        addVoiceShortcutViewController.modalPresentationStyle = .formSheet
+        addVoiceShortcutViewController.delegate = self
+        present(addVoiceShortcutViewController, animated: true, completion: nil)
+    }
+}
+
+extension SettingsViewController: INUIAddVoiceShortcutViewControllerDelegate{
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        // TODO: Better implement this?
+//        addWatchButton?.shortcut = voiceShortcut?.shortcut
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension SettingsViewController: INUIEditVoiceShortcutViewControllerDelegate{
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
+        // TODO: Properly implement this
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
+        // TODO: Properly implement this
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
