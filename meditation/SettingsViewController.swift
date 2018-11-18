@@ -112,6 +112,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: INUIAddVoiceShortcutButtonDelegate{
     func present(_ editVoiceShortcutViewController: INUIEditVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
         editVoiceShortcutViewController.modalPresentationStyle = .formSheet
+        editVoiceShortcutViewController.delegate = self
         present(editVoiceShortcutViewController, animated: true, completion: nil)
     }
     
