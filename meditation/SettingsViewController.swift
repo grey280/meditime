@@ -45,8 +45,21 @@ class SettingsViewController: UIViewController {
         return button
     }
     
+    private var didAddStopButton = false
     var addStopButton: INUIAddVoiceShortcutButton?
+    var addStopLabel: UILabel = {
+        let label = UILabel()
+        label.text = "End session: "
+        return label
+    }()
+    
+    private var didAddWatchButton = false
     var addWatchButton: INUIAddVoiceShortcutButton?
+    var addWatchLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Start stopwatch: "
+        return label
+    }()
     
     // MARK: - Navigation
     
@@ -68,29 +81,30 @@ class SettingsViewController: UIViewController {
         }
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let shortcuts = appDelegate.activeShortcuts{
-            if let stopShortcut = INShortcut(intent: EndSessionIntent()){
-                
-                let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
-                if filtered.count > 0{
-                    addStopButton = createAddButton(for: filtered[0].shortcut)
-                }else{
-                    addStopButton = createAddButton(for: stopShortcut)
-                }
-            }
-            if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()){
-                
+            if let stopwatchShortcut = INShortcut(intent: StartStopwatchIntent()), !didAddWatchButton{
                 let filtered = shortcuts.filter({ $0.shortcut == stopwatchShortcut })
                 if filtered.count > 0{
                     addWatchButton = createAddButton(for: filtered[0].shortcut)
+                    siriStack.addArrangedSubview(addWatchButton!)
                 }else{
                     addWatchButton = createAddButton(for: stopwatchShortcut)
+                    siriStack.addArrangedSubview(addStopLabel)
+                    siriStack.addArrangedSubview(addWatchButton!)
                 }
+                didAddWatchButton = true
             }
-        }
-        
-        if siriStack.arrangedSubviews.count < 2{
-            siriStack.addArrangedSubview(addWatchButton!)
-            siriStack.addArrangedSubview(addStopButton!)
+            if let stopShortcut = INShortcut(intent: EndSessionIntent()), !didAddStopButton{
+                let filtered = shortcuts.filter({ $0.shortcut == stopShortcut })
+                if filtered.count > 0{
+                    addStopButton = createAddButton(for: filtered[0].shortcut)
+                    siriStack.addArrangedSubview(addStopButton!)
+                }else{
+                    addStopButton = createAddButton(for: stopShortcut)
+                    siriStack.addArrangedSubview(addStopLabel)
+                    siriStack.addArrangedSubview(addStopButton!)
+                }
+                didAddStopButton = true
+            }
         }
         
         DispatchQueue.main.async {
