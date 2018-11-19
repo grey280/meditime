@@ -8,26 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */; };
-		2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* ModalViewController.swift */; };
+		2D31DB572190E2E700A5B1D4 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31DB562190E2E700A5B1D4 /* CircleButton.swift */; };
+		2D322B0A21A1E1470038DAEA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D322B0921A1E1470038DAEA /* Log.swift */; };
+		2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C243020F96DF10063BA28 /* SettingsViewController.swift */; };
+		2D6DB76D21A0C538006FA07B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2D6DB76C21A0C537006FA07B /* Intents.intentdefinition */; };
 		2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */; };
+		2D9C608721926B5500E0B50D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C608621926B5500E0B50D /* Settings.swift */; };
 		2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */; };
 		2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5920EEB5DC0000131E /* MainViewController.swift */; };
 		2DA3CF5D20EEB5DC0000131E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5B20EEB5DC0000131E /* Main.storyboard */; };
 		2DA3CF5F20EEB5DE0000131E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */; };
 		2DA3CF6220EEB5DE0000131E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA3CF6020EEB5DE0000131E /* LaunchScreen.storyboard */; };
+		2DBBCD9D218CFD6900A0106D /* CircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */; };
 		2DC372F120F56ABF00371153 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC372F020F56ABF00371153 /* Constants.swift */; };
+		2DDFF9E7219E6E1200804E44 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDFF9E6219E6E1200804E44 /* Health.swift */; };
 		2DFCA96C210175AF00C54E2B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFCA96B210175AF00C54E2B /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
+		2D31DB562190E2E700A5B1D4 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		2D322B0921A1E1470038DAEA /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		2D449E9420F431FB0008854A /* meditation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = meditation.entitlements; sourceTree = "<group>"; };
 		2D4C242D20F96BFD0063BA28 /* privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = privacy.md; sourceTree = "<group>"; };
-		2D4C243020F96DF10063BA28 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		2D4C243020F96DF10063BA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2D6DB76C21A0C537006FA07B /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		2D7E041720FBEBF6001ED667 /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		2D98D56721013E400049FD7B /* default.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = default.html; sourceTree = "<group>"; };
 		2D98FD9B2101324000338719 /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
 		2D98FD9C21013B0100338719 /* _config.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = _config.yml; sourceTree = "<group>"; };
+		2D9C608621926B5500E0B50D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2DA3CF5420EEB5DC0000131E /* meditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA3CF5920EEB5DC0000131E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +45,9 @@
 		2DA3CF5E20EEB5DE0000131E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DA3CF6120EEB5DE0000131E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DA3CF6320EEB5DE0000131E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSegue.swift; sourceTree = "<group>"; };
 		2DC372F020F56ABF00371153 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2DDFF9E6219E6E1200804E44 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
 		2DFCA96B210175AF00C54E2B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -99,10 +111,16 @@
 		2DA3CF5620EEB5DC0000131E /* meditation */ = {
 			isa = PBXGroup;
 			children = (
-				2D4C243020F96DF10063BA28 /* ModalViewController.swift */,
+				2D4C243020F96DF10063BA28 /* SettingsViewController.swift */,
+				2D322B0921A1E1470038DAEA /* Log.swift */,
+				2D6DB76C21A0C537006FA07B /* Intents.intentdefinition */,
+				2D9C608621926B5500E0B50D /* Settings.swift */,
+				2D31DB562190E2E700A5B1D4 /* CircleButton.swift */,
+				2DBBCD9C218CFD6900A0106D /* CircleSegue.swift */,
 				2D449E9420F431FB0008854A /* meditation.entitlements */,
 				2DA3CF5720EEB5DC0000131E /* AppDelegate.swift */,
 				2DA3CF5920EEB5DC0000131E /* MainViewController.swift */,
+				2DDFF9E6219E6E1200804E44 /* Health.swift */,
 				2D203F3020FA6DB70018E2BC /* AnalogClockView.swift */,
 				2DC372F020F56ABF00371153 /* Constants.swift */,
 				2DA3CF5B20EEB5DC0000131E /* Main.storyboard */,
@@ -124,6 +142,7 @@
 				2DA3CF5020EEB5DC0000131E /* Sources */,
 				2DA3CF5120EEB5DC0000131E /* Frameworks */,
 				2DA3CF5220EEB5DC0000131E /* Resources */,
+				2DDC8A10218BA0F1005CC7C1 /* Update Build Number */,
 			);
 			buildRules = (
 			);
@@ -186,15 +205,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2DDC8A10218BA0F1005CC7C1 /* Update Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(git rev-list --count HEAD)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$PRODUCT_SETTINGS_PATH\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2DA3CF5020EEB5DC0000131E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D4C243120F96DF10063BA28 /* ModalViewController.swift in Sources */,
+				2D4C243120F96DF10063BA28 /* SettingsViewController.swift in Sources */,
 				2D7E041820FBEBF6001ED667 /* RepeatingTimer.swift in Sources */,
+				2D322B0A21A1E1470038DAEA /* Log.swift in Sources */,
+				2DBBCD9D218CFD6900A0106D /* CircleSegue.swift in Sources */,
+				2D6DB76D21A0C538006FA07B /* Intents.intentdefinition in Sources */,
+				2DDFF9E7219E6E1200804E44 /* Health.swift in Sources */,
+				2D31DB572190E2E700A5B1D4 /* CircleButton.swift in Sources */,
 				2DA3CF5A20EEB5DC0000131E /* MainViewController.swift in Sources */,
 				2DA3CF5820EEB5DC0000131E /* AppDelegate.swift in Sources */,
+				2D9C608721926B5500E0B50D /* Settings.swift in Sources */,
 				2D203F3120FA6DB70018E2BC /* AnalogClockView.swift in Sources */,
 				2DC372F120F56ABF00371153 /* Constants.swift in Sources */,
 			);
@@ -345,6 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6KVFT267T;
 				INFOPLIST_FILE = meditation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6KVFT267T;
 				INFOPLIST_FILE = meditation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,13 +11,24 @@ import UIKit
 
 /// Constants for use in various places. No magic numbers, thanks.
 struct constants{
-    /// `UserDefaults.standard` key for storing the default duration on the timer. `Int`.
-    static let timeKey = "net.twoeighty.meditation.time"
+    /// A formatter used to show minutes and seconds nicely.
+    static let formatter: DateComponentsFormatter = {
+        let f = DateComponentsFormatter()
+        // Configure the date/time formatter, since it'll be used by setting the time, which is one of our next steps. Thanks go to [CrunchyBagel](https://crunchybagel.com/formatting-a-duration-with-nsdatecomponentsformatter/) for the how-to on this.
+        f.unitsStyle = .positional
+        f.allowedUnits = [ .minute, .second ]
+        f.zeroFormattingBehavior = [ .pad ]
+        return f
+    }()
+    
     /// Amount of time to wait after a session ends before resetting the timer
     static let resetDelay: TimeInterval = 1.5
     
     /// Duration for the animation of the start/stop of the timer
     static let animationDuration: TimeInterval = 0.75
+    
+    /// Duration for the transition animations
+    static let transitionDuration: TimeInterval = 0.3
     
     /// Bits and pieces for the 'analog' clock view.
     struct analogClock{

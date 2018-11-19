@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +37,7 @@ Drag up or down to set timer.</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="256"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-sa-SOA">
-                                                        <rect key="frame" x="88" y="80.5" width="166" height="95.5"/>
+                                                        <rect key="frame" x="87.5" y="80.5" width="166" height="95.5"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                                         </accessibility>
@@ -95,22 +93,34 @@ Drag up or down to set timer.</string>
                                     <constraint firstItem="zO5-7Q-Kne" firstAttribute="width" secondItem="uCG-jY-Yda" secondAttribute="width" id="j8G-sn-9fp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa">
-                                <rect key="frame" x="132" y="614" width="111" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11w-O2-DOa" customClass="CircleButton" customModule="meditation" customModuleProvider="target">
+                                <rect key="frame" x="114.5" y="618" width="146" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="Save to Health"/>
+                                <state key="normal" title="   Save to Health?   ">
+                                    <color key="titleColor" name="Health"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveToHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Je6-Sw-jvl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8">
-                                <rect key="frame" x="337" y="20" width="22" height="22"/>
-                                <accessibility key="accessibilityConfiguration" label="Privacy Policy"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y5-ja-gN8" customClass="CircleButton" customModule="meditation" customModuleProvider="target">
+                                <rect key="frame" x="331" y="623" width="28" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" label="Settings"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5y5-ja-gN8" secondAttribute="height" multiplier="1:1" id="8ZP-Os-Sbo"/>
+                                    <constraint firstAttribute="width" constant="28" id="gFR-KS-FS4"/>
+                                </constraints>
+                                <color key="tintColor" name="Darker"/>
+                                <state key="normal" image="Settings"/>
                                 <connections>
-                                    <segue destination="MpX-bI-ZuQ" kind="presentation" identifier="showPrivacy" modalPresentationStyle="formSheet" id="3gB-ja-eva">
-                                        <segue key="commit" inheritsFrom="parent" id="7MK-Uc-3Ay"/>
-                                        <segue key="preview" inheritsFrom="commit" id="ldw-fl-1WA"/>
-                                    </segue>
+                                    <segue destination="EKB-ob-rPi" kind="presentation" identifier="showPrivacy" customClass="CircleSegue" customModule="meditation" customModuleProvider="target" id="bmN-kc-vaZ"/>
                                 </connections>
                             </button>
                             <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFE-nc-vI4">
@@ -120,7 +130,7 @@ Drag up or down to set timer.</string>
                                         <rect key="frame" x="17" y="243" width="341" height="256"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-kM-KxM">
-                                                <rect key="frame" x="88" y="80.5" width="166" height="95.5"/>
+                                                <rect key="frame" x="87.5" y="80.5" width="166" height="95.5"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                                     <bool key="isElement" value="NO"/>
@@ -154,8 +164,8 @@ Drag up or down to set timer.</string>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5y5-ja-gN8" secondAttribute="trailing" constant="16" id="RrC-3L-wUH"/>
                             <constraint firstAttribute="leading" secondItem="yFE-nc-vI4" secondAttribute="leading" id="ZRH-Ng-Y13"/>
                             <constraint firstItem="yFE-nc-vI4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gab-Nt-ikK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="20" id="h0G-Zt-s7S"/>
-                            <constraint firstItem="5y5-ja-gN8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jeo-81-xNw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11w-O2-DOa" secondAttribute="bottom" constant="16" id="h0G-Zt-s7S"/>
+                            <constraint firstItem="5y5-ja-gN8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-16" id="jeo-81-xNw"/>
                             <constraint firstItem="uCG-jY-Yda" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pCx-hK-gi3"/>
                             <constraint firstItem="yFE-nc-vI4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="tRj-8v-569"/>
                             <constraint firstItem="ns8-R8-YTF" firstAttribute="trailing" secondItem="9el-GC-vqc" secondAttribute="trailing" id="vbd-MD-p3d"/>
@@ -193,65 +203,125 @@ Drag up or down to set timer.</string>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--Modal View Controller-->
-        <scene sceneID="HSu-ig-3fj">
+        <!--Settings View Controller-->
+        <scene sceneID="IA5-jl-awS">
             <objects>
-                <viewController id="MpX-bI-ZuQ" customClass="ModalViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pC0-07-Qmd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
+                <viewController id="EKB-ob-rPi" customClass="SettingsViewController" customModule="meditation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="msA-3g-1eg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOl-QB-lFO">
-                                <rect key="frame" x="146.5" y="14" width="82" height="31.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-gN-phO" customClass="CircleButton" customModule="meditation" customModuleProvider="target">
+                                <rect key="frame" x="331" y="623" width="28" height="28"/>
+                                <color key="backgroundColor" name="Mindful"/>
+                                <accessibility key="accessibilityConfiguration" label="Done"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="SWu-5x-3sL"/>
+                                    <constraint firstAttribute="width" secondItem="OiE-gN-phO" secondAttribute="height" multiplier="1:1" id="wCh-BG-8Xl"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Close"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="PVW-F0-JbT" kind="unwind" customClass="CircleSegue" customModule="meditation" customModuleProvider="target" unwindAction="unwindToVC1WithSegue:" id="HKs-oX-VlG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-Qd-2en">
+                                <rect key="frame" x="141" y="446" width="93" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Darkest"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHh-dD-nKm">
-                                <rect key="frame" x="167" y="323" width="41" height="33"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="Done"/>
-                                <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="QHO-b5-ihb">
+                                <rect key="frame" x="102" y="579" width="257" height="29"/>
+                                <segments>
+                                    <segment title="1 second"/>
+                                    <segment title="5 seconds"/>
+                                    <segment title="30 seconds"/>
+                                </segments>
                                 <connections>
-                                    <action selector="dismissVC:" destination="MpX-bI-ZuQ" eventType="touchUpInside" id="Rr5-kH-j72"/>
+                                    <action selector="granularityAdjusted:" destination="EKB-ob-rPi" eventType="valueChanged" id="RTF-WR-hH6"/>
                                 </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-Qp-Xar">
-                                <rect key="frame" x="16" y="53" width="343" height="262"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer adjustment:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f4-it-Vy0">
+                                <rect key="frame" x="16" y="550.5" width="139" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zt-Uo-i5Q">
+                                <rect key="frame" x="16" y="59" width="343" height="379"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Mwr-gh-M8H"/>
+                                </constraints>
                                 <string key="text">We collect as little data as possible, and don't send it anywhere. The only data we collect is the amount of time you spend using the app for mindfulness sessions, and that is only stored in the Health app if you choose to give our app access to it. We don't read any Health data, and you can revoke our app's access to writing Health data at any point through the Health app - it'll continue to work, it just won't automatically get logged to the Health app.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eob-jQ-h3B">
+                                <rect key="frame" x="146.5" y="20" width="82" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="Darkest"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qO1-bH-6eq">
+                                <rect key="frame" x="16" y="485.5" width="343" height="57"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ufH-TC-Hrb" firstAttribute="bottom" secondItem="mHh-dD-nKm" secondAttribute="bottom" constant="14" id="0Pe-UF-2Ty"/>
-                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="leading" secondItem="ufH-TC-Hrb" secondAttribute="leading" constant="16" id="1mq-kJ-dhL"/>
-                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="32t-qz-24m"/>
-                            <constraint firstItem="mHh-dD-nKm" firstAttribute="top" secondItem="WpX-Qp-Xar" secondAttribute="bottom" constant="8" id="NnJ-Ax-VP2"/>
-                            <constraint firstItem="AOl-QB-lFO" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="X3Q-9w-iDQ"/>
-                            <constraint firstItem="WpX-Qp-Xar" firstAttribute="top" secondItem="AOl-QB-lFO" secondAttribute="bottom" constant="7.5" id="ZTp-kl-orH"/>
-                            <constraint firstItem="AOl-QB-lFO" firstAttribute="top" secondItem="ufH-TC-Hrb" secondAttribute="top" constant="14" id="cxY-Xx-dTx"/>
-                            <constraint firstItem="mHh-dD-nKm" firstAttribute="centerX" secondItem="ufH-TC-Hrb" secondAttribute="centerX" id="wDz-4E-1MO"/>
-                            <constraint firstItem="ufH-TC-Hrb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AOl-QB-lFO" secondAttribute="trailing" constant="16" id="z3J-S9-uZl"/>
+                            <constraint firstItem="LWC-Qd-2en" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="6QH-ha-s3Y"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="top" secondItem="eob-jQ-h3B" secondAttribute="bottom" constant="7.5" id="7B1-0c-YY7"/>
+                            <constraint firstItem="QHO-b5-ihb" firstAttribute="top" secondItem="7f4-it-Vy0" secondAttribute="bottom" constant="8" id="94n-W4-xqC"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="AEm-cL-uk0"/>
+                            <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="Azo-nX-wVv"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="OiE-gN-phO" secondAttribute="trailing" constant="16" id="B1r-kw-jTw"/>
+                            <constraint firstItem="7f4-it-Vy0" firstAttribute="top" secondItem="qO1-bH-6eq" secondAttribute="bottom" constant="8" id="EAq-xJ-6J3"/>
+                            <constraint firstItem="LWC-Qd-2en" firstAttribute="top" secondItem="8Zt-Uo-i5Q" secondAttribute="bottom" constant="8" id="Eak-rm-cI2"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7f4-it-Vy0" secondAttribute="trailing" constant="8" id="IIT-Cy-ici"/>
+                            <constraint firstItem="qO1-bH-6eq" firstAttribute="top" secondItem="LWC-Qd-2en" secondAttribute="bottom" constant="8" id="Y9A-4h-EEG"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="bottom" secondItem="OiE-gN-phO" secondAttribute="bottom" constant="16" id="dCA-Nx-3n0"/>
+                            <constraint firstItem="qO1-bH-6eq" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="e5u-Me-dqM"/>
+                            <constraint firstItem="eob-jQ-h3B" firstAttribute="centerX" secondItem="nLu-QY-AVe" secondAttribute="centerX" id="hvz-Tg-R80"/>
+                            <constraint firstItem="eob-jQ-h3B" firstAttribute="top" secondItem="nLu-QY-AVe" secondAttribute="top" id="iUV-Sp-t5S"/>
+                            <constraint firstItem="nLu-QY-AVe" firstAttribute="trailing" secondItem="QHO-b5-ihb" secondAttribute="trailing" constant="16" id="p6t-oW-wxF"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" secondItem="7f4-it-Vy0" secondAttribute="leading" id="qY7-c1-N9y"/>
+                            <constraint firstItem="QHO-b5-ihb" firstAttribute="leading" secondItem="8Zt-Uo-i5Q" secondAttribute="trailing" constant="-257" id="s9s-Tg-mad"/>
+                            <constraint firstItem="OiE-gN-phO" firstAttribute="top" secondItem="QHO-b5-ihb" secondAttribute="bottom" constant="16" id="sTb-UV-Ysd"/>
+                            <constraint firstItem="qO1-bH-6eq" firstAttribute="leading" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="sit-5F-HON"/>
+                            <constraint firstItem="8Zt-Uo-i5Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nLu-QY-AVe" secondAttribute="leading" constant="16" id="yon-pN-nuU"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ufH-TC-Hrb"/>
+                        <viewLayoutGuide key="safeArea" id="nLu-QY-AVe"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="370"/>
-                    <size key="freeformSize" width="375" height="370"/>
+                    <connections>
+                        <outlet property="doneButton" destination="OiE-gN-phO" id="fIL-D0-Bxm"/>
+                        <outlet property="privacyTextView" destination="8Zt-Uo-i5Q" id="2WW-Ic-onF"/>
+                        <outlet property="siriStack" destination="qO1-bH-6eq" id="qmy-8f-Pvc"/>
+                        <outlet property="timerSetting" destination="QHO-b5-ihb" id="fJR-lc-J0f"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4J5-tg-irt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sn7-SG-dX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PVW-F0-JbT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="132.23388305847078"/>
+            <point key="canvasLocation" x="1060" y="132.68365817091455"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Close" width="48" height="48"/>
+        <image name="Settings" width="500" height="500"/>
         <namedColor name="Darker">
             <color red="0.0" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Darkest">
             <color red="0.039215686274509803" green="0.20784313725490197" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Health">
+            <color red="0.91764705882352937" green="0.3411764705882353" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Lightest">
             <color red="0.62745098039215685" green="0.92549019607843142" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -260,7 +330,4 @@ Drag up or down to set timer.</string>
             <color red="0.15294117647058825" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="3gB-ja-eva"/>
-    </inferredMetricsTieBreakers>
 </document>
